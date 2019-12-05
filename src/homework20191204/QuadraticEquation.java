@@ -1,46 +1,42 @@
 package homework20191204;
 
 public class QuadraticEquation {
-    private float oldCoefficient;
-    private float averageCoefficient;
-    private float lowCoefficient;
-    private Float rootOne;
-    private Float rootTwo;
+    private float a;
+    private float b;
+    private float c;
+    private Roots roots;
 
-    public QuadraticEquation(float oldCoefficient, float averageCoefficient, float lowCoefficient) {
-        this.oldCoefficient = oldCoefficient;
-        this.averageCoefficient = averageCoefficient;
-        this.lowCoefficient = lowCoefficient;
-        resolveAcq(oldCoefficient, averageCoefficient, lowCoefficient);
+    public QuadraticEquation(float a, float b, float c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        roots = new Roots();
+        resolveAcq(a, b, c);
     }
 
     private void resolveAcq(float a, float b, float c) {
         float discriminant = b * b - 4 * a * c;
-        if (discriminant < 0) {
-        } else if (discriminant == 0) {
-            this.rootOne = this.rootTwo = -b / (2 * a);
-        } else {
-            this.rootOne = (float) ((-b + Math.sqrt(discriminant)) / (2 * a));
-            this.rootTwo = (float) ((-b - Math.sqrt(discriminant)) / (2 * a));
+        if (discriminant >= 0) {
+            roots.calculatingRoots(a, b, c, discriminant);
         }
     }
 
     public Float getRootOne() {
-        return rootOne;
+        return roots.getRootOne();
     }
 
     public Float getRootTwo() {
-        return rootTwo;
+        return roots.getRootTwo();
     }
 
     @Override
     public String toString() {
         return "QuadraticEquation{" +
-                +oldCoefficient + "x^2" + (averageCoefficient > 0 ? "+" : "") +
-                +averageCoefficient + "x" + (lowCoefficient > 0 ? "+" : "") +
-                +lowCoefficient + "=0" +
-                ", x1=" + rootOne +
-                ", x2=" + rootTwo +
+                +a + "x^2" + (b > 0 ? "+" : "") +
+                +b + "x" + (c > 0 ? "+" : "") +
+                +c + "=0" +
+                ", x1=" + roots.getRootOne() +
+                ", x2=" + roots.getRootTwo() +
                 '}';
     }
 
