@@ -6,12 +6,14 @@ import homework20191209.carrier.Carrier;
 import java.util.Date;
 
 public class Transportation {
-    private Long id;
+    private Long id = ++count;
     private Cargo cargo;
     private Carrier carrier;
     private String description;
     private String billTo;
     private Date date;
+
+    private static long count;
 
     public Date getDate() {
         return date;
@@ -23,10 +25,6 @@ public class Transportation {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getDescription() {

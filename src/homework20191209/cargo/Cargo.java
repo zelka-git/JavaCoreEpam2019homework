@@ -5,18 +5,16 @@ import homework20191209.transportation.Transportation;
 import java.util.Arrays;
 
 public class Cargo {
-    private Long id;
+    private Long id = ++count;
     private String name;
     private int weight;
     private CargoType cargoType;
     private Transportation[] transportations;
 
+    private static long count;
+
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {

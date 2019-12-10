@@ -15,7 +15,6 @@ public class DemoTransportCompany {
         Storage storage = new Storage();
 
         Cargo bananas = new Cargo();
-        bananas.setId(1L);
         bananas.setName("Bananas");
         bananas.setWeight(2000);
         bananas.setCargoType(CargoType.FOOD);
@@ -23,7 +22,6 @@ public class DemoTransportCompany {
         storage.addCargo(bananas);
 
         Cargo coats = new Cargo();
-        coats.setId(2L);
         coats.setName("Coats");
         coats.setWeight(500);
         coats.setCargoType(CargoType.CLOTHES);
@@ -31,7 +29,6 @@ public class DemoTransportCompany {
         storage.addCargo(coats);
 
         Cargo computers = new Cargo();
-        computers.setId(3L);
         computers.setName("Computers");
         computers.setWeight(4000);
         computers.setCargoType(CargoType.COMPUTERS);
@@ -40,7 +37,6 @@ public class DemoTransportCompany {
 
 
         Carrier company_1 = new Carrier();
-        company_1.setId(1L);
         company_1.setName("Company 1");
         company_1.setAddress("Saint-Petersburg");
         company_1.setCarrierType(CarrierType.TRAIN);
@@ -48,7 +44,6 @@ public class DemoTransportCompany {
         storage.addCarrier(company_1);
 
         Carrier company_2 = new Carrier();
-        company_2.setId(2L);
         company_2.setName("Company 2");
         company_2.setAddress("Moscow");
         company_2.setCarrierType(CarrierType.PLANE);
@@ -56,7 +51,6 @@ public class DemoTransportCompany {
         storage.addCarrier(company_2);
 
         Carrier company_3 = new Carrier();
-        company_3.setId(3L);
         company_3.setName("Company 3");
         company_3.setAddress("Samara");
         company_3.setCarrierType(CarrierType.CAR);
@@ -64,7 +58,6 @@ public class DemoTransportCompany {
         storage.addCarrier(company_3);
 
         Transportation transportation_1 = new Transportation();
-        transportation_1.setId(1L);
         transportation_1.setBillTo("Ivan I");
         transportation_1.setCargo(bananas);
         transportation_1.setCarrier(company_1);
@@ -77,7 +70,6 @@ public class DemoTransportCompany {
         storage.addTransportation(transportation_1);
 
         Transportation transportation_2 = new Transportation();
-        transportation_2.setId(2L);
         transportation_2.setBillTo("Petr P");
         transportation_2.setCargo(coats);
         transportation_2.setCarrier(company_2);
@@ -90,7 +82,6 @@ public class DemoTransportCompany {
         storage.addTransportation(transportation_2);
 
         Transportation transportation_3 = new Transportation();
-        transportation_3.setId(3L);
         transportation_3.setBillTo("Michal M");
         transportation_3.setCargo(computers);
         transportation_3.setCarrier(company_3);
@@ -103,7 +94,6 @@ public class DemoTransportCompany {
         company_3.setTransportations(new Transportation[]{transportation_3});
 
         Transportation transportation_4 = new Transportation();
-        transportation_4.setId(4L);
         transportation_4.setBillTo("Petr P");
         transportation_4.setCargo(computers);
         transportation_4.setCarrier(company_2);
