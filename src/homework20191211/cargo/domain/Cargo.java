@@ -1,11 +1,11 @@
 package homework20191211.cargo.domain;
 
-import homework20191211.domain.Identification;
+import homework20191211.domain.BaseEntity;
 import homework20191211.transportation.Transportation;
 
 import java.util.Arrays;
 
-public class Cargo extends Identification {
+public class Cargo extends BaseEntity {
     protected String name;
     protected int weight;
     protected CargoType cargoType;

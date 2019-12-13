@@ -1,11 +1,11 @@
 package homework20191211.carrier.domain;
 
-import homework20191211.domain.Identification;
+import homework20191211.domain.BaseEntity;
 import homework20191211.transportation.Transportation;
 
 import java.util.Arrays;
 
-public class Carrier extends Identification {
+public class Carrier extends BaseEntity {
     private String name;
     private String address;
     private CarrierType carrierType;
