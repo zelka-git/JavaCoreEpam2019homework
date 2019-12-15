@@ -40,7 +40,7 @@ public class CargoRepoImpl extends Storage implements CargoRepo {
             }
         }
         if (index == 0) {
-            return null;
+            return new Cargo[0];
         } else {
             Cargo[] result = new Cargo[index];
             ArrayUtils.copyArray(arrayTheSameNames, result, index);
@@ -59,16 +59,15 @@ public class CargoRepoImpl extends Storage implements CargoRepo {
     }
 
     @Override
-    public Cargo remove(long id) {
+    public boolean remove(long id) {
         for (int i = 0; i < sizeCargo; i++) {
             if (cargo[i] != null && cargo[i].getId() != null && cargo[i].getId().equals(id)) {
-                Cargo removeElement = cargo[i];
                 System.arraycopy(cargo, i + 1, cargo, i, cargo.length - (i + 1));
                 cargo[cargo.length - 1] = null;
                 sizeCargo--;
-                return removeElement;
+                return true;
             }
         }
-        return null;
+        return false;
     }
 }

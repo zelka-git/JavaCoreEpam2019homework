@@ -39,17 +39,16 @@ public class TransportationRepoImpl extends Storage implements TransportationRep
     }
 
     @Override
-    public Transportation remove(long id) {
+    public boolean remove(long id) {
         for (int i = 0; i < sizeTransportation; i++) {
             if (transportation[i] != null && Long.valueOf(id).equals(transportation[i].getId())) {
-                Transportation removeElement = transportation[i];
                 System.arraycopy(transportation, i + 1, transportation, i, transportation.length - (i + 1));
                 transportation[transportation.length - 1] = null;
                 sizeTransportation--;
-                return removeElement;
+                return true;
             }
         }
-        return null;
+        return false;
     }
 
 }

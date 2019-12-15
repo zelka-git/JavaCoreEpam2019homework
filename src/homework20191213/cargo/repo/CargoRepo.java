@@ -11,5 +11,5 @@ public interface CargoRepo {
 
     Cargo getById(long id);
 
-    Cargo remove(long id);
+    boolean remove(long id);
 }

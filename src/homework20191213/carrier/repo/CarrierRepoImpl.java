@@ -39,7 +39,7 @@ public class CarrierRepoImpl extends Storage implements CarrierRepo {
             }
         }
         if (index == 0) {
-            return null;
+            return new Carrier[0];
         } else {
             Carrier[] result = new Carrier[index];
             ArrayUtils.copyArray(arrayTheSameNames, result, index);
@@ -59,16 +59,15 @@ public class CarrierRepoImpl extends Storage implements CarrierRepo {
     }
 
     @Override
-    public Carrier remove(long id) {
+    public boolean remove(long id) {
         for (int i = 0; i < sizeCarrier; i++) {
             if (carriers[i] != null && carriers[i].getId() != null && carriers[i].getId().equals(id)) {
-                Carrier removeElement = carriers[i];
                 System.arraycopy(carriers, i + 1, carriers, i, carriers.length - (i + 1));
                 carriers[carriers.length - 1] = null;
                 sizeCarrier--;
-                return removeElement;
+                return true;
             }
         }
-        return null;
+        return false;
     }
 }
