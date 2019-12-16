@@ -4,18 +4,21 @@ import homework20191213.carrier.domain.Carrier;
 import homework20191213.common.utils.ArrayUtils;
 import homework20191213.storage.Storage;
 
-public class CarrierRepoImpl extends Storage implements CarrierRepo {
+import static homework20191213.storage.Storage.carriers;
+import static homework20191213.storage.Storage.sizeCarrier;
+
+public class CarrierRepoImpl implements CarrierRepo {
 
     @Override
     public void add(Carrier carrier) {
-        if (Storage.carriers == null) {
-            Storage.carriers = new Carrier[10];
-        } else if (sizeCarrier == Storage.carriers.length) {
+        if (carriers == null) {
+            carriers = new Carrier[10];
+        } else if (sizeCarrier == carriers.length) {
             Carrier[] newArrayCarrier = new Carrier[(int) (sizeCarrier * 1.5)];
-            ArrayUtils.copyArray(Storage.carriers, newArrayCarrier);
-            Storage.carriers = newArrayCarrier;
+            ArrayUtils.copyArray(carriers, newArrayCarrier);
+            carriers = newArrayCarrier;
         }
-        Storage.carriers[sizeCarrier] = carrier;
+        carriers[sizeCarrier] = carrier;
         sizeCarrier++;
     }
 

@@ -4,7 +4,10 @@ import homework20191213.common.utils.ArrayUtils;
 import homework20191213.storage.Storage;
 import homework20191213.transportation.domain.Transportation;
 
-public class TransportationRepoImpl extends Storage implements TransportationRepo {
+import static homework20191213.storage.Storage.sizeTransportation;
+import static homework20191213.storage.Storage.transportation;
+
+public class TransportationRepoImpl implements TransportationRepo {
     @Override
     public void add(Transportation transportation) {
         if (Storage.transportation == null) {

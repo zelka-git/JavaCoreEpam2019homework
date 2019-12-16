@@ -5,12 +5,12 @@ import homework20191213.carrier.domain.Carrier;
 import homework20191213.transportation.domain.Transportation;
 
 public class Storage {
-    protected static Cargo[] cargo;
-    protected static Carrier[] carriers;
-    protected static Transportation[] transportation;
+    public static Cargo[] cargo;
+    public static Carrier[] carriers;
+    public static Transportation[] transportation;
 
-    protected static int sizeCargo;
-    protected static int sizeCarrier;
-    protected static int sizeTransportation;
+    public static int sizeCargo;
+    public static int sizeCarrier;
+    public static int sizeTransportation;
 
 }

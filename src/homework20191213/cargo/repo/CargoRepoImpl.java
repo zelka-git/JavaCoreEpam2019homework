@@ -6,7 +6,10 @@ import homework20191213.storage.Storage;
 
 import javax.swing.text.Utilities;
 
-public class CargoRepoImpl extends Storage implements CargoRepo {
+import static homework20191213.storage.Storage.cargo;
+import static homework20191213.storage.Storage.sizeCargo;
+
+public class CargoRepoImpl implements CargoRepo {
     @Override
     public void add(Cargo cargo) {
         if (Storage.cargo == null) {
