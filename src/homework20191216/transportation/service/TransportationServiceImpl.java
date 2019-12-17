@@ -86,4 +86,16 @@ public class TransportationServiceImpl implements TransportationService {
         }
         return null;
     }
+
+    public TransportationRepo getTransportationRepo() {
+        return transportationRepo;
+    }
+
+    public CargoRepo getCargoRepo() {
+        return cargoRepo;
+    }
+
+    public CarrierRepo getCarrierRepo() {
+        return carrierRepo;
+    }
 }
