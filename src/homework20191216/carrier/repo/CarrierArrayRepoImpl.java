@@ -12,9 +12,7 @@ public class CarrierArrayRepoImpl implements CarrierRepo {
 
     @Override
     public void add(Carrier carrier) {
-        if (carriersArray == null) {
-            carriersArray = new Carrier[10];
-        } else if (sizeCarrier == carriersArray.length) {
+        if (sizeCarrier == carriersArray.length) {
             Carrier[] newArrayCarrier = new Carrier[(int) (sizeCarrier * 1.5)];
             ArrayUtils.copyArray(carriersArray, newArrayCarrier);
             carriersArray = newArrayCarrier;

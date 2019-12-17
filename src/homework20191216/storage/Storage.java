@@ -4,20 +4,24 @@ import homework20191216.cargo.domain.Cargo;
 import homework20191216.carrier.domain.Carrier;
 import homework20191216.transportation.domain.Transportation;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Storage {
-    public static Cargo[] cargoArray;
-    public static Carrier[] carriersArray;
-    public static Transportation[] transportationArray;
 
-    public static int sizeCargo;
+    private static final int ARRAY_CAPACITY = 10;
+
+    public static Cargo[] cargoArray  = new Cargo[ARRAY_CAPACITY];
+    public static Carrier[] carriersArray  = new Carrier[ARRAY_CAPACITY];
+    public static Transportation[] transportationArray = new Transportation[ARRAY_CAPACITY];
+
+    public static int sizeCargo ;
     public static int sizeCarrier;
     public static int sizeTransportation;
 
-    public static List<Cargo> cargoList;
-    public static List<Carrier> carriersList;
-    public static List<Transportation> transportationList;
+    public static List<Cargo> cargoList = new LinkedList<>();
+    public static List<Carrier> carriersList  = new LinkedList<>();
+    public static List<Transportation> transportationList = new LinkedList<>();
 
 
 

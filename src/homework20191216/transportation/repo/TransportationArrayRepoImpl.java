@@ -10,9 +10,7 @@ import static homework20191216.storage.Storage.transportationArray;
 public class TransportationArrayRepoImpl implements TransportationRepo {
     @Override
     public void add(Transportation transportation) {
-        if (Storage.transportationArray == null) {
-            Storage.transportationArray = new Transportation[10];
-        } else if (sizeTransportation == Storage.transportationArray.length) {
+        if (sizeTransportation == Storage.transportationArray.length) {
             Transportation[] newArrayTrans = new Transportation[(int) (sizeTransportation * 1.5)];
             ArrayUtils.copyArray(Storage.transportationArray, newArrayTrans);
             Storage.transportationArray = newArrayTrans;

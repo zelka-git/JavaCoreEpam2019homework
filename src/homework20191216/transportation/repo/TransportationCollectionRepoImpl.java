@@ -10,9 +10,6 @@ import static homework20191216.storage.Storage.transportationList;
 public class TransportationCollectionRepoImpl implements TransportationRepo {
     @Override
     public void add(Transportation transportation) {
-        if(transportationList == null){
-            transportationList = new LinkedList<>();
-        }
         transportationList.add(transportation);
     }
 

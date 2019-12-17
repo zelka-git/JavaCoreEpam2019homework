@@ -12,9 +12,6 @@ public class CarrierCollectionRepoImpl implements CarrierRepo {
 
     @Override
     public void add(Carrier carrier) {
-        if(carriersList == null){
-            carriersList = new LinkedList<>();
-        }
         carriersList.add(carrier);
     }
 

@@ -13,9 +13,7 @@ public class CargoArrayRepoImpl implements CargoRepo {
 
     @Override
     public void add(Cargo cargo) {
-        if (Storage.cargoArray == null) {
-            Storage.cargoArray = new Cargo[10];
-        } else if (sizeCargo == Storage.cargoArray.length) {
+        if (sizeCargo == Storage.cargoArray.length) {
             Cargo[] newArrayCargo = new Cargo[(int) (sizeCargo * 1.5)];
             ArrayUtils.copyArray(Storage.cargoArray, newArrayCargo);
             Storage.cargoArray = newArrayCargo;

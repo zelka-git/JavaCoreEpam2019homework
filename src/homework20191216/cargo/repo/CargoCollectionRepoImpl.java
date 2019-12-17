@@ -11,9 +11,6 @@ import static homework20191216.storage.Storage.cargoList;
 public class CargoCollectionRepoImpl implements CargoRepo {
     @Override
     public void add(Cargo cargo) {
-        if (cargoList == null) {
-            cargoList = new LinkedList<>();
-        }
         cargoList.add(cargo);
     }
 
