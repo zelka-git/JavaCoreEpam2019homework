@@ -1,8 +1,8 @@
 package homework20191216.transportation.domain;
 
-import homework20191211.cargo.domain.Cargo;
-import homework20191211.carrier.domain.Carrier;
-import homework20191211.domain.BaseEntity;
+import homework20191216.cargo.domain.Cargo;
+import homework20191216.carrier.domain.Carrier;
+import homework20191216.common.domain.BaseEntity;
 
 import java.util.Date;
 
