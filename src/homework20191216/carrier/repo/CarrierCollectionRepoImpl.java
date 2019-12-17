@@ -2,8 +2,8 @@ package homework20191216.carrier.repo;
 
 import homework20191216.carrier.domain.Carrier;
 
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 import static homework20191216.storage.Storage.carriersList;
@@ -22,7 +22,7 @@ public class CarrierCollectionRepoImpl implements CarrierRepo {
 
     @Override
     public Carrier[] getByName(String name) {
-        List<Carrier> result = new LinkedList<>();
+        List<Carrier> result = new ArrayList<>();
         for (Carrier item : carriersList) {
             if (item.getName() != null && item.getName().equals(name)) {
                 result.add(item);

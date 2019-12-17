@@ -3,7 +3,6 @@ package homework20191216.transportation.repo;
 import homework20191216.transportation.domain.Transportation;
 
 import java.util.Iterator;
-import java.util.LinkedList;
 
 import static homework20191216.storage.Storage.transportationList;
 

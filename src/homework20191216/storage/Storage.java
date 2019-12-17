@@ -4,7 +4,7 @@ import homework20191216.cargo.domain.Cargo;
 import homework20191216.carrier.domain.Carrier;
 import homework20191216.transportation.domain.Transportation;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Storage {
@@ -19,9 +19,9 @@ public class Storage {
     public static int sizeCarrier;
     public static int sizeTransportation;
 
-    public static List<Cargo> cargoList = new LinkedList<>();
-    public static List<Carrier> carriersList  = new LinkedList<>();
-    public static List<Transportation> transportationList = new LinkedList<>();
+    public static List<Cargo> cargoList = new ArrayList<>();
+    public static List<Carrier> carriersList  = new ArrayList<>();
+    public static List<Transportation> transportationList = new ArrayList<>();
 
 
 

@@ -2,8 +2,8 @@ package homework20191216.cargo.repo;
 
 import homework20191216.cargo.domain.Cargo;
 
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 import static homework20191216.storage.Storage.cargoList;
@@ -21,7 +21,7 @@ public class CargoCollectionRepoImpl implements CargoRepo {
 
     @Override
     public Cargo[] getByName(String name) {
-        List<Cargo> result = new LinkedList<>();
+        List<Cargo> result = new ArrayList<>();
         for (Cargo item : cargoList) {
             if (item.getName() != null && item.getName().equals(name)) {
                 result.add(item);
