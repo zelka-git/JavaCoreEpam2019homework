@@ -7,7 +7,7 @@ public class CarrierServiceImpl implements CarrierService {
 
     private CarrierRepo carrierRepo;
 
-    CarrierServiceImpl(CarrierRepo carrierRepo){
+    public CarrierServiceImpl(CarrierRepo carrierRepo){
         this.carrierRepo = carrierRepo;
     }
 
