@@ -17,7 +17,7 @@ public class TransportationServiceImpl implements TransportationService {
     private CargoRepo cargoRepo;
     private CarrierRepo carrierRepo;
 
-    TransportationServiceImpl(TransportationRepo transportationRepo) {
+    public TransportationServiceImpl(TransportationRepo transportationRepo) {
         this.transportationRepo = transportationRepo;
         if (transportationRepo.getClass() == TransportationArrayRepoImpl.class) {
             cargoRepo = new CargoArrayRepoImpl();
@@ -62,6 +62,7 @@ public class TransportationServiceImpl implements TransportationService {
             carrierRepo.getById(transportation.getCarrier().getId()).setTransportations(
                     new Transportation[]{transportation}
             );
+            System.out.println("transportation added!!!");
         }
     }
 
