@@ -13,9 +13,9 @@ import homework20191216.transportation.repo.TransportationRepo;
 
 public class TransportationServiceImpl implements TransportationService {
 
-    TransportationRepo transportationRepo;
-    CargoRepo cargoRepo;
-    CarrierRepo carrierRepo;
+    private TransportationRepo transportationRepo;
+    private CargoRepo cargoRepo;
+    private CarrierRepo carrierRepo;
 
     TransportationServiceImpl(TransportationRepo transportationRepo) {
         this.transportationRepo = transportationRepo;
