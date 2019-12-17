@@ -17,7 +17,7 @@ public class CarrierCollectionRepoImpl implements CarrierRepo {
 
     @Override
     public Carrier[] getAll() {
-        return (Carrier[]) carriersList.toArray();
+        return  carriersList.toArray(new Carrier[carriersList.size()]);
     }
 
     @Override

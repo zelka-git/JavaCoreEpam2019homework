@@ -14,7 +14,7 @@ public class TransportationCollectionRepoImpl implements TransportationRepo {
 
     @Override
     public Transportation[] getAll() {
-        return (Transportation[]) transportationList.toArray();
+        return transportationList.toArray(new Transportation[transportationList.size()]);
     }
 
     @Override
