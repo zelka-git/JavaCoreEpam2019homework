@@ -11,6 +11,7 @@ import homework20191216.carrier.domain.Carrier;
 import homework20191216.carrier.repo.CarrierCollectionRepoImpl;
 import homework20191216.carrier.repo.CarrierRepo;
 import homework20191216.carrier.service.CarrierServiceImpl;
+import homework20191216.common.utils.ArrayUtils;
 import homework20191216.storage.IdGenerator;
 import homework20191216.transportation.domain.Transportation;
 import homework20191216.transportation.repo.TransportationCollectionRepoImpl;
@@ -23,10 +24,22 @@ public class Application {
 
     public static void main(String[] args) {
         int numberElements = 6;
-        initCargos(new CargoCollectionRepoImpl(), numberElements);
-        initCarriers(new CarrierCollectionRepoImpl(), numberElements);
-        initTransportatons(new TransportationCollectionRepoImpl(), numberElements);
+        CargoCollectionRepoImpl cargoRepo = new CargoCollectionRepoImpl();
+        initCargos(cargoRepo, numberElements);
+        CarrierCollectionRepoImpl carrierRepo = new CarrierCollectionRepoImpl();
+        initCarriers(carrierRepo, numberElements);
+        TransportationCollectionRepoImpl transportationRepo = new TransportationCollectionRepoImpl();
+        initTransportatons(transportationRepo, numberElements);
+        printStorage(cargoRepo, carrierRepo,transportationRepo);
 
+    }
+
+    private static void printStorage(CargoCollectionRepoImpl cargoRepo,
+                                     CarrierCollectionRepoImpl carrierRepo,
+                                     TransportationCollectionRepoImpl transportationRepo) {
+        ArrayUtils.printArray(cargoRepo.getAll());
+        ArrayUtils.printArray(carrierRepo.getAll());
+        ArrayUtils.printArray(transportationRepo.getAll());
     }
 
     private static void initCargos(CargoRepo cargoRepo, int number) {
@@ -57,16 +70,19 @@ public class Application {
         System.out.println("ADD TRANSPORTATIONS");
         TransportationServiceImpl transportationService = new TransportationServiceImpl(transportationRepo);
         for (int i = 0; i < numberElements; i++) {
-            transportationService.add(createTransportation(i + 1, i + 1 + numberElements));
+            transportationService.add(createTransportation(i + 1, i + 1 + numberElements,
+                    transportationService.getCargoRepo(),
+                    transportationService.getCarrierRepo()));
         }
         System.out.println("----------------");
     }
 
-    private static Transportation createTransportation(long cargoId, long carrierId) {
+    private static Transportation createTransportation(long cargoId, long carrierId,
+                                                       CargoRepo cargoRepo, CarrierRepo carrierRepo) {
         Transportation transportation = new Transportation();
         transportation.setId(IdGenerator.generateId());
-        transportation.setCargo(new CargoCollectionRepoImpl().getById(cargoId));
-        transportation.setCarrier(new CarrierCollectionRepoImpl().getById(carrierId));
+        transportation.setCargo(cargoRepo.getById(cargoId));
+        transportation.setCarrier(carrierRepo.getById(carrierId));
         transportation.setDescription("descripton transportation" + (cargoId + carrierId));
         transportation.setBillTo("BillTo" +  (cargoId + carrierId));
         transportation.setDate(new Date());
