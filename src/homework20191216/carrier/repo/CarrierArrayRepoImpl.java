@@ -8,6 +8,8 @@ import static homework20191216.storage.Storage.sizeCarrier;
 
 public class CarrierArrayRepoImpl implements CarrierRepo {
 
+    private static final Carrier[] EMPTY_CARRIER_ARRAY = new Carrier[0];
+
     @Override
     public void add(Carrier carrier) {
         if (carriersArray == null) {
@@ -41,7 +43,7 @@ public class CarrierArrayRepoImpl implements CarrierRepo {
             }
         }
         if (index == 0) {
-            return new Carrier[0];
+            return EMPTY_CARRIER_ARRAY;
         } else {
             Carrier[] result = new Carrier[index];
             ArrayUtils.copyArray(arrayTheSameNames, result, index);
@@ -55,7 +57,6 @@ public class CarrierArrayRepoImpl implements CarrierRepo {
             if (item != null && item.getId() != null && item.getId().equals(id)) {
                 return item;
             }
-
         }
         return null;
     }

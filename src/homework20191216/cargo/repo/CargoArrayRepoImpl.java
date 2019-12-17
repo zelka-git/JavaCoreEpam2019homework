@@ -8,6 +8,9 @@ import static homework20191216.storage.Storage.cargoArray;
 import static homework20191216.storage.Storage.sizeCargo;
 
 public class CargoArrayRepoImpl implements CargoRepo {
+
+    private static final Cargo[] EMPTY_CARGO_ARRAY = new Cargo[0];
+
     @Override
     public void add(Cargo cargo) {
         if (Storage.cargoArray == null) {
@@ -41,7 +44,7 @@ public class CargoArrayRepoImpl implements CargoRepo {
             }
         }
         if (index == 0) {
-            return new Cargo[0];
+            return EMPTY_CARGO_ARRAY;
         } else {
             Cargo[] result = new Cargo[index];
             ArrayUtils.copyArray(arrayTheSameNames, result, index);
