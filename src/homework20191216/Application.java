@@ -1,4 +1,111 @@
 package homework20191216;
 
+import homework20191216.cargo.domain.Cargo;
+import homework20191216.cargo.domain.ClothesCargo;
+import homework20191216.cargo.domain.ComputerCargo;
+import homework20191216.cargo.domain.FoodCargo;
+import homework20191216.cargo.repo.CargoCollectionRepoImpl;
+import homework20191216.cargo.repo.CargoRepo;
+import homework20191216.cargo.service.CargoServiceImpl;
+import homework20191216.carrier.domain.Carrier;
+import homework20191216.carrier.repo.CarrierCollectionRepoImpl;
+import homework20191216.carrier.repo.CarrierRepo;
+import homework20191216.carrier.service.CarrierServiceImpl;
+import homework20191216.storage.IdGenerator;
+import homework20191216.transportation.domain.Transportation;
+import homework20191216.transportation.repo.TransportationCollectionRepoImpl;
+import homework20191216.transportation.repo.TransportationRepo;
+import homework20191216.transportation.service.TransportationServiceImpl;
+
+import java.util.Date;
+
 public class Application {
+
+    public static void main(String[] args) {
+        int numberElements = 6;
+        initCargos(new CargoCollectionRepoImpl(), numberElements);
+        initCarriers(new CarrierCollectionRepoImpl(), numberElements);
+        initTransportatons(new TransportationCollectionRepoImpl(), numberElements);
+
+    }
+
+    private static void initCargos(CargoRepo cargoRepo, int number) {
+        System.out.println("ADD CARGOS");
+        CargoServiceImpl cargoService = new CargoServiceImpl(cargoRepo);
+        for (int i = 0; i < number / 3; i++) {
+            cargoService.add(createClothesCargo(i));
+        }
+        for (int i = 0; i < number / 3; i++) {
+            cargoService.add(createComputersCargo(i));
+        }
+        for (int i = 0; i < number / 3; i++) {
+            cargoService.add(createFoodCargo(i));
+        }
+        System.out.println("----------------");
+    }
+
+    private static void initCarriers(CarrierRepo carrierRepo, int numberElements) {
+        System.out.println("ADD CARRIERS");
+        CarrierServiceImpl carrierService = new CarrierServiceImpl(carrierRepo);
+        for (int i = 0; i < numberElements; i++) {
+            carrierService.add(createCarrier(i));
+        }
+        System.out.println("----------------");
+    }
+
+    private static void initTransportatons(TransportationRepo transportationRepo, int numberElements) {
+        System.out.println("ADD TRANSPORTATIONS");
+        TransportationServiceImpl transportationService = new TransportationServiceImpl(transportationRepo);
+        for (int i = 0; i < numberElements; i++) {
+            transportationService.add(createTransportation(i + 1, i + 1 + numberElements));
+        }
+        System.out.println("----------------");
+    }
+
+    private static Transportation createTransportation(long cargoId, long carrierId) {
+        Transportation transportation = new Transportation();
+        transportation.setId(IdGenerator.generateId());
+        transportation.setCargo(new CargoCollectionRepoImpl().getById(cargoId));
+        transportation.setCarrier(new CarrierCollectionRepoImpl().getById(carrierId));
+        transportation.setDescription("descripton transportation" + (cargoId + carrierId));
+        transportation.setBillTo("BillTo" +  (cargoId + carrierId));
+        transportation.setDate(new Date());
+        return transportation;
+    }
+
+
+    private static ClothesCargo createClothesCargo(int i) {
+        ClothesCargo cargo = new ClothesCargo();
+        cargo.setId(IdGenerator.generateId());
+        cargo.setSize("Clothes size " + i);
+        cargo.setName("Clothes name " + i);
+        cargo.setWeight(40 + i);
+        return cargo;
+    }
+
+    private static Cargo createComputersCargo(int i) {
+        ComputerCargo cargo = new ComputerCargo();
+        cargo.setId(IdGenerator.generateId());
+        cargo.setDescription("description computer" + i);
+        cargo.setName("Computer name " + i);
+        cargo.setWeight(50 + i);
+        return cargo;
+    }
+
+    private static Cargo createFoodCargo(int i) {
+        FoodCargo cargo = new FoodCargo();
+        cargo.setId(IdGenerator.generateId());
+        cargo.setWeight(33 + i);
+        cargo.setName("Food name " + i);
+        return cargo;
+    }
+
+    private static Carrier createCarrier(int i) {
+        Carrier carrier = new Carrier();
+        carrier.setId(IdGenerator.generateId());
+        carrier.setName("Carrier name " + i);
+        carrier.setAddress("Adress + " + i);
+        return carrier;
+    }
+
 }
