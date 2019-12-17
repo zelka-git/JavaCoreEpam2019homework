@@ -1,54 +1,58 @@
 package homework20191216.carrier.service;
 
-import homework20191216.cargo.domain.Cargo;
-import homework20191216.cargo.service.CargoService;
 import homework20191216.carrier.domain.Carrier;
 import homework20191216.carrier.repo.CarrierRepo;
 
 public class CarrierServiceImpl implements CarrierService {
 
+    private CarrierRepo carrierRepo;
+
+    CarrierServiceImpl(CarrierRepo carrierRepo){
+        this.carrierRepo = carrierRepo;
+    }
+
     @Override
-    public void add(Carrier carrier, CarrierRepo typeStorage) {
+    public void add(Carrier carrier) {
         System.out.println("Begin to add carrier!");
         if (carrier.getId() == null) {
             System.out.println("carrier must have a ID!");
-        } else if (typeStorage.getById(carrier.getId()) != null) {
+        } else if (carrierRepo.getById(carrier.getId()) != null) {
             System.out.println("carrier with such ID already exist!");
         } else if (carrier.getName() == null || carrier.getName() == "") {
             System.out.println("carrier must have a name!");
         } else if (carrier.getAddress() == null) {
             System.out.println("carrier must have a address!");
         } else {
-            typeStorage.add(carrier);
+            carrierRepo.add(carrier);
             System.out.println("carrier added!!!");
         }
     }
 
     @Override
-    public Carrier[] getAll(CarrierRepo typeStorage) {
-        return typeStorage.getAll();
+    public Carrier[] getAll() {
+        return carrierRepo.getAll();
     }
 
     @Override
-    public Carrier[] getByName(String name, CarrierRepo typeStorage) {
+    public Carrier[] getByName(String name) {
         if(name != null){
-            return typeStorage.getByName(name);
+            return carrierRepo.getByName(name);
         }
         return new Carrier[0];
     }
 
     @Override
-    public Carrier getById(Long id, CarrierRepo typeStorage) {
+    public Carrier getById(Long id) {
         if(id != null){
-            return typeStorage.getById(id);
+            return carrierRepo.getById(id);
         }
         return null;
     }
 
     @Override
-    public Carrier remove(Long id, CarrierRepo typeStorage) {
+    public Carrier remove(Long id) {
         if(id != null){
-            typeStorage.remove(id);
+            carrierRepo.remove(id);
         }
         return null;
     }

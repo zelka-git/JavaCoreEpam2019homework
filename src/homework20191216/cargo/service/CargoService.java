@@ -1,16 +1,15 @@
 package homework20191216.cargo.service;
 
 import homework20191216.cargo.domain.Cargo;
-import homework20191216.cargo.repo.CargoRepo;
 
 public interface CargoService {
-    void add(Cargo cargo, CargoRepo typeStorage);
+    void add(Cargo cargo);
 
-    Cargo[] getAll(CargoRepo typeStorage);
+    Cargo[] getAll();
 
-    Cargo[] getByName(String name, CargoRepo typeStorage);
+    Cargo[] getByName(String name);
 
-    Cargo getById(Long id, CargoRepo typeStorage);
+    Cargo getById(Long id);
 
-    Cargo remove(Long id, CargoRepo typeStorage);
+    Cargo remove(Long id);
 }

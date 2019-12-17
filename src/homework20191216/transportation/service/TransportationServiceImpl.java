@@ -13,68 +13,75 @@ import homework20191216.transportation.repo.TransportationRepo;
 
 public class TransportationServiceImpl implements TransportationService {
 
-    @Override
-    public void add(Transportation transportation, TransportationRepo typeStorage) {
-        CargoRepo cargoStorage;
-        CarrierRepo carrierStorage;
-        if (typeStorage.getClass() == TransportationArrayRepoImpl.class) {
-            cargoStorage = new CargoArrayRepoImpl();
-            carrierStorage = new CarrierArrayRepoImpl();
-        } else if (typeStorage.getClass() == TransportationCollectionRepoImpl.class) {
-            cargoStorage = new CargoCollectionRepoImpl();
-            carrierStorage = new CarrierCollectionRepoImpl();
+    TransportationRepo transportationRepo;
+    CargoRepo cargoRepo;
+    CarrierRepo carrierRepo;
+
+    TransportationServiceImpl(TransportationRepo transportationRepo) {
+        this.transportationRepo = transportationRepo;
+        if (transportationRepo.getClass() == TransportationArrayRepoImpl.class) {
+            cargoRepo = new CargoArrayRepoImpl();
+            carrierRepo = new CarrierArrayRepoImpl();
+        } else if (transportationRepo.getClass() == TransportationCollectionRepoImpl.class) {
+            cargoRepo = new CargoCollectionRepoImpl();
+            carrierRepo = new CarrierCollectionRepoImpl();
         } else {
-            System.out.println("fail typeStorage");
+            System.out.println("fail transportationRepo type");
             return;
         }
+    }
+
+    @Override
+    public void add(Transportation transportation) {
+
 
         System.out.println("Begin to add transportation!");
         if (transportation.getId() == null) {
             System.out.println("transportation must have a ID!");
-        } else if (typeStorage.getById(transportation.getId()) != null) {
+        } else if (transportationRepo.getById(transportation.getId()) != null) {
             System.out.println("transportation with such ID already exist!");
         } else if (transportation.getCargo() == null) {
             System.out.println("transportation must have a cargo!");
-        } else if (cargoStorage.getById(transportation.getCargo().getId()) == null){
+        } else if (cargoRepo.getById(transportation.getCargo().getId()) == null) {
             System.out.println("such cargo is not in storage");
-        }else if(transportation.getCarrier() == null){
+        } else if (transportation.getCarrier() == null) {
             System.out.println("transportation must have a carrier!");
-        }else if(carrierStorage.getById(transportation.getCarrier().getId()) == null){
+        } else if (carrierRepo.getById(transportation.getCarrier().getId()) == null) {
             System.out.println("such carrier is not in storage");
-        }else if(transportation.getDescription() == null){
+        } else if (transportation.getDescription() == null) {
             System.out.println("transportation must have a description!");
-        }else if(transportation.getBillTo() == null){
+        } else if (transportation.getBillTo() == null) {
             System.out.println("transportation must have a BillTo!");
-        }else if(transportation.getDate() == null){
+        } else if (transportation.getDate() == null) {
             System.out.println("transportation must have a date!");
-        }else{
-            typeStorage.add(transportation);
-            cargoStorage.getById(transportation.getCargo().getId()).setTransportations(
+        } else {
+            transportationRepo.add(transportation);
+            cargoRepo.getById(transportation.getCargo().getId()).setTransportations(
                     new Transportation[]{transportation}
             );
-            carrierStorage.getById(transportation.getCarrier().getId()).setTransportations(
+            carrierRepo.getById(transportation.getCarrier().getId()).setTransportations(
                     new Transportation[]{transportation}
             );
         }
     }
 
     @Override
-    public Transportation[] getAll(TransportationRepo typeStorage) {
-        return typeStorage.getAll();
+    public Transportation[] getAll() {
+        return transportationRepo.getAll();
     }
 
     @Override
-    public Transportation getById(Long id, TransportationRepo typeStorage) {
-        if(id != null){
-            typeStorage.getById(id);
-            }
+    public Transportation getById(Long id) {
+        if (id != null) {
+            transportationRepo.getById(id);
+        }
         return null;
     }
 
     @Override
-    public Transportation remove(Long id, TransportationRepo typeStorage) {
-        if(id != null){
-            return typeStorage.getById(id);
+    public Transportation remove(Long id) {
+        if (id != null) {
+            return transportationRepo.getById(id);
         }
         return null;
     }
