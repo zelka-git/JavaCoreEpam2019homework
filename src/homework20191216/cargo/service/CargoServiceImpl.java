@@ -8,7 +8,7 @@ public class CargoServiceImpl implements CargoService {
 
     private CargoRepo cargoRepo;
 
-    public CargoServiceImpl(CargoRepo cargoRepo){
+    public CargoServiceImpl(CargoRepo cargoRepo) {
         this.cargoRepo = cargoRepo;
     }
 
@@ -36,7 +36,7 @@ public class CargoServiceImpl implements CargoService {
 
     @Override
     public Cargo[] getByName(String name) {
-        if(name != null){
+        if (name != null) {
             return cargoRepo.getByName(name);
         }
         return new Cargo[0];
@@ -44,7 +44,7 @@ public class CargoServiceImpl implements CargoService {
 
     @Override
     public Cargo getById(Long id) {
-        if(id != null){
+        if (id != null) {
             return cargoRepo.getById(id);
         }
         return null;
@@ -52,7 +52,7 @@ public class CargoServiceImpl implements CargoService {
 
     @Override
     public Cargo remove(Long id) {
-        if(id != null){
+        if (id != null) {
             cargoRepo.remove(id);
         }
         return null;

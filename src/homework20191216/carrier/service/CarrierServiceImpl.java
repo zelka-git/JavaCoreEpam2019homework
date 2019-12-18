@@ -7,7 +7,7 @@ public class CarrierServiceImpl implements CarrierService {
 
     private CarrierRepo carrierRepo;
 
-    public CarrierServiceImpl(CarrierRepo carrierRepo){
+    public CarrierServiceImpl(CarrierRepo carrierRepo) {
         this.carrierRepo = carrierRepo;
     }
 
@@ -35,7 +35,7 @@ public class CarrierServiceImpl implements CarrierService {
 
     @Override
     public Carrier[] getByName(String name) {
-        if(name != null){
+        if (name != null) {
             return carrierRepo.getByName(name);
         }
         return new Carrier[0];
@@ -43,7 +43,7 @@ public class CarrierServiceImpl implements CarrierService {
 
     @Override
     public Carrier getById(Long id) {
-        if(id != null){
+        if (id != null) {
             return carrierRepo.getById(id);
         }
         return null;
@@ -51,7 +51,7 @@ public class CarrierServiceImpl implements CarrierService {
 
     @Override
     public Carrier remove(Long id) {
-        if(id != null){
+        if (id != null) {
             carrierRepo.remove(id);
         }
         return null;

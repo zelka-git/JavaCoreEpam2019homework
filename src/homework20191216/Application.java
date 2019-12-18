@@ -30,7 +30,7 @@ public class Application {
         initCarriers(carrierRepo, numberElements);
         TransportationCollectionRepoImpl transportationRepo = new TransportationCollectionRepoImpl();
         initTransportatons(transportationRepo, numberElements);
-        printStorage(cargoRepo, carrierRepo,transportationRepo);
+        printStorage(cargoRepo, carrierRepo, transportationRepo);
 
     }
 
@@ -84,7 +84,7 @@ public class Application {
         transportation.setCargo(cargoRepo.getById(cargoId));
         transportation.setCarrier(carrierRepo.getById(carrierId));
         transportation.setDescription("descripton transportation" + (cargoId + carrierId));
-        transportation.setBillTo("BillTo" +  (cargoId + carrierId));
+        transportation.setBillTo("BillTo" + (cargoId + carrierId));
         transportation.setDate(new Date());
         return transportation;
     }

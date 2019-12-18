@@ -11,7 +11,7 @@ public abstract class Cargo extends BaseEntity {
     protected CargoType cargoType;
     protected Transportation[] transportations;
 
-    public Cargo(){
+    public Cargo() {
         cargoType = this.getCargoType();
     }
 
