@@ -2,6 +2,7 @@ package homework20191216.cargo.repo;
 
 import homework20191216.cargo.domain.Cargo;
 import homework20191216.common.utils.ArrayUtils;
+import homework20191216.storage.IdGenerator;
 import homework20191216.storage.Storage;
 
 import static homework20191216.storage.Storage.cargoArray;
@@ -18,6 +19,7 @@ public class CargoArrayRepoImpl implements CargoRepo {
             ArrayUtils.copyArray(Storage.cargoArray, newArrayCargo);
             Storage.cargoArray = newArrayCargo;
         }
+        cargo.setId(IdGenerator.generateId());
         Storage.cargoArray[sizeCargo] = cargo;
         sizeCargo++;
     }

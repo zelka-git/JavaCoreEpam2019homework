@@ -1,5 +1,6 @@
 package homework20191216.transportation.repo;
 
+import homework20191216.storage.IdGenerator;
 import homework20191216.transportation.domain.Transportation;
 
 import java.util.Iterator;
@@ -9,6 +10,7 @@ import static homework20191216.storage.Storage.transportationList;
 public class TransportationCollectionRepoImpl implements TransportationRepo {
     @Override
     public void add(Transportation transportation) {
+        transportation.setId(IdGenerator.generateId());
         transportationList.add(transportation);
     }
 

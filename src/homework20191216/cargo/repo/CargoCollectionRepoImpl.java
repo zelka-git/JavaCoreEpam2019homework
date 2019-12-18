@@ -1,6 +1,7 @@
 package homework20191216.cargo.repo;
 
 import homework20191216.cargo.domain.Cargo;
+import homework20191216.storage.IdGenerator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,6 +12,7 @@ import static homework20191216.storage.Storage.cargoList;
 public class CargoCollectionRepoImpl implements CargoRepo {
     @Override
     public void add(Cargo cargo) {
+        cargo.setId(IdGenerator.generateId());
         cargoList.add(cargo);
     }
 

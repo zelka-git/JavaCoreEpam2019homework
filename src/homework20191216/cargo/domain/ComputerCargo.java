@@ -22,7 +22,7 @@ public class ComputerCargo extends Cargo {
     @Override
     public String toString() {
         return "Computer{" +
-                ", id=" + id +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", weight=" + weight +
                 ", cargoType=" + cargoType +

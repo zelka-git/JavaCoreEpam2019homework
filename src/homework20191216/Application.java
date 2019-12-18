@@ -12,7 +12,6 @@ import homework20191216.carrier.repo.CarrierCollectionRepoImpl;
 import homework20191216.carrier.repo.CarrierRepo;
 import homework20191216.carrier.service.CarrierServiceImpl;
 import homework20191216.common.utils.ArrayUtils;
-import homework20191216.storage.IdGenerator;
 import homework20191216.transportation.domain.Transportation;
 import homework20191216.transportation.repo.TransportationCollectionRepoImpl;
 import homework20191216.transportation.repo.TransportationRepo;
@@ -80,7 +79,6 @@ public class Application {
     private static Transportation createTransportation(long cargoId, long carrierId,
                                                        CargoRepo cargoRepo, CarrierRepo carrierRepo) {
         Transportation transportation = new Transportation();
-        transportation.setId(IdGenerator.generateId());
         transportation.setCargo(cargoRepo.getById(cargoId));
         transportation.setCarrier(carrierRepo.getById(carrierId));
         transportation.setDescription("descripton transportation" + (cargoId + carrierId));
@@ -92,7 +90,6 @@ public class Application {
 
     private static ClothesCargo createClothesCargo(int i) {
         ClothesCargo cargo = new ClothesCargo();
-        cargo.setId(IdGenerator.generateId());
         cargo.setSize("Clothes size " + i);
         cargo.setName("Clothes name " + i);
         cargo.setWeight(40 + i);
@@ -101,7 +98,6 @@ public class Application {
 
     private static Cargo createComputersCargo(int i) {
         ComputerCargo cargo = new ComputerCargo();
-        cargo.setId(IdGenerator.generateId());
         cargo.setDescription("description computer" + i);
         cargo.setName("Computer name " + i);
         cargo.setWeight(50 + i);
@@ -110,7 +106,6 @@ public class Application {
 
     private static Cargo createFoodCargo(int i) {
         FoodCargo cargo = new FoodCargo();
-        cargo.setId(IdGenerator.generateId());
         cargo.setWeight(33 + i);
         cargo.setName("Food name " + i);
         return cargo;
@@ -118,7 +113,6 @@ public class Application {
 
     private static Carrier createCarrier(int i) {
         Carrier carrier = new Carrier();
-        carrier.setId(IdGenerator.generateId());
         carrier.setName("Carrier name " + i);
         carrier.setAddress("Adress + " + i);
         return carrier;

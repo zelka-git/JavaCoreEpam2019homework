@@ -2,6 +2,7 @@ package homework20191216.carrier.repo;
 
 import homework20191216.carrier.domain.Carrier;
 import homework20191216.common.utils.ArrayUtils;
+import homework20191216.storage.IdGenerator;
 
 import static homework20191216.storage.Storage.carriersArray;
 import static homework20191216.storage.Storage.sizeCarrier;
@@ -17,6 +18,7 @@ public class CarrierArrayRepoImpl implements CarrierRepo {
             ArrayUtils.copyArray(carriersArray, newArrayCarrier);
             carriersArray = newArrayCarrier;
         }
+        carrier.setId(IdGenerator.generateId());
         carriersArray[sizeCarrier] = carrier;
         sizeCarrier++;
     }

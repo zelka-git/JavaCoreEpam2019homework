@@ -1,6 +1,7 @@
 package homework20191216.transportation.repo;
 
 import homework20191216.common.utils.ArrayUtils;
+import homework20191216.storage.IdGenerator;
 import homework20191216.storage.Storage;
 import homework20191216.transportation.domain.Transportation;
 
@@ -15,6 +16,7 @@ public class TransportationArrayRepoImpl implements TransportationRepo {
             ArrayUtils.copyArray(Storage.transportationArray, newArrayTrans);
             Storage.transportationArray = newArrayTrans;
         }
+        transportation.setId(IdGenerator.generateId());
         Storage.transportationArray[sizeTransportation] = transportation;
         sizeTransportation++;
     }

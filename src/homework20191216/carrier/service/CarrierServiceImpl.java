@@ -5,6 +5,8 @@ import homework20191216.carrier.repo.CarrierRepo;
 
 public class CarrierServiceImpl implements CarrierService {
 
+    private static final Carrier[] EMPTY_CARRIER_ARRAY = new Carrier[0];
+
     private CarrierRepo carrierRepo;
 
     public CarrierServiceImpl(CarrierRepo carrierRepo) {
@@ -14,11 +16,7 @@ public class CarrierServiceImpl implements CarrierService {
     @Override
     public void add(Carrier carrier) {
         System.out.println("Begin to add carrier!");
-        if (carrier.getId() == null) {
-            System.out.println("carrier must have a ID!");
-        } else if (carrierRepo.getById(carrier.getId()) != null) {
-            System.out.println("carrier with such ID already exist!");
-        } else if (carrier.getName() == null || carrier.getName() == "") {
+        if (carrier.getName() == null || carrier.getName().equals("")) {
             System.out.println("carrier must have a name!");
         } else if (carrier.getAddress() == null) {
             System.out.println("carrier must have a address!");
@@ -38,7 +36,7 @@ public class CarrierServiceImpl implements CarrierService {
         if (name != null) {
             return carrierRepo.getByName(name);
         }
-        return new Carrier[0];
+        return EMPTY_CARRIER_ARRAY;
     }
 
     @Override

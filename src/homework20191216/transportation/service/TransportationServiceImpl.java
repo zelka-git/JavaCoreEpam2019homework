@@ -33,14 +33,8 @@ public class TransportationServiceImpl implements TransportationService {
 
     @Override
     public void add(Transportation transportation) {
-
-
         System.out.println("Begin to add transportation!");
-        if (transportation.getId() == null) {
-            System.out.println("transportation must have a ID!");
-        } else if (transportationRepo.getById(transportation.getId()) != null) {
-            System.out.println("transportation with such ID already exist!");
-        } else if (transportation.getCargo() == null) {
+        if (transportation.getCargo() == null) {
             System.out.println("transportation must have a cargo!");
         } else if (cargoRepo.getById(transportation.getCargo().getId()) == null) {
             System.out.println("such cargo is not in storage");

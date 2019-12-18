@@ -1,6 +1,7 @@
 package homework20191216.carrier.repo;
 
 import homework20191216.carrier.domain.Carrier;
+import homework20191216.storage.IdGenerator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,6 +13,7 @@ public class CarrierCollectionRepoImpl implements CarrierRepo {
 
     @Override
     public void add(Carrier carrier) {
+        carrier.setId(IdGenerator.generateId());
         carriersList.add(carrier);
     }
 

@@ -1,10 +1,11 @@
 package homework20191216.cargo.service;
 
 import homework20191216.cargo.domain.Cargo;
-import homework20191216.cargo.repo.CargoCollectionRepoImpl;
 import homework20191216.cargo.repo.CargoRepo;
 
 public class CargoServiceImpl implements CargoService {
+
+    private static final Cargo[] EMPTY_CARGO_ARRAY = new Cargo[0];
 
     private CargoRepo cargoRepo;
 
@@ -15,11 +16,7 @@ public class CargoServiceImpl implements CargoService {
     @Override
     public void add(Cargo cargo) {
         System.out.println("Begin to add cargo!");
-        if (cargo.getId() == null) {
-            System.out.println("cargo must have a ID!");
-        } else if (cargoRepo.getById(cargo.getId()) != null) {
-            System.out.println("cargo with such ID already exist!");
-        } else if (cargo.getName() == null || cargo.getName() == "") {
+        if (cargo.getName() == null || cargo.getName().equals("")) {
             System.out.println("cargo must have a name!");
         } else if (cargo.getWeight() == 0) {
             System.out.println("cargo must have a weight!");
@@ -39,7 +36,7 @@ public class CargoServiceImpl implements CargoService {
         if (name != null) {
             return cargoRepo.getByName(name);
         }
-        return new Cargo[0];
+        return EMPTY_CARGO_ARRAY;
     }
 
     @Override
