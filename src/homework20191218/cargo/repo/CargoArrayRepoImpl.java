@@ -92,7 +92,10 @@ public class CargoArrayRepoImpl implements CargoRepo {
 
     @Override
     public void sort(Comparator comparator) {
-        Arrays.sort(cargoArray, comparator);
+        Cargo[] notNullCargo = new Cargo[sizeCargo];
+        ArrayUtils.copyArray(cargoArray, notNullCargo, sizeCargo);
+        Arrays.sort(notNullCargo, comparator);
+        ArrayUtils.copyArray(notNullCargo, cargoArray);
     }
 
 }

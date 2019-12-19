@@ -2,6 +2,7 @@ package homework20191218.carrier.service;
 
 import homework20191218.carrier.domain.Carrier;
 import homework20191218.carrier.repo.CarrierRepo;
+import homework20191218.common.utils.ArrayUtils;
 
 public class CarrierServiceImpl implements CarrierService {
 
@@ -48,14 +49,6 @@ public class CarrierServiceImpl implements CarrierService {
     }
 
     @Override
-    public Carrier remove(Long id) {
-        if (id != null) {
-            carrierRepo.deleteById(id);
-        }
-        return null;
-    }
-
-    @Override
     public boolean update(Carrier carrier) {
         if (carrier == null) {
             System.out.println("value NULL don't available!");
@@ -71,5 +64,18 @@ public class CarrierServiceImpl implements CarrierService {
         }
         System.out.println("carrier don't found");
         return false;
+    }
+
+    @Override
+    public boolean deleteById(Long id) {
+        if (id != null) {
+            return carrierRepo.deleteById(id);
+        }
+        return false;
+    }
+
+    @Override
+    public void printAll() {
+        ArrayUtils.printArray(carrierRepo.getAll());
     }
 }

@@ -15,5 +15,7 @@ public interface CargoService extends CommonService {
     boolean update(Cargo cargo);
 
     void sort();
+    
+    void sort(TypeSortCargo typeSortCargo);
 
 }

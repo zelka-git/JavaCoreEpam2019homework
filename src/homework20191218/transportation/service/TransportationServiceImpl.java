@@ -6,6 +6,7 @@ import homework20191218.cargo.repo.CargoRepo;
 import homework20191218.carrier.repo.CarrierArrayRepoImpl;
 import homework20191218.carrier.repo.CarrierCollectionRepoImpl;
 import homework20191218.carrier.repo.CarrierRepo;
+import homework20191218.common.utils.ArrayUtils;
 import homework20191218.transportation.domain.Transportation;
 import homework20191218.transportation.repo.TransportationArrayRepoImpl;
 import homework20191218.transportation.repo.TransportationCollectionRepoImpl;
@@ -74,14 +75,6 @@ public class TransportationServiceImpl implements TransportationService {
     }
 
     @Override
-    public Transportation remove(Long id) {
-        if (id != null) {
-            return transportationRepo.getById(id);
-        }
-        return null;
-    }
-
-    @Override
     public boolean update(Transportation transportation) {
         if (transportation == null) {
             System.out.println("value NULL don't available!");
@@ -125,5 +118,18 @@ public class TransportationServiceImpl implements TransportationService {
 
     public CarrierRepo getCarrierRepo() {
         return carrierRepo;
+    }
+
+    @Override
+    public boolean deleteById(Long id) {
+        if (id != null) {
+            return transportationRepo.deleteById(id);
+        }
+        return false;
+    }
+
+    @Override
+    public void printAll() {
+        ArrayUtils.printArray(transportationRepo.getAll());
     }
 }

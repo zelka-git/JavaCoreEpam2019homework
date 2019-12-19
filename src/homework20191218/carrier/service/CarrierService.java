@@ -1,8 +1,9 @@
 package homework20191218.carrier.service;
 
 import homework20191218.carrier.domain.Carrier;
+import homework20191218.common.service.CommonService;
 
-public interface CarrierService {
+public interface CarrierService extends CommonService {
     void add(Carrier carrier);
 
     Carrier[] getAll();
@@ -10,8 +11,6 @@ public interface CarrierService {
     Carrier[] getByName(String name);
 
     Carrier getById(Long id);
-
-    Carrier remove(Long id);
 
     boolean update(Carrier carrier);
 }
