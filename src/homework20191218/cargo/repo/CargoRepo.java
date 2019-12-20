@@ -1,6 +1,7 @@
 package homework20191218.cargo.repo;
 
 import homework20191218.cargo.domain.Cargo;
+import homework20191218.cargo.service.TypeSortCargo;
 import homework20191218.common.repo.CommonRepo;
 
 import java.util.Comparator;
@@ -16,5 +17,5 @@ public interface CargoRepo extends CommonRepo {
 
     boolean update(Cargo cargo);
 
-    void sort(Comparator comparator);
+    Cargo[] sort(TypeSortCargo typeSortCargo);
 }

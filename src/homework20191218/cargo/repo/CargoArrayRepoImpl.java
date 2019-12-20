@@ -1,13 +1,12 @@
 package homework20191218.cargo.repo;
 
 import homework20191218.cargo.domain.Cargo;
+import homework20191218.cargo.service.TypeSortCargo;
 import homework20191218.common.utils.ArrayUtils;
 import homework20191218.storage.IdGenerator;
 import homework20191218.storage.Storage;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 
 import static homework20191218.storage.Storage.cargoArray;
 import static homework20191218.storage.Storage.sizeCargo;
@@ -91,11 +90,23 @@ public class CargoArrayRepoImpl implements CargoRepo {
     }
 
     @Override
-    public void sort(Comparator comparator) {
-        Cargo[] notNullCargo = new Cargo[sizeCargo];
-        ArrayUtils.copyArray(cargoArray, notNullCargo, sizeCargo);
-        Arrays.sort(notNullCargo, comparator);
-        ArrayUtils.copyArray(notNullCargo, cargoArray);
+    public Cargo[] sort(TypeSortCargo typeSortCargo) {
+        Cargo[] sortCargoArray = new Cargo[sizeCargo];
+        ArrayUtils.copyArray(cargoArray, sortCargoArray, sizeCargo);
+        switch (typeSortCargo) {
+            case NAME:
+                Arrays.sort(sortCargoArray,CargoComparators.COMPARE_BY_NAME);
+                break;
+            case WEIGHT:
+                Arrays.sort(sortCargoArray,CargoComparators.COMPARE_BY_WEIGHT);
+                break;
+            case NAME_WEIGHT:
+                Arrays.sort(sortCargoArray,CargoComparators.COMPARE_BY_NAME_WEIGHT);
+                break;
+            default:
+                Arrays.sort(sortCargoArray,CargoComparators.COMPARE_BY_WEIGHT_NAME);
+        }
+        return  sortCargoArray;
     }
 
 }

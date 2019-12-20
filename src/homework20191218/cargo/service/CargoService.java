@@ -13,9 +13,7 @@ public interface CargoService extends CommonService {
     Cargo getById(Long id);
 
     boolean update(Cargo cargo);
-
-    void sort();
     
-    void sort(TypeSortCargo typeSortCargo);
+    Cargo[] sort(TypeSortCargo typeSortCargo);
 
 }

@@ -68,37 +68,10 @@ public class CargoServiceImpl implements CargoService {
         return false;
     }
 
-    @Override
-    public void sort() {
-        Comparator<Cargo> comparator = new Comparator<>() {
-            @Override
-            public int compare(Cargo o1, Cargo o2) {
-                if (!o1.getName().equals(o2.getName())) {
-                    return o1.getName().compareTo(o2.getName());
-                }
-                return Integer.compare(o1.getWeight(), o2.getWeight());
-            }
-        };
-        cargoRepo.sort(comparator);
-    }
 
     @Override
-    public void sort(TypeSortCargo typeSortCargo) {
-        Comparator<Cargo> comparator;
-        switch (typeSortCargo) {
-            case NAME:
-                comparator = new CompareByName();
-                break;
-            case WEIGHT:
-                comparator = new CompareByWeight();
-                break;
-            case NAME_WEIGHT:
-                comparator = new CompareByNameThenWeight();
-                break;
-            default:
-                comparator = new CompareByWeightThenName();
-        }
-        cargoRepo.sort(comparator);
+    public Cargo[] sort(TypeSortCargo typeSortCargo) {
+        return cargoRepo.sort(typeSortCargo);
     }
 
 
@@ -117,36 +90,3 @@ public class CargoServiceImpl implements CargoService {
     }
 }
 
-class CompareByName implements Comparator<Cargo> {
-    @Override
-    public int compare(Cargo o1, Cargo o2) {
-        return o1.getName().compareTo(o2.getName());
-    }
-}
-
-class CompareByWeight implements Comparator<Cargo> {
-    @Override
-    public int compare(Cargo o1, Cargo o2) {
-        return Integer.compare(o1.getWeight(), o2.getWeight());
-    }
-}
-
-class CompareByNameThenWeight implements Comparator<Cargo> {
-    @Override
-    public int compare(Cargo o1, Cargo o2) {
-        if (!o1.getName().equals(o2.getName())) {
-            return o1.getName().compareTo(o2.getName());
-        }
-        return Integer.compare(o1.getWeight(), o2.getWeight());
-    }
-}
-
-class CompareByWeightThenName implements Comparator<Cargo> {
-    @Override
-    public int compare(Cargo o1, Cargo o2) {
-        if (Integer.compare(o1.getWeight(), o2.getWeight()) != 0) {
-            return Integer.compare(o1.getWeight(), o2.getWeight());
-        }
-        return o1.getName().compareTo(o2.getName());
-    }
-}

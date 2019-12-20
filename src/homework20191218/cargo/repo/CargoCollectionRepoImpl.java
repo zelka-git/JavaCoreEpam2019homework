@@ -1,6 +1,7 @@
 package homework20191218.cargo.repo;
 
 import homework20191218.cargo.domain.Cargo;
+import homework20191218.cargo.service.TypeSortCargo;
 import homework20191218.storage.IdGenerator;
 
 import java.util.*;
@@ -52,8 +53,22 @@ public class CargoCollectionRepoImpl implements CargoRepo {
     }
 
     @Override
-    public void sort(Comparator comparator) {
-        Collections.sort(cargoList, comparator);
+    public Cargo[] sort(TypeSortCargo typeSortCargo) {
+        List<Cargo> sortCargoList = new ArrayList<>(cargoList);
+        switch (typeSortCargo) {
+            case NAME:
+                sortCargoList.sort(CargoComparators.COMPARE_BY_NAME);
+                break;
+            case WEIGHT:
+                sortCargoList.sort(CargoComparators.COMPARE_BY_WEIGHT);
+                break;
+            case NAME_WEIGHT:
+                sortCargoList.sort(CargoComparators.COMPARE_BY_NAME_WEIGHT);
+                break;
+            default:
+                sortCargoList.sort(CargoComparators.COMPARE_BY_WEIGHT_NAME);
+        }
+        return sortCargoList.toArray(new Cargo[0]);
     }
 
     @Override
