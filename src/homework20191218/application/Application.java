@@ -6,17 +6,12 @@ import homework20191218.cargo.domain.Cargo;
 import homework20191218.cargo.domain.ClothesCargo;
 import homework20191218.cargo.domain.ComputerCargo;
 import homework20191218.cargo.domain.FoodCargo;
-import homework20191218.cargo.repo.CargoCollectionRepoImpl;
-import homework20191218.cargo.repo.CargoRepo;
 import homework20191218.cargo.service.CargoService;
 import homework20191218.cargo.service.TypeSortCargo;
 import homework20191218.carrier.domain.Carrier;
-import homework20191218.carrier.repo.CarrierCollectionRepoImpl;
-import homework20191218.carrier.repo.CarrierRepo;
 import homework20191218.carrier.service.CarrierService;
 import homework20191218.common.utils.ArrayUtils;
 import homework20191218.transportation.domain.Transportation;
-import homework20191218.transportation.repo.TransportationCollectionRepoImpl;
 import homework20191218.transportation.service.TransportationService;
 
 import java.util.Date;
@@ -47,20 +42,16 @@ public class Application {
     private static void testSortCargo() {
         System.out.println("Begin test sort:");
         System.out.println("Sort by weight");
-        cargoService.sort(TypeSortCargo.WEIGHT);
-        cargoService.printAll();
+        ArrayUtils.printArray(cargoService.sort(TypeSortCargo.WEIGHT));
         System.out.println("________________________");
         System.out.println("Sort by name");
-        cargoService.sort(TypeSortCargo.NAME);
-        cargoService.printAll();
+        ArrayUtils.printArray(cargoService.sort(TypeSortCargo.NAME));
         System.out.println("________________________");
         System.out.println("Sort by weight name");
-        cargoService.sort(TypeSortCargo.WEIGHT_NAME);
-        cargoService.printAll();
+        ArrayUtils.printArray(cargoService.sort(TypeSortCargo.WEIGHT_NAME));
         System.out.println("________________________");
         System.out.println("Sort by name weight");
-        cargoService.sort(TypeSortCargo.NAME_WEIGHT);
-        cargoService.printAll();
+        ArrayUtils.printArray(cargoService.sort(TypeSortCargo.NAME_WEIGHT));
         System.out.println("________________________");
     }
 
