@@ -17,5 +17,5 @@ public interface CargoRepo extends CommonRepo {
 
     boolean update(Cargo cargo);
 
-    Cargo[] sort(TypeSortCargo typeSortCargo);
+    Cargo[] getAllSortedItems(TypeSortCargo typeSortCargo);
 }

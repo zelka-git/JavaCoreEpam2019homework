@@ -42,16 +42,16 @@ public class Application {
     private static void testSortCargo() {
         System.out.println("Begin test sort:");
         System.out.println("Sort by weight");
-        ArrayUtils.printArray(cargoService.sort(TypeSortCargo.WEIGHT));
+        ArrayUtils.printArray(cargoService.getAllSortedItems(TypeSortCargo.WEIGHT));
         System.out.println("________________________");
         System.out.println("Sort by name");
-        ArrayUtils.printArray(cargoService.sort(TypeSortCargo.NAME));
+        ArrayUtils.printArray(cargoService.getAllSortedItems(TypeSortCargo.NAME));
         System.out.println("________________________");
         System.out.println("Sort by weight name");
-        ArrayUtils.printArray(cargoService.sort(TypeSortCargo.WEIGHT_NAME));
+        ArrayUtils.printArray(cargoService.getAllSortedItems(TypeSortCargo.WEIGHT_NAME));
         System.out.println("________________________");
         System.out.println("Sort by name weight");
-        ArrayUtils.printArray(cargoService.sort(TypeSortCargo.NAME_WEIGHT));
+        ArrayUtils.printArray(cargoService.getAllSortedItems(TypeSortCargo.NAME_WEIGHT));
         System.out.println("________________________");
     }
 

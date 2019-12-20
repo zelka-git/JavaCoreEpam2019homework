@@ -4,8 +4,6 @@ import homework20191218.cargo.domain.Cargo;
 import homework20191218.cargo.repo.CargoRepo;
 import homework20191218.common.utils.ArrayUtils;
 
-import java.util.Comparator;
-
 public class CargoServiceImpl implements CargoService {
 
     private static final Cargo[] EMPTY_CARGO_ARRAY = new Cargo[0];
@@ -70,8 +68,8 @@ public class CargoServiceImpl implements CargoService {
 
 
     @Override
-    public Cargo[] sort(TypeSortCargo typeSortCargo) {
-        return cargoRepo.sort(typeSortCargo);
+    public Cargo[] getAllSortedItems(TypeSortCargo typeSortCargo) {
+        return cargoRepo.getAllSortedItems(typeSortCargo);
     }
 
 

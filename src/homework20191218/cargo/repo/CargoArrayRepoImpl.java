@@ -90,7 +90,7 @@ public class CargoArrayRepoImpl implements CargoRepo {
     }
 
     @Override
-    public Cargo[] sort(TypeSortCargo typeSortCargo) {
+    public Cargo[] getAllSortedItems(TypeSortCargo typeSortCargo) {
         Cargo[] sortCargoArray = new Cargo[sizeCargo];
         ArrayUtils.copyArray(cargoArray, sortCargoArray, sizeCargo);
         switch (typeSortCargo) {

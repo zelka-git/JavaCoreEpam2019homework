@@ -53,7 +53,7 @@ public class CargoCollectionRepoImpl implements CargoRepo {
     }
 
     @Override
-    public Cargo[] sort(TypeSortCargo typeSortCargo) {
+    public Cargo[] getAllSortedItems(TypeSortCargo typeSortCargo) {
         List<Cargo> sortCargoList = new ArrayList<>(cargoList);
         switch (typeSortCargo) {
             case NAME:
