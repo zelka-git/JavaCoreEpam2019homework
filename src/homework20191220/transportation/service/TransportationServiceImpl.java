@@ -122,11 +122,15 @@ public class TransportationServiceImpl implements TransportationService {
 
     @Override
     public boolean deleteById(Long id) {
-        try {
-            return transportationRepo.deleteById(id);
-        } catch (Exception e) {
-            return false;
+        if (id != null) {
+            Transportation element = transportationRepo.getById(id);
+            if(element != null){
+                cargoRepo.getById(element.getCargo().getId()).setTransportations(null);
+                carrierRepo.getById(element.getCarrier().getId()).setTransportations(null);
+                return transportationRepo.deleteById(id);
+            }
         }
+        return false;
     }
 
     @Override

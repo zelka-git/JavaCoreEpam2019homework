@@ -68,11 +68,13 @@ public class CarrierServiceImpl implements CarrierService {
 
     @Override
     public boolean deleteById(Long id) {
-        try {
+        if (id != null) {
+            if (carrierRepo.getById(id).getTransportations() != null) {
+                throw new RuntimeException("Carrier has a reference to transportation and can't be deleted");
+            }
             return carrierRepo.deleteById(id);
-        } catch (Exception e) {
-            return false;
         }
+        return false;
     }
 
     @Override

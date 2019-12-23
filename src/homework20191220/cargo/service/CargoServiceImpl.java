@@ -75,11 +75,13 @@ public class CargoServiceImpl implements CargoService {
 
     @Override
     public boolean deleteById(Long id) {
-        try {
+        if(id != null){
+            if(cargoRepo.getById(id).getTransportations() != null){
+                throw new RuntimeException("Cargo has a reference to transportation and can't be deleted");
+            }
             return cargoRepo.deleteById(id);
-        } catch (Exception e) {
-            return false;
         }
+            return false;
     }
 
     @Override

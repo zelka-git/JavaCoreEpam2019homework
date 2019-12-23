@@ -38,7 +38,8 @@ public class Application {
         testSortCargo();
 
         System.out.println("\ntest delete by Id ");
-        System.out.println(cargoService.deleteById(null));
+//        System.out.println(cargoService.deleteById(null));
+        System.out.println(cargoService.deleteById(Long.valueOf(1)));
         cargoService.printAll();
 
     }
