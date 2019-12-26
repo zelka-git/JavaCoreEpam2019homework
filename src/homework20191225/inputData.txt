@@ -1,0 +1,21 @@
+name | weight | cargoType | size | material | description | expirationDate | storeTemperature
+---CARGOS BEGINS--
+Dresses | 50 | CLOTHES | - | - | - | - | -
+Computer | 69 | COMPUTERS | - | - | - | - | -
+Apples | 44 | FOOD | - | - | - | - | -
+--CARGOS END----
+
+name | address | carrierType
+---CARRIERS BEGINS--
+Carrier 1 | Address 1 | SHIP
+Carrier 2 | Address 2 | PLANE
+Carrier 3 | Address 3 | -
+--CARRIERS END---
+
+cargo | carrier | description | billTo | date
+---TRANSPORTATIONS BEGINS---
+1 | 4 | dfsdf | Fedorof | 22.03.2020
+2 | 5 | dfsdf | Petrov | 12.05.2020
+3 | 6 | dfsdf | Sidorov | 11.06.2020
+---TRANSPORTATIONS END---
+
