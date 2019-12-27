@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 public class FileStorageInitor implements StorageInitor {
@@ -62,10 +61,14 @@ public class FileStorageInitor implements StorageInitor {
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    private void initTransportationFromString(String line) {
+    private void initTransportationFromString(String line) throws ParseException {
         List<String> items = transformStringToArray(line);
         if (items.size() < 3) {
             System.out.println("this transportation can't be added!!");
@@ -74,48 +77,38 @@ public class FileStorageInitor implements StorageInitor {
         }
     }
 
-    private Transportation createTransportation(List<String> items) {
+    private Transportation createTransportation(List<String> items) throws ParseException {
         Transportation transportation = new Transportation();
         transportation.setCargo(cargoService.getById(Long.parseLong(items.get(0))));
         transportation.setCarrier(carrierService.getById(Long.parseLong(items.get(1))));
         transportation.setDescription(items.get(2));
         transportation.setBillTo(items.get(3));
-        try {
-            transportation.setDate(format.parse(items.get(4)));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        transportation.setDate(format.parse(items.get(4)));
         return transportation;
     }
 
-    private void initCarrierFromString(String line) {
+    private void initCarrierFromString(String line) throws RuntimeException {
         List<String> items = transformStringToArray(line);
         if (items.size() < 3) {
-            System.out.println("this carrier can't be added!!");
+            throw new RuntimeException("this carrier can't be added!!");
         } else {
             carrierService.add(createCarrier(items));
         }
     }
 
-    private Carrier createCarrier(List<String> items) {
+    private Carrier createCarrier(List<String> items){
         Carrier carrier = new Carrier();
         carrier.setName(items.get(0));
         carrier.setAddress(items.get(1));
         String carrType = items.get(2);
-        CarrierType carrierType;
-        try {
-            carrierType = CarrierType.valueOf(carrType);
-        } catch (Exception e) {
-            return carrier;
-        }
-        carrier.setCarrierType(carrierType);
+        carrier.setCarrierType(CarrierType.valueOf(carrType));
         return carrier;
     }
 
-    private void initCargoFromString(String line) {
+    private void initCargoFromString(String line) throws RuntimeException, ParseException {
         List<String> items = transformStringToArray(line);
         if (items.size() < 3) {
-            System.out.println("this cargo can't be added!!");
+            throw new RuntimeException("this cargo can't be added!!");
         } else {
             String cargoType = items.get(2);
             switch (cargoType) {
@@ -134,13 +127,13 @@ public class FileStorageInitor implements StorageInitor {
         }
     }
 
-    private Cargo createFoodCargo(List<String> items) {
+    private Cargo createFoodCargo(List<String> items) throws ParseException {
         FoodCargo cargo = new FoodCargo();
         cargo.setName(items.get(0));
         cargo.setWeight(Integer.parseInt(items.get(1)));
         String date = items.get(6);
         if (!"-".equals(date)) {
-            cargo.setExpirationDate(new Date(items.get(6)));
+            cargo.setExpirationDate(format.parse(items.get(6)));
         }
         String storeTemperature = items.get(7);
         if (!"-".equals(storeTemperature)) {
