@@ -9,6 +9,8 @@ public final class DataUtils {
 
     private static final String PATTERN = "dd.MM.yyyy";
 
+    public static final SimpleDateFormat format = new SimpleDateFormat(PATTERN);
+
     private DataUtils(){
 
     }

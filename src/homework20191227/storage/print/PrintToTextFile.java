@@ -4,6 +4,7 @@ import homework20191227.application.serviceholder.ServiceHolder;
 import homework20191227.cargo.domain.*;
 import homework20191227.carrier.domain.Carrier;
 import homework20191227.common.business.exception.checked.PrintStorageException;
+import homework20191227.common.solutions.utils.DataUtils;
 import homework20191227.transportation.domain.Transportation;
 
 import java.io.File;
@@ -67,7 +68,7 @@ public class PrintToTextFile implements StoragePrint {
         stringBuilder.append(transportation.getCarrier().getId() + sep);
         stringBuilder.append(transportation.getDescription() + sep);
         stringBuilder.append(transportation.getBillTo() + sep);
-        stringBuilder.append(transportation.getDate() + sep);
+        stringBuilder.append(DataUtils.format.format(transportation.getDate() )+ sep);
         return stringBuilder.toString();
     }
 
@@ -109,7 +110,7 @@ public class PrintToTextFile implements StoragePrint {
                 builder.append("\t-\t" + sep);
                 builder.append("\t-\t" + sep);
                 builder.append("\t-\t" + sep);
-                builder.append(((FoodCargo) cargo).getExpirationDate() + sep);
+                builder.append(DataUtils.format.format(((FoodCargo) cargo).getExpirationDate()) + sep);
                 builder.append(((FoodCargo) cargo).getStoreTemperature());
                 break;
             case CLOTHES:

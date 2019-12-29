@@ -23,8 +23,6 @@ public class TextFileDataInitor implements StorageInitor {
 
     private final String path;
 
-    private static final SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-
     public TextFileDataInitor(String path) {
         this.path = path;
     }
