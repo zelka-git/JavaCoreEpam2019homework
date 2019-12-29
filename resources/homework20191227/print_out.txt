@@ -1,0 +1,14 @@
+---CARGOS---
+1 | Banana | 123 | FOOD | 	-	 | 	-	 | 	-	 | Sun Dec 20 00:00:00 MSK 2020 | 10
+2 | Dress | 312 | CLOTHES | M | cotton	-	 | 	-	 | 	-	
+3 | HP | 213 | COMPUTERS | 	-	 | 	-	 | this a computer | 	-	 | 	-	
+
+---CARRIERS---
+4 | Fast delivery | Moscow | CAR | 
+5 | Slow delivery | Kiev | TRAIN | 
+6 | Super delivery | Rostov | SHIP | 
+
+---TRANSPORTATIONS---
+7 | 1 | 4 | this transportation 1 | P. N. Ivanov | Thu Feb 20 00:00:00 MSK 2020 | 
+8 | 2 | 5 | this transportation 2 | U. N. Romanov | Sun Mar 22 00:00:00 MSK 2020 | 
+9 | 3 | 6 | this transportation 3 | I. D. Titov | Sat Jun 20 00:00:00 MSK 2020 | 
