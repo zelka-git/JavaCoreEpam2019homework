@@ -9,8 +9,8 @@ public final class StorageInitorFactory {
 
     }
 
-    private static String pathTxt = "resources/homework20191227/inputData.txt";
-    private static String pathXml = "resources/homework20191227/input_xml.xml";
+    private static String pathTxt = "/homework20191230/inputData.txt";
+    private static String pathXml = "/homework20191230/input_xml.xml";
 
     public static StorageInitor getStorageInitor(InitStorageType initStorageType) {
         switch (initStorageType) {

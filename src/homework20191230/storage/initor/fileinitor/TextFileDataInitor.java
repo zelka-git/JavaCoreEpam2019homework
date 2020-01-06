@@ -35,8 +35,8 @@ public class TextFileDataInitor extends BaseFileInitor {
     public void initStorage() throws InitStorageException {
         File file = null;
         try {
-//            file = getFileWithInitData();
-            file = new File(path);
+            file = getFileWithInitData();
+//            file = new File(path);
             Map<String, Cargo> cargoMap = parseCargosFromFile(file);
             Map<String, Carrier> carrierMap = parseCarriersFromFile(file);
             List<ParsedTransportation> transportations = parseTransportationsFromFile(file);
@@ -51,14 +51,14 @@ public class TextFileDataInitor extends BaseFileInitor {
             e.printStackTrace();
             throw new InitStorageException(e.getMessage());
         } finally {
-//            if (file != null) {
-//                file.delete();
-//            }
+            if (file != null) {
+                file.delete();
+            }
         }
     }
 
     private File getFileWithInitData() throws IOException {
-        return FileUtils.createFileFromResource("input", "lesson11", path);
+        return FileUtils.createFileFromResource("init-data", "lesson12", path);
     }
 
     private List<ParsedTransportation> parseTransportationsFromFile(File file) throws IOException, ParseException {

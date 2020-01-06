@@ -8,13 +8,9 @@ import homework20191230.carrier.service.CarrierService;
 import homework20191230.common.business.exception.checked.InitStorageException;
 import homework20191230.common.business.exception.checked.PrintStorageException;
 import homework20191230.common.solutions.utils.ArrayUtils;
-import homework20191230.storage.initor.InMemoryStorageInitor;
 import homework20191230.storage.initor.InitStorageType;
 import homework20191230.storage.initor.StorageInitor;
 import homework20191230.storage.initor.StorageInitorFactory;
-import homework20191230.storage.initor.fileinitor.TextFileDataInitor;
-import homework20191230.storage.initor.fileinitor.XmlDomFileDataInitor;
-import homework20191230.storage.initor.fileinitor.XmlSaxFileDataInitor;
 import homework20191230.storage.print.PrintToTextFile;
 import homework20191230.transportation.service.TransportationService;
 
@@ -26,21 +22,17 @@ public class Application {
     private static CarrierService carrierService;
     private static TransportationService transportationService;
 
-    private static final int AMOUNT_OF_ELEMENTS = 6;
-
     public static void main(String[] args) {
-        ServiceHolder.initServiceHolder(StorageType.ARRAY);
+        ServiceHolder.initServiceHolder(StorageType.COLLECTION);
         ServiceHolder storage = ServiceHolder.getInstance();
         cargoService = storage.getCargoService();
         carrierService = storage.getCarrierService();
         transportationService = storage.getTransportationService();
-//        String path = "recources/homework20191227/input.txt";
-        String path = "resources/homework20191227/inputData.txt";
-        String path1 = "resources/homework20191227/input_xml.xml";
-        String typeInitor = "SAX"; //Memory || TextFile || XmlFile ||SAX
         StorageInitor storageInitor;
 
-        storageInitor = StorageInitorFactory.getStorageInitor(InitStorageType.XML_SAX_FILE);
+        storageInitor = StorageInitorFactory.getStorageInitor(InitStorageType.XML_DOM_FILE);
+
+        String FILE = "/homework20191230/inputData.txt";
 
         try {
             storageInitor.initStorage();
@@ -51,7 +43,6 @@ public class Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 
         printStorage();
 

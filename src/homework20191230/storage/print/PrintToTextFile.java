@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrintToTextFile implements StoragePrint {
-    private static final String FILE_PATH = "resources/homework20191227/print_out.txt";
-    private static final String DIR_PATH = "resources/homework20191227/";
+    private static final String FILE_PATH = "resources/homework20191230/print_out.txt";
+    private static final String DIR_PATH = "resources/homework20191230/";
 
     private static final String sep = " | ";
 
