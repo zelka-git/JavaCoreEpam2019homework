@@ -71,62 +71,58 @@ public class Handler extends DefaultHandler {
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
         String data = stringBuilder.toString();
-        switch (qName) {
-            case "name":
-                if (carrier == null) {
-                    cargo.setName(data);
-                } else {
-                    carrier.setName(data);
-                }
-                break;
-            case "weight":
-                cargo.setWeight(Integer.parseInt(data));
-                break;
-            case "expirationdate":
-                try {
+        try {
+            switch (qName) {
+                case "name":
+                    if (carrier == null) {
+                        cargo.setName(data);
+                    } else {
+                        carrier.setName(data);
+                    }
+                    break;
+                case "weight":
+                    cargo.setWeight(Integer.parseInt(data));
+                    break;
+                case "expirationdate":
                     ((FoodCargo) cargo).setExpirationDate(DataUtils.valueOf(data));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case "storetemperature":
-                ((FoodCargo) cargo).setStoreTemperature(Integer.parseInt(data));
-                break;
-            case "size":
-                ((ClothesCargo) cargo).setSize(data);
-                break;
-            case "material":
-                ((ClothesCargo) cargo).setMaterial(data);
-                break;
-            case "description":
-                if (transportation == null) {
-                    ((ComputerCargo) cargo).setDescription(data);
-                } else {
-                    transportation.setDescription(data);
-                }
-                break;
-            case "cargo":
-                cargoMap.put(IdCargo, cargo);
-                break;
-            case "address":
-                carrier.setAddress(data);
-                break;
-            case "carrier":
-                carrierMap.put(IdCarrier, carrier);
-                break;
-            case "billto":
-                transportation.setBillTo(data);
-                break;
-            case "date":
-                try {
+                    break;
+                case "storetemperature":
+                    ((FoodCargo) cargo).setStoreTemperature(Integer.parseInt(data));
+                    break;
+                case "size":
+                    ((ClothesCargo) cargo).setSize(data);
+                    break;
+                case "material":
+                    ((ClothesCargo) cargo).setMaterial(data);
+                    break;
+                case "description":
+                    if (transportation == null) {
+                        ((ComputerCargo) cargo).setDescription(data);
+                    } else {
+                        transportation.setDescription(data);
+                    }
+                    break;
+                case "cargo":
+                    cargoMap.put(IdCargo, cargo);
+                    break;
+                case "address":
+                    carrier.setAddress(data);
+                    break;
+                case "carrier":
+                    carrierMap.put(IdCarrier, carrier);
+                    break;
+                case "billto":
+                    transportation.setBillTo(data);
+                    break;
+                case "date":
                     transportation.setDate(DataUtils.valueOf(data));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case "transportation":
-                parsedTransportation.setTransportation(transportation);
-                transportations.add(parsedTransportation);
+                    break;
+                case "transportation":
+                    parsedTransportation.setTransportation(transportation);
+                    transportations.add(parsedTransportation);
+            }
+        } catch (Exception e) {
+            throw new SAXException();
         }
     }
 
