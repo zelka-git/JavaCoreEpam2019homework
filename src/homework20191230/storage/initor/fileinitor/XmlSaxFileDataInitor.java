@@ -4,9 +4,7 @@ import homework20191230.cargo.domain.Cargo;
 import homework20191230.carrier.domain.Carrier;
 import homework20191230.common.business.exception.checked.InitStorageException;
 import homework20191230.common.solutions.utils.FileUtils;
-import homework20191230.storage.initor.fileinitor.handlers.CargoHalder;
-import homework20191230.storage.initor.fileinitor.handlers.CarrierHandler;
-import homework20191230.storage.initor.fileinitor.handlers.TransportationHandler;
+import homework20191230.storage.initor.fileinitor.handlers.Handler;
 import homework20191230.transportation.domain.Transportation;
 
 import javax.xml.parsers.SAXParser;
@@ -32,17 +30,11 @@ public class XmlSaxFileDataInitor extends BaseFileInitor {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
 
-            CargoHalder cargoHalder = new CargoHalder();
-            saxParser.parse(file, cargoHalder);
-            Map<String, Cargo> cargoMap = cargoHalder.getCargoMap();
-
-            CarrierHandler carrierHandler = new CarrierHandler();
-            saxParser.parse(file, carrierHandler);
-            Map<String, Carrier> carrierMap = carrierHandler.getCarrierMap();
-
-            TransportationHandler transportationHandler = new TransportationHandler();
-            saxParser.parse(file, transportationHandler);
-            List<ParsedTransportation> transportations = transportationHandler.getTransportations();
+            Handler handler = new Handler();
+            saxParser.parse(file, handler);
+            Map<String, Cargo> cargoMap = handler.getCargoMap();
+            Map<String, Carrier> carrierMap = handler.getCarrierMap();
+            List<ParsedTransportation> transportations = handler.getTransportations();
 
             setReferencesBetweenEntities(cargoMap, carrierMap, transportations);
 

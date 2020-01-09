@@ -30,7 +30,7 @@ public class Application {
         transportationService = storage.getTransportationService();
         StorageInitor storageInitor;
 
-        storageInitor = StorageInitorFactory.getStorageInitor(InitStorageType.XML_DOM_FILE);
+        storageInitor = StorageInitorFactory.getStorageInitor(InitStorageType.XML_SAX_FILE);
 
         String FILE = "/homework20191230/inputData.txt";
 
