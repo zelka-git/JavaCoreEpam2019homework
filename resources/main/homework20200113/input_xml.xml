@@ -12,7 +12,7 @@
             <size>M</size>
             <material>cotton</material>
         </cargo>
-        <cargo id="3_a" type="COMPUTER">
+        <cargo id="3_a" type="COMPUTERS">
             <name>HP</name>
             <weight>213</weight>
             <description>this a computer</description>

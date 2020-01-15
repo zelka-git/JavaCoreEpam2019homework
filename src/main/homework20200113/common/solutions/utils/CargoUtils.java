@@ -15,7 +15,7 @@ public class CargoUtils {
             case "FOOD":
                 cargo = new FoodCargo();
                 break;
-            case "COMPUTER":
+            case "COMPUTERS":
                 cargo = new ComputerCargo();
                 break;
             case "CLOTHES":

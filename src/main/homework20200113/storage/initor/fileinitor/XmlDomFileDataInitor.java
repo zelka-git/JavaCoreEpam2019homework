@@ -87,7 +87,7 @@ public class XmlDomFileDataInitor extends BaseFileInitor {
                 clothesCargo.setMaterial(XmlDomUtils.getOnlyElementTextContent(cargoEl, "material"));
                 cargoItem = clothesCargo;
                 break;
-            case "COMPUTER":
+            case "COMPUTERS":
                 ComputerCargo computerCargo = new ComputerCargo();
                 computerCargo.setDescription(XmlDomUtils.getOnlyElementTextContent(cargoEl, "description"));
                 cargoItem = computerCargo;

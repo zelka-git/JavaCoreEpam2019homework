@@ -3,9 +3,10 @@ package main.homework20200113.carrier.domain;
 import main.homework20200113.common.business.domain.BaseEntity;
 import main.homework20200113.transportation.domain.Transportation;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Carrier extends BaseEntity {
+public class Carrier extends BaseEntity implements Serializable {
     private String name;
     private String address;
     private CarrierType carrierType;

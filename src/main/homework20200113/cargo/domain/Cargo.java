@@ -3,10 +3,11 @@ package main.homework20200113.cargo.domain;
 import main.homework20200113.common.business.domain.BaseEntity;
 import main.homework20200113.transportation.domain.Transportation;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Cargo extends BaseEntity {
+public abstract class Cargo extends BaseEntity implements Serializable {
     protected String name;
     protected int weight;
     protected CargoType cargoType;

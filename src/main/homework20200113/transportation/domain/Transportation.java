@@ -4,9 +4,10 @@ import main.homework20200113.cargo.domain.Cargo;
 import main.homework20200113.carrier.domain.Carrier;
 import main.homework20200113.common.business.domain.BaseEntity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Transportation extends BaseEntity {
+public class Transportation extends BaseEntity implements Serializable {
     private Cargo cargo;
     private Carrier carrier;
     private String description;

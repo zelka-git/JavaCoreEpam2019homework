@@ -4,10 +4,11 @@ import main.homework20200113.cargo.domain.Cargo;
 import main.homework20200113.carrier.domain.Carrier;
 import main.homework20200113.transportation.domain.Transportation;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Storage {
+public class Storage implements Serializable {
 
     private static final int ARRAY_CAPACITY = 10;
 
