@@ -1,8 +1,6 @@
 package main.homework20200113.common.solutions.utils;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -19,6 +17,13 @@ public final class FileUtils {
             Path tempFile = Files.createTempFile(fileNamePrefix, fileNameSuffix);
             Files.copy(inputStream, tempFile, REPLACE_EXISTING);
             return tempFile.toFile();
+        }
+    }
+
+    public static <T> T readObjectFromFile(String file) throws Exception {
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file))) {
+            Object o = inputStream.readObject();
+            return (T) o;
         }
     }
 
