@@ -1,15 +1,15 @@
 package ru.epam.javacore.homework20191227.storage.initor;
 
-import main.homework20191227.application.serviceholder.ServiceHolder;
-import main.homework20191227.cargo.domain.Cargo;
-import main.homework20191227.cargo.domain.ClothesCargo;
-import main.homework20191227.cargo.domain.ComputerCargo;
-import main.homework20191227.cargo.domain.FoodCargo;
-import main.homework20191227.cargo.service.CargoService;
-import main.homework20191227.carrier.domain.Carrier;
-import main.homework20191227.carrier.service.CarrierService;
-import main.homework20191227.transportation.domain.Transportation;
-import main.homework20191227.transportation.service.TransportationService;
+import ru.epam.javacore.homework20191227.application.serviceholder.ServiceHolder;
+import ru.epam.javacore.homework20191227.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191227.cargo.domain.ClothesCargo;
+import ru.epam.javacore.homework20191227.cargo.domain.ComputerCargo;
+import ru.epam.javacore.homework20191227.cargo.domain.FoodCargo;
+import ru.epam.javacore.homework20191227.cargo.service.CargoService;
+import ru.epam.javacore.homework20191227.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191227.carrier.service.CarrierService;
+import ru.epam.javacore.homework20191227.transportation.domain.Transportation;
+import ru.epam.javacore.homework20191227.transportation.service.TransportationService;
 
 import java.util.Date;
 

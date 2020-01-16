@@ -1,15 +1,15 @@
 package ru.epam.javacore.homework20191225.cargo.repo;
 
-import main.homework20191225.cargo.domain.Cargo;
-import main.homework20191225.cargo.service.TypeSortCargo;
-import main.homework20191225.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20191225.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191225.cargo.service.TypeSortCargo;
+import ru.epam.javacore.homework20191225.common.solutions.utils.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static main.homework20191225.storage.Storage.cargoArray;
-import static main.homework20191225.storage.Storage.sizeCargo;
+import static ru.epam.javacore.homework20191225.storage.Storage.cargoArray;
+import static ru.epam.javacore.homework20191225.storage.Storage.sizeCargo;
 
 public class CargoArrayRepoImpl implements CargoRepo {
 
@@ -68,16 +68,16 @@ public class CargoArrayRepoImpl implements CargoRepo {
         ArrayUtils.copyArray(cargoArray, sortCargoArray, sizeCargo);
         switch (typeSortCargo) {
             case NAME:
-                Arrays.sort(sortCargoArray, main.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_NAME);
+                Arrays.sort(sortCargoArray, ru.epam.javacore.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_NAME);
                 break;
             case WEIGHT:
-                Arrays.sort(sortCargoArray, main.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_WEIGHT);
+                Arrays.sort(sortCargoArray, ru.epam.javacore.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_WEIGHT);
                 break;
             case NAME_WEIGHT:
-                Arrays.sort(sortCargoArray, main.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_NAME.thenComparing(main.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_WEIGHT));
+                Arrays.sort(sortCargoArray, ru.epam.javacore.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_NAME.thenComparing(ru.epam.javacore.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_WEIGHT));
                 break;
             default:
-                Arrays.sort(sortCargoArray, main.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_WEIGHT.thenComparing(CargoComparators.COMPARE_BY_NAME));
+                Arrays.sort(sortCargoArray, ru.epam.javacore.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_WEIGHT.thenComparing(CargoComparators.COMPARE_BY_NAME));
         }
         return Arrays.asList(sortCargoArray);
     }

@@ -1,7 +1,7 @@
 package ru.epam.javacore.homework20191230.common.solutions.utils;
 
-import main.homework20191230.common.business.domain.BaseEntity;
-import main.homework20191230.storage.IdGenerator;
+import ru.epam.javacore.homework20191230.common.business.domain.BaseEntity;
+import ru.epam.javacore.homework20191230.storage.IdGenerator;
 
 import java.util.Iterator;
 import java.util.List;

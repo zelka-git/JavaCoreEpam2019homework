@@ -1,15 +1,15 @@
 package ru.epam.javacore.homework20191225.application;
 
-import main.homework20191225.application.serviceholder.ServiceHolder;
-import main.homework20191225.application.serviceholder.StorageType;
-import main.homework20191225.cargo.service.CargoService;
-import main.homework20191225.cargo.service.TypeSortCargo;
-import main.homework20191225.carrier.service.CarrierService;
-import main.homework20191225.common.solutions.utils.ArrayUtils;
-import main.homework20191225.storage.initor.FileStorageInitor;
-import main.homework20191225.storage.initor.InMemoryStorageInitor;
-import main.homework20191225.storage.initor.StorageInitor;
-import main.homework20191225.transportation.service.TransportationService;
+import ru.epam.javacore.homework20191225.application.serviceholder.ServiceHolder;
+import ru.epam.javacore.homework20191225.application.serviceholder.StorageType;
+import ru.epam.javacore.homework20191225.cargo.service.CargoService;
+import ru.epam.javacore.homework20191225.cargo.service.TypeSortCargo;
+import ru.epam.javacore.homework20191225.carrier.service.CarrierService;
+import ru.epam.javacore.homework20191225.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20191225.storage.initor.FileStorageInitor;
+import ru.epam.javacore.homework20191225.storage.initor.InMemoryStorageInitor;
+import ru.epam.javacore.homework20191225.storage.initor.StorageInitor;
+import ru.epam.javacore.homework20191225.transportation.service.TransportationService;
 
 public class Application {
 
@@ -26,7 +26,7 @@ public class Application {
         carrierService = storage.getCarrierService();
         transportationService = storage.getTransportationService();
 
-        String path = "C:\\Anzhelika\\projects\\ideaProjects\\JavaCore\\src\\main.ru.epam.javacore.homework20191225\\inputData.txt";
+        String path = "C:\\Anzhelika\\projects\\ideaProjects\\JavaCore\\src\\ru.epam.javacore.ru.epam.javacore.homework20191225\\inputData.txt";
         String typeInitor = "File"; //Memory || File
         StorageInitor storageInitor;
 

@@ -1,13 +1,13 @@
 package ru.epam.javacore.homework20191225.cargo.repo;
 
-import main.homework20191225.cargo.domain.Cargo;
-import main.homework20191225.cargo.service.TypeSortCargo;
-import main.homework20191225.common.solutions.utils.ListUtils;
+import ru.epam.javacore.homework20191225.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191225.cargo.service.TypeSortCargo;
+import ru.epam.javacore.homework20191225.common.solutions.utils.ListUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.homework20191225.storage.Storage.cargoList;
+import static ru.epam.javacore.homework20191225.storage.Storage.cargoList;
 
 public class CargoCollectionRepoImpl implements CargoRepo {
     @Override
@@ -57,16 +57,16 @@ public class CargoCollectionRepoImpl implements CargoRepo {
         List<Cargo> sortCargoList = new ArrayList<>(cargoList);
         switch (typeSortCargo) {
             case NAME:
-                sortCargoList.sort(main.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_NAME);
+                sortCargoList.sort(ru.epam.javacore.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_NAME);
                 break;
             case WEIGHT:
-                sortCargoList.sort(main.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_WEIGHT);
+                sortCargoList.sort(ru.epam.javacore.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_WEIGHT);
                 break;
             case NAME_WEIGHT:
-                sortCargoList.sort(main.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_NAME.thenComparing(main.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_WEIGHT));
+                sortCargoList.sort(ru.epam.javacore.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_NAME.thenComparing(ru.epam.javacore.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_WEIGHT));
                 break;
             default:
-                sortCargoList.sort(main.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_WEIGHT.thenComparing(CargoComparators.COMPARE_BY_NAME));
+                sortCargoList.sort(ru.epam.javacore.homework20191225.cargo.repo.CargoComparators.COMPARE_BY_WEIGHT.thenComparing(CargoComparators.COMPARE_BY_NAME));
         }
         return sortCargoList;
     }

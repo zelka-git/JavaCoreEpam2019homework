@@ -20,6 +20,14 @@ public final class FileUtils {
         }
     }
 
+    public static File createFileFromResource(Class clazz, String fileNamePrefix ,String fileNameSuffix, String resourcePath) throws IOException {
+        try(InputStream inputStream = clazz.getResourceAsStream(resourcePath)) {
+            Path tempFile = Files.createTempFile(fileNamePrefix, fileNameSuffix);
+            Files.copy(inputStream, tempFile, REPLACE_EXISTING);
+            return tempFile.toFile();
+        }
+    }
+
     public static <T> T readObjectFromFile(String file) throws Exception {
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file))) {
             Object o = inputStream.readObject();

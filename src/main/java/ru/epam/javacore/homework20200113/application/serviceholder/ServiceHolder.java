@@ -1,17 +1,17 @@
 package ru.epam.javacore.homework20200113.application.serviceholder;
 
-import main.homework20200113.cargo.repo.CargoArrayRepoImpl;
-import main.homework20200113.cargo.repo.CargoCollectionRepoImpl;
-import main.homework20200113.cargo.service.CargoService;
-import main.homework20200113.cargo.service.CargoServiceImpl;
-import main.homework20200113.carrier.repo.CarrierArrayRepoImpl;
-import main.homework20200113.carrier.repo.CarrierCollectionRepoImpl;
-import main.homework20200113.carrier.service.CarrierService;
-import main.homework20200113.carrier.service.CarrierServiceImpl;
-import main.homework20200113.transportation.repo.TransportationArrayRepoImpl;
-import main.homework20200113.transportation.repo.TransportationCollectionRepoImpl;
-import main.homework20200113.transportation.service.TransportationService;
-import main.homework20200113.transportation.service.TransportationServiceImpl;
+import ru.epam.javacore.homework20200113.cargo.repo.CargoArrayRepoImpl;
+import ru.epam.javacore.homework20200113.cargo.repo.CargoCollectionRepoImpl;
+import ru.epam.javacore.homework20200113.cargo.service.CargoService;
+import ru.epam.javacore.homework20200113.cargo.service.CargoServiceImpl;
+import ru.epam.javacore.homework20200113.carrier.repo.CarrierArrayRepoImpl;
+import ru.epam.javacore.homework20200113.carrier.repo.CarrierCollectionRepoImpl;
+import ru.epam.javacore.homework20200113.carrier.service.CarrierService;
+import ru.epam.javacore.homework20200113.carrier.service.CarrierServiceImpl;
+import ru.epam.javacore.homework20200113.transportation.repo.TransportationArrayRepoImpl;
+import ru.epam.javacore.homework20200113.transportation.repo.TransportationCollectionRepoImpl;
+import ru.epam.javacore.homework20200113.transportation.service.TransportationService;
+import ru.epam.javacore.homework20200113.transportation.service.TransportationServiceImpl;
 
 import java.io.Serializable;
 

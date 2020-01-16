@@ -1,9 +1,9 @@
 package ru.epam.javacore.homework20200113.common.solutions.utils;
 
-import main.homework20200113.cargo.domain.Cargo;
-import main.homework20200113.cargo.domain.ClothesCargo;
-import main.homework20200113.cargo.domain.ComputerCargo;
-import main.homework20200113.cargo.domain.FoodCargo;
+import ru.epam.javacore.homework20200113.cargo.domain.Cargo;
+import ru.epam.javacore.homework20200113.cargo.domain.ClothesCargo;
+import ru.epam.javacore.homework20200113.cargo.domain.ComputerCargo;
+import ru.epam.javacore.homework20200113.cargo.domain.FoodCargo;
 
 public class CargoUtils {
     private CargoUtils(){

@@ -1,12 +1,12 @@
 package ru.epam.javacore.homework20191211;
 
-import main.homework20191211.cargo.domain.Cargo;
-import main.homework20191211.cargo.domain.CargoType;
-import main.homework20191211.cargo.domain.Computer;
-import main.homework20191211.cargo.domain.Food;
-import main.homework20191211.carrier.domain.Carrier;
-import main.homework20191211.carrier.domain.CarrierType;
-import main.homework20191211.transportation.Transportation;
+import ru.epam.javacore.homework20191211.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191211.cargo.domain.CargoType;
+import ru.epam.javacore.homework20191211.cargo.domain.Computer;
+import ru.epam.javacore.homework20191211.cargo.domain.Food;
+import ru.epam.javacore.homework20191211.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191211.carrier.domain.CarrierType;
+import ru.epam.javacore.homework20191211.transportation.Transportation;
 
 import java.util.Arrays;
 import java.util.Date;

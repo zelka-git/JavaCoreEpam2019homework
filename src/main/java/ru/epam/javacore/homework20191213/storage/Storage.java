@@ -1,8 +1,8 @@
 package ru.epam.javacore.homework20191213.storage;
 
-import main.homework20191213.cargo.domain.Cargo;
-import main.homework20191213.carrier.domain.Carrier;
-import main.homework20191213.transportation.domain.Transportation;
+import ru.epam.javacore.homework20191213.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191213.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191213.transportation.domain.Transportation;
 
 public class Storage {
     public static Cargo[] cargo;

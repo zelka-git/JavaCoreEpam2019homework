@@ -1,16 +1,16 @@
 package ru.epam.javacore.homework20200113.storage.initor.fileinitor;
 
-import main.homework20200113.cargo.domain.Cargo;
-import main.homework20200113.cargo.domain.ClothesCargo;
-import main.homework20200113.cargo.domain.ComputerCargo;
-import main.homework20200113.cargo.domain.FoodCargo;
-import main.homework20200113.carrier.domain.Carrier;
-import main.homework20200113.carrier.domain.CarrierType;
-import main.homework20200113.common.business.exception.checked.InitStorageException;
-import main.homework20200113.common.solutions.utils.DataUtils;
-import main.homework20200113.common.solutions.utils.FileUtils;
-import main.homework20200113.common.solutions.utils.xml.dom.XmlDomUtils;
-import main.homework20200113.transportation.domain.Transportation;
+import ru.epam.javacore.homework20200113.cargo.domain.Cargo;
+import ru.epam.javacore.homework20200113.cargo.domain.ClothesCargo;
+import ru.epam.javacore.homework20200113.cargo.domain.ComputerCargo;
+import ru.epam.javacore.homework20200113.cargo.domain.FoodCargo;
+import ru.epam.javacore.homework20200113.carrier.domain.Carrier;
+import ru.epam.javacore.homework20200113.carrier.domain.CarrierType;
+import ru.epam.javacore.homework20200113.common.business.exception.checked.InitStorageException;
+import ru.epam.javacore.homework20200113.common.solutions.utils.DataUtils;
+import ru.epam.javacore.homework20200113.common.solutions.utils.FileUtils;
+import ru.epam.javacore.homework20200113.common.solutions.utils.xml.dom.XmlDomUtils;
+import ru.epam.javacore.homework20200113.transportation.domain.Transportation;
 import org.w3c.dom.*;
 
 import java.io.File;

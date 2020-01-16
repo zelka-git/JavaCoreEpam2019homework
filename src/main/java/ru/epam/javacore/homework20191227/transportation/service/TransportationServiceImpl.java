@@ -1,8 +1,8 @@
 package ru.epam.javacore.homework20191227.transportation.service;
 
-import main.homework20191227.common.solutions.utils.ArrayUtils;
-import main.homework20191227.transportation.domain.Transportation;
-import main.homework20191227.transportation.repo.TransportationRepo;
+import ru.epam.javacore.homework20191227.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20191227.transportation.domain.Transportation;
+import ru.epam.javacore.homework20191227.transportation.repo.TransportationRepo;
 
 import java.util.List;
 

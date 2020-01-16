@@ -1,7 +1,7 @@
 package ru.epam.javacore.homework20191216.cargo.service;
 
-import main.homework20191216.cargo.domain.Cargo;
-import main.homework20191216.cargo.repo.CargoRepo;
+import ru.epam.javacore.homework20191216.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191216.cargo.repo.CargoRepo;
 
 public class CargoServiceImpl implements CargoService {
 

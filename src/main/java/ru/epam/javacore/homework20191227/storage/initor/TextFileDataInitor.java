@@ -1,13 +1,13 @@
 package ru.epam.javacore.homework20191227.storage.initor;
 
-import main.homework20191227.application.serviceholder.ServiceHolder;
-import main.homework20191227.cargo.domain.*;
-import main.homework20191227.carrier.domain.Carrier;
-import main.homework20191227.carrier.domain.CarrierType;
-import main.homework20191227.common.business.exception.checked.InitStorageException;
-import main.homework20191227.common.solutions.utils.DataUtils;
-import main.homework20191227.common.solutions.utils.FileUtils;
-import main.homework20191227.transportation.domain.Transportation;
+import ru.epam.javacore.homework20191227.application.serviceholder.ServiceHolder;
+import ru.epam.javacore.homework20191227.cargo.domain.*;
+import ru.epam.javacore.homework20191227.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191227.carrier.domain.CarrierType;
+import ru.epam.javacore.homework20191227.common.business.exception.checked.InitStorageException;
+import ru.epam.javacore.homework20191227.common.solutions.utils.DataUtils;
+import ru.epam.javacore.homework20191227.common.solutions.utils.FileUtils;
+import ru.epam.javacore.homework20191227.transportation.domain.Transportation;
 
 import java.io.*;
 import java.text.ParseException;

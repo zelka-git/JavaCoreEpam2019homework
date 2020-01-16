@@ -1,6 +1,6 @@
 package ru.epam.javacore.homework20191213.carrier.repo;
 
-import main.homework20191213.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191213.carrier.domain.Carrier;
 
 public interface CarrierRepo {
     void add(Carrier carrier);

@@ -1,6 +1,6 @@
 package ru.epam.javacore.homework20191213.cargo.service;
 
-import main.homework20191213.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191213.cargo.domain.Cargo;
 
 public class CargoServiceImpl implements CargoService {
     @Override

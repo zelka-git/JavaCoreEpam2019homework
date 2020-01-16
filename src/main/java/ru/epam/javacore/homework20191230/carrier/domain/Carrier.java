@@ -1,7 +1,7 @@
 package ru.epam.javacore.homework20191230.carrier.domain;
 
-import main.homework20191230.common.business.domain.BaseEntity;
-import main.homework20191230.transportation.domain.Transportation;
+import ru.epam.javacore.homework20191230.common.business.domain.BaseEntity;
+import ru.epam.javacore.homework20191230.transportation.domain.Transportation;
 
 import java.util.List;
 

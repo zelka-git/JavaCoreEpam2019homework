@@ -1,15 +1,15 @@
 package ru.epam.javacore.homework20200113.storage.initor.fileinitor.handlers;
 
-import main.homework20200113.cargo.domain.Cargo;
-import main.homework20200113.cargo.domain.ClothesCargo;
-import main.homework20200113.cargo.domain.ComputerCargo;
-import main.homework20200113.cargo.domain.FoodCargo;
-import main.homework20200113.carrier.domain.Carrier;
-import main.homework20200113.carrier.domain.CarrierType;
-import main.homework20200113.common.solutions.utils.CargoUtils;
-import main.homework20200113.common.solutions.utils.DataUtils;
-import main.homework20200113.storage.initor.fileinitor.BaseFileInitor;
-import main.homework20200113.transportation.domain.Transportation;
+import ru.epam.javacore.homework20200113.cargo.domain.Cargo;
+import ru.epam.javacore.homework20200113.cargo.domain.ClothesCargo;
+import ru.epam.javacore.homework20200113.cargo.domain.ComputerCargo;
+import ru.epam.javacore.homework20200113.cargo.domain.FoodCargo;
+import ru.epam.javacore.homework20200113.carrier.domain.Carrier;
+import ru.epam.javacore.homework20200113.carrier.domain.CarrierType;
+import ru.epam.javacore.homework20200113.common.solutions.utils.CargoUtils;
+import ru.epam.javacore.homework20200113.common.solutions.utils.DataUtils;
+import ru.epam.javacore.homework20200113.storage.initor.fileinitor.BaseFileInitor;
+import ru.epam.javacore.homework20200113.transportation.domain.Transportation;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;

@@ -1,11 +1,11 @@
 package ru.epam.javacore.homework20191216.transportation.repo;
 
-import main.homework20191216.storage.IdGenerator;
-import main.homework20191216.transportation.domain.Transportation;
+import ru.epam.javacore.homework20191216.storage.IdGenerator;
+import ru.epam.javacore.homework20191216.transportation.domain.Transportation;
 
 import java.util.Iterator;
 
-import static main.homework20191216.storage.Storage.transportationList;
+import static ru.epam.javacore.homework20191216.storage.Storage.transportationList;
 
 public class TransportationCollectionRepoImpl implements TransportationRepo {
     @Override

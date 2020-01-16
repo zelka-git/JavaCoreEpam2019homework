@@ -1,7 +1,7 @@
 package ru.epam.javacore.homework20191209.transportation;
 
-import main.homework20191209.cargo.Cargo;
-import main.homework20191209.carrier.Carrier;
+import ru.epam.javacore.homework20191209.cargo.Cargo;
+import ru.epam.javacore.homework20191209.carrier.Carrier;
 
 import java.util.Date;
 

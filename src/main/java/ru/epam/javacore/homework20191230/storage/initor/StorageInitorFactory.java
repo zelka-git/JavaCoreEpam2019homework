@@ -1,8 +1,8 @@
 package ru.epam.javacore.homework20191230.storage.initor;
 
-import main.homework20191230.storage.initor.fileinitor.TextFileDataInitor;
-import main.homework20191230.storage.initor.fileinitor.XmlDomFileDataInitor;
-import main.homework20191230.storage.initor.fileinitor.XmlSaxFileDataInitor;
+import ru.epam.javacore.homework20191230.storage.initor.fileinitor.TextFileDataInitor;
+import ru.epam.javacore.homework20191230.storage.initor.fileinitor.XmlDomFileDataInitor;
+import ru.epam.javacore.homework20191230.storage.initor.fileinitor.XmlSaxFileDataInitor;
 
 public final class StorageInitorFactory {
     private StorageInitorFactory() {

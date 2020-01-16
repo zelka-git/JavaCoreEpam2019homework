@@ -1,9 +1,9 @@
 package ru.epam.javacore.homework20200113.cargo.service;
 
-import main.homework20200113.cargo.domain.Cargo;
-import main.homework20200113.cargo.exception.unckecked.CargoDeleteConstraintViolationException;
-import main.homework20200113.cargo.repo.CargoRepo;
-import main.homework20200113.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20200113.cargo.domain.Cargo;
+import ru.epam.javacore.homework20200113.cargo.exception.unckecked.CargoDeleteConstraintViolationException;
+import ru.epam.javacore.homework20200113.cargo.repo.CargoRepo;
+import ru.epam.javacore.homework20200113.common.solutions.utils.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.List;

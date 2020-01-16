@@ -8,7 +8,7 @@ public class FoodCargo extends Cargo {
     private int storeTemperature;
 
     @Override
-    public main.homework20191225.cargo.domain.CargoType getCargoType() {
+    public ru.epam.javacore.homework20191225.cargo.domain.CargoType getCargoType() {
         return CargoType.FOOD;
     }
 

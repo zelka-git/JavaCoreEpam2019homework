@@ -1,7 +1,7 @@
 package ru.epam.javacore.homework20191227.carrier.service;
 
-import main.homework20191227.carrier.domain.Carrier;
-import main.homework20191227.common.business.service.CommonService;
+import ru.epam.javacore.homework20191227.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191227.common.business.service.CommonService;
 
 import java.util.List;
 

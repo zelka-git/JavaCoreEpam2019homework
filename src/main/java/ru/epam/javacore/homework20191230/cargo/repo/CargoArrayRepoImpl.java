@@ -1,15 +1,15 @@
 package ru.epam.javacore.homework20191230.cargo.repo;
 
-import main.homework20191230.cargo.domain.Cargo;
-import main.homework20191230.cargo.service.TypeSortCargo;
-import main.homework20191230.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20191230.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191230.cargo.service.TypeSortCargo;
+import ru.epam.javacore.homework20191230.common.solutions.utils.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static main.homework20191230.storage.Storage.cargoArray;
-import static main.homework20191230.storage.Storage.sizeCargo;
+import static ru.epam.javacore.homework20191230.storage.Storage.cargoArray;
+import static ru.epam.javacore.homework20191230.storage.Storage.sizeCargo;
 
 public class CargoArrayRepoImpl implements CargoRepo {
 

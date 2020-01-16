@@ -1,7 +1,7 @@
 package ru.epam.javacore.homework20200113.common.solutions.utils;
 
-import main.homework20200113.common.business.domain.BaseEntity;
-import main.homework20200113.storage.IdGenerator;
+import ru.epam.javacore.homework20200113.common.business.domain.BaseEntity;
+import ru.epam.javacore.homework20200113.storage.IdGenerator;
 
 import java.util.Iterator;
 import java.util.List;
@@ -34,5 +34,9 @@ public class ListUtils {
             }
         }
         return false;
+    }
+
+    public static boolean isNotEmpty(List<?> list) {
+        return list != null && !list.isEmpty();
     }
 }

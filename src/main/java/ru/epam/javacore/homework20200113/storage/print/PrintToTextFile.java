@@ -1,11 +1,11 @@
 package ru.epam.javacore.homework20200113.storage.print;
 
-import main.homework20200113.application.serviceholder.ServiceHolder;
-import main.homework20200113.cargo.domain.*;
-import main.homework20200113.carrier.domain.Carrier;
-import main.homework20200113.common.business.exception.checked.PrintStorageException;
-import main.homework20200113.common.solutions.utils.DataUtils;
-import main.homework20200113.transportation.domain.Transportation;
+import ru.epam.javacore.homework20200113.application.serviceholder.ServiceHolder;
+import ru.epam.javacore.homework20200113.cargo.domain.*;
+import ru.epam.javacore.homework20200113.carrier.domain.Carrier;
+import ru.epam.javacore.homework20200113.common.business.exception.checked.PrintStorageException;
+import ru.epam.javacore.homework20200113.common.solutions.utils.DataUtils;
+import ru.epam.javacore.homework20200113.transportation.domain.Transportation;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -14,8 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrintToTextFile implements StoragePrint {
-    private static final String FILE_PATH = "resources/main/ru.epam.javacore.homework20200113/print_out.txt";
-    private static final String DIR_PATH = "resources/main/ru.epam.javacore.homework20200113/";
+    private static final String FILE_PATH = "./src/main/resources/print_out.txt";
 
     private static final String sep = " | ";
 

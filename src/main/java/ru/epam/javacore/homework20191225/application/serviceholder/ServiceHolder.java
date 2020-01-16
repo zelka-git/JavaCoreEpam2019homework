@@ -1,17 +1,17 @@
 package ru.epam.javacore.homework20191225.application.serviceholder;
 
-import main.homework20191225.cargo.repo.CargoArrayRepoImpl;
-import main.homework20191225.cargo.repo.CargoCollectionRepoImpl;
-import main.homework20191225.cargo.service.CargoService;
-import main.homework20191225.cargo.service.CargoServiceImpl;
-import main.homework20191225.carrier.repo.CarrierArrayRepoImpl;
-import main.homework20191225.carrier.repo.CarrierCollectionRepoImpl;
-import main.homework20191225.carrier.service.CarrierService;
-import main.homework20191225.carrier.service.CarrierServiceImpl;
-import main.homework20191225.transportation.repo.TransportationArrayRepoImpl;
-import main.homework20191225.transportation.repo.TransportationCollectionRepoImpl;
-import main.homework20191225.transportation.service.TransportationService;
-import main.homework20191225.transportation.service.TransportationServiceImpl;
+import ru.epam.javacore.homework20191225.cargo.repo.CargoArrayRepoImpl;
+import ru.epam.javacore.homework20191225.cargo.repo.CargoCollectionRepoImpl;
+import ru.epam.javacore.homework20191225.cargo.service.CargoService;
+import ru.epam.javacore.homework20191225.cargo.service.CargoServiceImpl;
+import ru.epam.javacore.homework20191225.carrier.repo.CarrierArrayRepoImpl;
+import ru.epam.javacore.homework20191225.carrier.repo.CarrierCollectionRepoImpl;
+import ru.epam.javacore.homework20191225.carrier.service.CarrierService;
+import ru.epam.javacore.homework20191225.carrier.service.CarrierServiceImpl;
+import ru.epam.javacore.homework20191225.transportation.repo.TransportationArrayRepoImpl;
+import ru.epam.javacore.homework20191225.transportation.repo.TransportationCollectionRepoImpl;
+import ru.epam.javacore.homework20191225.transportation.service.TransportationService;
+import ru.epam.javacore.homework20191225.transportation.service.TransportationServiceImpl;
 
 public class ServiceHolder {
 
@@ -21,7 +21,7 @@ public class ServiceHolder {
     private final CarrierService carrierService;
     private final TransportationService transportationService;
 
-    private ServiceHolder(main.homework20191225.application.serviceholder.StorageType storageType) {
+    private ServiceHolder(ru.epam.javacore.homework20191225.application.serviceholder.StorageType storageType) {
         switch (storageType) {
             case ARRAY:
                 cargoService = new CargoServiceImpl(new CargoArrayRepoImpl());

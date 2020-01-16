@@ -1,7 +1,7 @@
 package ru.epam.javacore.homework20191220.cargo.domain;
 
-import main.homework20191220.common.domain.BaseEntity;
-import main.homework20191220.transportation.domain.Transportation;
+import ru.epam.javacore.homework20191220.common.domain.BaseEntity;
+import ru.epam.javacore.homework20191220.transportation.domain.Transportation;
 
 import java.util.Arrays;
 

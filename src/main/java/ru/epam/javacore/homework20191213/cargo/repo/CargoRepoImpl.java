@@ -1,11 +1,11 @@
 package ru.epam.javacore.homework20191213.cargo.repo;
 
-import main.homework20191213.cargo.domain.Cargo;
-import main.homework20191213.common.utils.ArrayUtils;
-import main.homework20191213.storage.Storage;
+import ru.epam.javacore.homework20191213.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191213.common.utils.ArrayUtils;
+import ru.epam.javacore.homework20191213.storage.Storage;
 
-import static main.homework20191213.storage.Storage.cargo;
-import static main.homework20191213.storage.Storage.sizeCargo;
+import static ru.epam.javacore.homework20191213.storage.Storage.cargo;
+import static ru.epam.javacore.homework20191213.storage.Storage.sizeCargo;
 
 public class CargoRepoImpl implements CargoRepo {
     @Override

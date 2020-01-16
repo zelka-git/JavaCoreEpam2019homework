@@ -1,6 +1,6 @@
 package ru.epam.javacore.homework20191225.cargo.exception.unckecked;
 
-import main.homework20191225.common.business.exception.unchecked.OurCompanyException;
+import ru.epam.javacore.homework20191225.common.business.exception.unchecked.OurCompanyException;
 
 public class CargoDeleteConstraintViolationException extends OurCompanyException {
 

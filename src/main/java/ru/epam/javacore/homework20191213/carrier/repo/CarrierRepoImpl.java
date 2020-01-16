@@ -1,10 +1,10 @@
 package ru.epam.javacore.homework20191213.carrier.repo;
 
-import main.homework20191213.carrier.domain.Carrier;
-import main.homework20191213.common.utils.ArrayUtils;
+import ru.epam.javacore.homework20191213.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191213.common.utils.ArrayUtils;
 
-import static main.homework20191213.storage.Storage.carriers;
-import static main.homework20191213.storage.Storage.sizeCarrier;
+import static ru.epam.javacore.homework20191213.storage.Storage.carriers;
+import static ru.epam.javacore.homework20191213.storage.Storage.sizeCarrier;
 
 public class CarrierRepoImpl implements CarrierRepo {
 

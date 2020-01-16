@@ -5,7 +5,7 @@ public class ClothesCargo extends Cargo {
     private String material;
 
     @Override
-    public main.homework20191225.cargo.domain.CargoType getCargoType() {
+    public ru.epam.javacore.homework20191225.cargo.domain.CargoType getCargoType() {
         return CargoType.CLOTHES;
     }
 

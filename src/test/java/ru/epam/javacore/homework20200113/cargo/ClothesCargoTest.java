@@ -1,15 +1,15 @@
 package ru.epam.javacore.homework20200113.cargo;
 
-import main.homework20200113.application.serviceholder.ServiceHolder;
-import main.homework20200113.cargo.domain.Cargo;
-import main.homework20200113.cargo.domain.CargoType;
-import main.homework20200113.cargo.domain.ClothesCargo;
-import main.homework20200113.common.solutions.utils.FileUtils;
+import ru.epam.javacore.homework20200113.cargo.domain.CargoType;
+import ru.epam.javacore.homework20200113.cargo.domain.ClothesCargo;
+import ru.epam.javacore.homework20200113.common.solutions.utils.FileUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ClothesCargoTest {
     @Test

@@ -1,19 +1,19 @@
 package ru.epam.javacore.homework20191227.application;
 
-import main.homework20191227.application.serviceholder.ServiceHolder;
-import main.homework20191227.application.serviceholder.StorageType;
-import main.homework20191227.cargo.service.CargoService;
-import main.homework20191227.cargo.service.TypeSortCargo;
-import main.homework20191227.carrier.service.CarrierService;
-import main.homework20191227.common.business.exception.checked.InitStorageException;
-import main.homework20191227.common.business.exception.checked.PrintStorageException;
-import main.homework20191227.common.solutions.utils.ArrayUtils;
-import main.homework20191227.storage.initor.TextFileDataInitor;
-import main.homework20191227.storage.initor.InMemoryStorageInitor;
-import main.homework20191227.storage.initor.StorageInitor;
-import main.homework20191227.storage.initor.XmlFileDataInitor;
-import main.homework20191227.storage.print.PrintToTextFile;
-import main.homework20191227.transportation.service.TransportationService;
+import ru.epam.javacore.homework20191227.application.serviceholder.ServiceHolder;
+import ru.epam.javacore.homework20191227.application.serviceholder.StorageType;
+import ru.epam.javacore.homework20191227.cargo.service.CargoService;
+import ru.epam.javacore.homework20191227.cargo.service.TypeSortCargo;
+import ru.epam.javacore.homework20191227.carrier.service.CarrierService;
+import ru.epam.javacore.homework20191227.common.business.exception.checked.InitStorageException;
+import ru.epam.javacore.homework20191227.common.business.exception.checked.PrintStorageException;
+import ru.epam.javacore.homework20191227.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20191227.storage.initor.TextFileDataInitor;
+import ru.epam.javacore.homework20191227.storage.initor.InMemoryStorageInitor;
+import ru.epam.javacore.homework20191227.storage.initor.StorageInitor;
+import ru.epam.javacore.homework20191227.storage.initor.XmlFileDataInitor;
+import ru.epam.javacore.homework20191227.storage.print.PrintToTextFile;
+import ru.epam.javacore.homework20191227.transportation.service.TransportationService;
 
 import java.io.IOException;
 
@@ -31,9 +31,9 @@ public class Application {
         cargoService = storage.getCargoService();
         carrierService = storage.getCarrierService();
         transportationService = storage.getTransportationService();
-//        String path = "recources/main.ru.epam.javacore.homework20191227/input.txt";
-        String path = "resources/main.ru.epam.javacore.homework20191227/inputData.txt";
-        String path1 = "resources/main.ru.epam.javacore.homework20191227/input_xml.xml";
+//        String path = "recources/ru.epam.javacore.ru.epam.javacore.homework20191227/input.txt";
+        String path = "resources/ru.epam.javacore.ru.epam.javacore.homework20191227/inputData.txt";
+        String path1 = "resources/ru.epam.javacore.ru.epam.javacore.homework20191227/input_xml.xml";
         String typeInitor = "XmlFile"; //Memory || TextFile || XmlFile
         StorageInitor storageInitor;
 

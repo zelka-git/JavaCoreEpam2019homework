@@ -1,8 +1,8 @@
 package ru.epam.javacore.homework20191211.transportation;
 
-import main.homework20191211.cargo.domain.Cargo;
-import main.homework20191211.carrier.domain.Carrier;
-import main.homework20191211.domain.BaseEntity;
+import ru.epam.javacore.homework20191211.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191211.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191211.domain.BaseEntity;
 
 import java.util.Date;
 

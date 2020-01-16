@@ -1,6 +1,6 @@
 package ru.epam.javacore.homework20191209.cargo;
 
-import main.homework20191209.transportation.Transportation;
+import ru.epam.javacore.homework20191209.transportation.Transportation;
 
 import java.util.Arrays;
 

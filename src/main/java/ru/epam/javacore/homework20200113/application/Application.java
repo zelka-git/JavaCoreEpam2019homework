@@ -1,19 +1,23 @@
 package ru.epam.javacore.homework20200113.application;
 
-import main.homework20200113.application.serviceholder.ServiceHolder;
-import main.homework20200113.application.serviceholder.StorageType;
-import main.homework20200113.cargo.service.CargoService;
-import main.homework20200113.cargo.service.TypeSortCargo;
-import main.homework20200113.carrier.service.CarrierService;
-import main.homework20200113.common.business.exception.checked.InitStorageException;
-import main.homework20200113.common.business.exception.checked.PrintStorageException;
-import main.homework20200113.common.solutions.utils.ArrayUtils;
-import main.homework20200113.storage.initor.InitStorageType;
-import main.homework20200113.storage.initor.StorageInitor;
-import main.homework20200113.storage.initor.StorageInitorFactory;
-import main.homework20200113.storage.print.PrintToTextFile;
-import main.homework20200113.transportation.service.TransportationService;
+import ru.epam.javacore.homework20200113.application.serviceholder.ServiceHolder;
+import ru.epam.javacore.homework20200113.application.serviceholder.StorageType;
+import ru.epam.javacore.homework20200113.cargo.service.CargoService;
+import ru.epam.javacore.homework20200113.cargo.service.TypeSortCargo;
+import ru.epam.javacore.homework20200113.carrier.service.CarrierService;
+import ru.epam.javacore.homework20200113.common.business.exception.checked.InitStorageException;
+import ru.epam.javacore.homework20200113.common.business.exception.checked.PrintStorageException;
+import ru.epam.javacore.homework20200113.common.business.exception.checked.ReportException;
+import ru.epam.javacore.homework20200113.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20200113.reporting.ReportDefaultService;
+import ru.epam.javacore.homework20200113.reporting.ReportService;
+import ru.epam.javacore.homework20200113.storage.initor.InitStorageType;
+import ru.epam.javacore.homework20200113.storage.initor.StorageInitor;
+import ru.epam.javacore.homework20200113.storage.initor.StorageInitorFactory;
+import ru.epam.javacore.homework20200113.storage.print.PrintToTextFile;
+import ru.epam.javacore.homework20200113.transportation.service.TransportationService;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Application {
@@ -30,6 +34,13 @@ public class Application {
         transportationService = storage.getTransportationService();
         StorageInitor storageInitor;
 
+        File file = new File("/ru/epam/javacore/homework20200113/input_xml.xml");
+        File file1 = new File("C:\\Anzhelika\\projects\\ideaProjects\\JavaCore\\src\\main\\resources\\ru\\epam\\javacore\\homework20200113\\input_xml.xml");
+        System.out.println(file.exists());
+        System.out.println(file1.exists());
+
+
+
         storageInitor = StorageInitorFactory.getStorageInitor(InitStorageType.XML_SAX_FILE);
 
         try {
@@ -43,6 +54,15 @@ public class Application {
         }
 
         printStorage();
+
+        ReportService reportService = new ReportDefaultService(
+                cargoService, carrierService, transportationService
+        );
+        try {
+            reportService.exportData();
+        } catch (ReportException e) {
+            e.printStackTrace();
+        }
 
         PrintToTextFile printToTextFile = new PrintToTextFile();
         try {

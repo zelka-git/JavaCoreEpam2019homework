@@ -1,8 +1,8 @@
 package ru.epam.javacore.homework20191223.storage;
 
-import main.homework20191223.cargo.domain.Cargo;
-import main.homework20191223.carrier.domain.Carrier;
-import main.homework20191223.transportation.domain.Transportation;
+import ru.epam.javacore.homework20191223.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191223.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191223.transportation.domain.Transportation;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,11 +1,11 @@
 package ru.epam.javacore.homework20191230.storage.initor.fileinitor;
 
-import main.homework20191230.cargo.domain.Cargo;
-import main.homework20191230.carrier.domain.Carrier;
-import main.homework20191230.common.business.exception.checked.InitStorageException;
-import main.homework20191230.common.solutions.utils.FileUtils;
-import main.homework20191230.storage.initor.fileinitor.handlers.Handler;
-import main.homework20191230.transportation.domain.Transportation;
+import ru.epam.javacore.homework20191230.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191230.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191230.common.business.exception.checked.InitStorageException;
+import ru.epam.javacore.homework20191230.common.solutions.utils.FileUtils;
+import ru.epam.javacore.homework20191230.storage.initor.fileinitor.handlers.Handler;
+import ru.epam.javacore.homework20191230.transportation.domain.Transportation;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;

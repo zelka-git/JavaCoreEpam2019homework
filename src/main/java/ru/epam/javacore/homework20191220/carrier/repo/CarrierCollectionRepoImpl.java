@@ -1,13 +1,13 @@
 package ru.epam.javacore.homework20191220.carrier.repo;
 
-import main.homework20191220.carrier.domain.Carrier;
-import main.homework20191220.storage.IdGenerator;
+import ru.epam.javacore.homework20191220.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191220.storage.IdGenerator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static main.homework20191220.storage.Storage.carriersList;
+import static ru.epam.javacore.homework20191220.storage.Storage.carriersList;
 
 public class CarrierCollectionRepoImpl implements CarrierRepo {
 

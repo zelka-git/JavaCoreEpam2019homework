@@ -1,13 +1,13 @@
 package ru.epam.javacore.homework20191216.cargo.repo;
 
-import main.homework20191216.cargo.domain.Cargo;
-import main.homework20191216.storage.IdGenerator;
+import ru.epam.javacore.homework20191216.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191216.storage.IdGenerator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static main.homework20191216.storage.Storage.cargoList;
+import static ru.epam.javacore.homework20191216.storage.Storage.cargoList;
 
 public class CargoCollectionRepoImpl implements CargoRepo {
     @Override

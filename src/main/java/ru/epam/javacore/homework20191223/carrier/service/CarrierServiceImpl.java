@@ -1,9 +1,9 @@
 package ru.epam.javacore.homework20191223.carrier.service;
 
-import main.homework20191223.carrier.domain.Carrier;
-import main.homework20191223.carrier.exception.unckecked.CarrierDeleteConstraintViolationException;
-import main.homework20191223.carrier.repo.CarrierRepo;
-import main.homework20191223.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20191223.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191223.carrier.exception.unckecked.CarrierDeleteConstraintViolationException;
+import ru.epam.javacore.homework20191223.carrier.repo.CarrierRepo;
+import ru.epam.javacore.homework20191223.common.solutions.utils.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.List;

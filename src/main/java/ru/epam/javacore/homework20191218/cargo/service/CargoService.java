@@ -1,7 +1,7 @@
 package ru.epam.javacore.homework20191218.cargo.service;
 
-import main.homework20191218.cargo.domain.Cargo;
-import main.homework20191218.common.service.CommonService;
+import ru.epam.javacore.homework20191218.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191218.common.service.CommonService;
 
 public interface CargoService extends CommonService {
     void add(Cargo cargo);

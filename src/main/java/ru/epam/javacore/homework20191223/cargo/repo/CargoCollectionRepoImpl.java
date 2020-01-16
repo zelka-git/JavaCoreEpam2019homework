@@ -1,13 +1,13 @@
 package ru.epam.javacore.homework20191223.cargo.repo;
 
-import main.homework20191223.cargo.domain.Cargo;
-import main.homework20191223.cargo.service.TypeSortCargo;
-import main.homework20191223.common.solutions.utils.ListUtils;
+import ru.epam.javacore.homework20191223.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191223.cargo.service.TypeSortCargo;
+import ru.epam.javacore.homework20191223.common.solutions.utils.ListUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static main.homework20191223.storage.Storage.cargoList;
+import static ru.epam.javacore.homework20191223.storage.Storage.cargoList;
 
 public class CargoCollectionRepoImpl implements CargoRepo {
     @Override

@@ -1,6 +1,6 @@
 package ru.epam.javacore.homework20191213.cargo.repo;
 
-import main.homework20191213.cargo.domain.Cargo;
+import ru.epam.javacore.homework20191213.cargo.domain.Cargo;
 
 public interface CargoRepo {
     void add(Cargo cargo);

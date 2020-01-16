@@ -1,13 +1,13 @@
 package ru.epam.javacore.homework20191227.transportation.repo;
 
-import main.homework20191227.common.solutions.utils.ArrayUtils;
-import main.homework20191227.transportation.domain.Transportation;
+import ru.epam.javacore.homework20191227.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20191227.transportation.domain.Transportation;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static main.homework20191227.storage.Storage.sizeTransportation;
-import static main.homework20191227.storage.Storage.transportationArray;
+import static ru.epam.javacore.homework20191227.storage.Storage.sizeTransportation;
+import static ru.epam.javacore.homework20191227.storage.Storage.transportationArray;
 
 public class TransportationArrayRepoImpl implements TransportationRepo {
     @Override

@@ -1,6 +1,6 @@
 package ru.epam.javacore.homework20191230.carrier.exception.unckecked;
 
-import main.homework20191230.common.business.exception.unchecked.OurCompanyUncheckedException;
+import ru.epam.javacore.homework20191230.common.business.exception.unchecked.OurCompanyUncheckedException;
 
 public class CarrierDeleteConstraintViolationException extends OurCompanyUncheckedException {
 

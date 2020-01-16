@@ -1,8 +1,8 @@
 package ru.epam.javacore.homework20191220.carrier.service;
 
-import main.homework20191220.carrier.domain.Carrier;
-import main.homework20191220.carrier.repo.CarrierRepo;
-import main.homework20191220.common.utils.ArrayUtils;
+import ru.epam.javacore.homework20191220.carrier.domain.Carrier;
+import ru.epam.javacore.homework20191220.carrier.repo.CarrierRepo;
+import ru.epam.javacore.homework20191220.common.utils.ArrayUtils;
 
 public class CarrierServiceImpl implements CarrierService {
 

@@ -1,12 +1,11 @@
 package ru.epam.javacore.homework20200113.storage;
 
-import main.homework20200113.application.serviceholder.ServiceHolder;
-import main.homework20200113.application.serviceholder.StorageType;
-import main.homework20200113.cargo.domain.Cargo;
-import main.homework20200113.storage.Storage;
-import main.homework20200113.storage.initor.InitStorageType;
-import main.homework20200113.storage.initor.StorageInitor;
-import main.homework20200113.storage.initor.StorageInitorFactory;
+import ru.epam.javacore.homework20200113.application.serviceholder.ServiceHolder;
+import ru.epam.javacore.homework20200113.application.serviceholder.StorageType;
+import ru.epam.javacore.homework20200113.cargo.domain.Cargo;
+import ru.epam.javacore.homework20200113.storage.initor.InitStorageType;
+import ru.epam.javacore.homework20200113.storage.initor.StorageInitor;
+import ru.epam.javacore.homework20200113.storage.initor.StorageInitorFactory;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;

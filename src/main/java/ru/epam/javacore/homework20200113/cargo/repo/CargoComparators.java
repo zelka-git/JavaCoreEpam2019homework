@@ -1,6 +1,6 @@
 package ru.epam.javacore.homework20200113.cargo.repo;
 
-import main.homework20200113.cargo.domain.Cargo;
+import ru.epam.javacore.homework20200113.cargo.domain.Cargo;
 
 import java.util.Comparator;
 

@@ -1,7 +1,7 @@
 package ru.epam.javacore.homework20191218.transportation.service;
 
-import main.homework20191218.common.service.CommonService;
-import main.homework20191218.transportation.domain.Transportation;
+import ru.epam.javacore.homework20191218.common.service.CommonService;
+import ru.epam.javacore.homework20191218.transportation.domain.Transportation;
 
 public interface TransportationService extends CommonService {
     void add(Transportation transportation);

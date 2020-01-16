@@ -1,16 +1,16 @@
 package ru.epam.javacore.homework20191225.transportation.service;
 
-import main.homework20191225.cargo.repo.CargoArrayRepoImpl;
-import main.homework20191225.cargo.repo.CargoCollectionRepoImpl;
-import main.homework20191225.cargo.repo.CargoRepo;
-import main.homework20191225.carrier.repo.CarrierArrayRepoImpl;
-import main.homework20191225.carrier.repo.CarrierCollectionRepoImpl;
-import main.homework20191225.carrier.repo.CarrierRepo;
-import main.homework20191225.common.solutions.utils.ArrayUtils;
-import main.homework20191225.transportation.domain.Transportation;
-import main.homework20191225.transportation.repo.TransportationArrayRepoImpl;
-import main.homework20191225.transportation.repo.TransportationCollectionRepoImpl;
-import main.homework20191225.transportation.repo.TransportationRepo;
+import ru.epam.javacore.homework20191225.cargo.repo.CargoArrayRepoImpl;
+import ru.epam.javacore.homework20191225.cargo.repo.CargoCollectionRepoImpl;
+import ru.epam.javacore.homework20191225.cargo.repo.CargoRepo;
+import ru.epam.javacore.homework20191225.carrier.repo.CarrierArrayRepoImpl;
+import ru.epam.javacore.homework20191225.carrier.repo.CarrierCollectionRepoImpl;
+import ru.epam.javacore.homework20191225.carrier.repo.CarrierRepo;
+import ru.epam.javacore.homework20191225.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20191225.transportation.domain.Transportation;
+import ru.epam.javacore.homework20191225.transportation.repo.TransportationArrayRepoImpl;
+import ru.epam.javacore.homework20191225.transportation.repo.TransportationCollectionRepoImpl;
+import ru.epam.javacore.homework20191225.transportation.repo.TransportationRepo;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,18 +1,18 @@
 package ru.epam.javacore.homework20191230.application;
 
-import main.homework20191230.application.serviceholder.ServiceHolder;
-import main.homework20191230.application.serviceholder.StorageType;
-import main.homework20191230.cargo.service.CargoService;
-import main.homework20191230.cargo.service.TypeSortCargo;
-import main.homework20191230.carrier.service.CarrierService;
-import main.homework20191230.common.business.exception.checked.InitStorageException;
-import main.homework20191230.common.business.exception.checked.PrintStorageException;
-import main.homework20191230.common.solutions.utils.ArrayUtils;
-import main.homework20191230.storage.initor.InitStorageType;
-import main.homework20191230.storage.initor.StorageInitor;
-import main.homework20191230.storage.initor.StorageInitorFactory;
-import main.homework20191230.storage.print.PrintToTextFile;
-import main.homework20191230.transportation.service.TransportationService;
+import ru.epam.javacore.homework20191230.application.serviceholder.ServiceHolder;
+import ru.epam.javacore.homework20191230.application.serviceholder.StorageType;
+import ru.epam.javacore.homework20191230.cargo.service.CargoService;
+import ru.epam.javacore.homework20191230.cargo.service.TypeSortCargo;
+import ru.epam.javacore.homework20191230.carrier.service.CarrierService;
+import ru.epam.javacore.homework20191230.common.business.exception.checked.InitStorageException;
+import ru.epam.javacore.homework20191230.common.business.exception.checked.PrintStorageException;
+import ru.epam.javacore.homework20191230.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20191230.storage.initor.InitStorageType;
+import ru.epam.javacore.homework20191230.storage.initor.StorageInitor;
+import ru.epam.javacore.homework20191230.storage.initor.StorageInitorFactory;
+import ru.epam.javacore.homework20191230.storage.print.PrintToTextFile;
+import ru.epam.javacore.homework20191230.transportation.service.TransportationService;
 
 import java.io.IOException;
 
