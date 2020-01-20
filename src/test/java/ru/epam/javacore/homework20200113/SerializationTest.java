@@ -15,14 +15,19 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import static ru.epam.javacore.homework20200113.common.solutions.comparator.SimpleComparator.LONG_COMPARATOR;
+import static ru.epam.javacore.homework20200113.common.solutions.comparator.SimpleComparator.STRING_COMPARATOR;
+
 public class SerializationTest {
     private Path tempFile = null;
+
     @BeforeEach
-    public void createTempFile() throws IOException{
+    public void createTempFile() throws IOException {
         tempFile = Files.createTempFile("temp", "test");
     }
+
     @AfterEach
-    public void deleteTempFile(){
+    public void deleteTempFile() {
         deleteFile(tempFile);
     }
 
@@ -89,14 +94,15 @@ public class SerializationTest {
     }
 
     private void deleteFile(Path path) {
-        if (path != null && path.toFile().isFile()){
-            try{
+        if (path != null && path.toFile().isFile()) {
+            try {
                 Files.delete(path);
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
+
     private <T> void serializeToFile(T entity, String file) throws Exception {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file))) {
             outputStream.writeObject(entity);
@@ -195,7 +201,7 @@ public class SerializationTest {
     }
 
     private boolean areClotheEntitiesEquals(List<ClothesCargo> clothes1,
-                                             List<ClothesCargo> clothes2) {
+                                            List<ClothesCargo> clothes2) {
         if (clothes1 == null && clothes2 == null) {
             return true;
         } else if (clothes1 != null && clothes2 == null) {
