@@ -52,19 +52,12 @@ public class XmlSaxFileDataInitorMultithreading extends BaseFileInitor {
                 }
             });
 
-            Thread persistTr = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    persistTransportations(transportationList);
-                }
-            });
             persistCar.start();
             persistCarri.start();
-            persistTr.start();
 
             persistCar.join();
             persistCarri.join();
-            persistTr.join();
+            persistTransportations(transportationList);
 
         } catch (Exception e) {
             e.printStackTrace();
