@@ -1,0 +1,83 @@
+package ru.epam.javacore.homework20200120.storage.initor.fileinitor;
+
+import ru.epam.javacore.homework20200120.cargo.domain.Cargo;
+import ru.epam.javacore.homework20200120.carrier.domain.Carrier;
+import ru.epam.javacore.homework20200120.common.business.exception.checked.InitStorageException;
+import ru.epam.javacore.homework20200120.common.solutions.utils.FileUtils;
+import ru.epam.javacore.homework20200120.storage.initor.fileinitor.handlers.Handler;
+import ru.epam.javacore.homework20200120.transportation.domain.Transportation;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+public class XmlSaxFileDataInitorMultithreading extends BaseFileInitor {
+    private final String path;
+
+    public XmlSaxFileDataInitorMultithreading(String path) {
+        this.path = path;
+    }
+
+    @Override
+    public void initStorage() throws InitStorageException {
+        File file = null;
+        try {
+            file = getFileWithInitData();
+
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser saxParser = factory.newSAXParser();
+
+            Handler handler = new Handler();
+            saxParser.parse(file, handler);
+            Map<String, Cargo> cargoMap = handler.getCargoMap();
+            Map<String, Carrier> carrierMap = handler.getCarrierMap();
+            List<ParsedTransportation> transportations = handler.getTransportations();
+
+            setReferencesBetweenEntities(cargoMap, carrierMap, transportations);
+            List<Transportation> transportationList = getTransportationsFromParsedObject(transportations);
+
+            Thread persistCar  = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    persistCargos(cargoMap.values());
+                }
+            });
+            Thread persistCarri = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    persistCarriers(carrierMap.values());
+                }
+            });
+
+            Thread persistTr = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    persistTransportations(transportationList);
+                }
+            });
+            persistCar.start();
+            persistCarri.start();
+            persistTr.start();
+
+            persistCar.join();
+            persistCarri.join();
+            persistTr.join();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new InitStorageException(e.getMessage());
+        } finally {
+            if (file != null) {
+                file.delete();
+            }
+        }
+
+    }
+
+    private File getFileWithInitData() throws IOException {
+        return FileUtils.createFileFromResource(XmlSaxFileDataInitorMultithreading.class, "input", "lesson11", path);
+    }
+}
