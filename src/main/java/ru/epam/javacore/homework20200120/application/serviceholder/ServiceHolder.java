@@ -4,12 +4,12 @@ import ru.epam.javacore.homework20200120.cargo.repo.impl.CargoArrayRepoImpl;
 import ru.epam.javacore.homework20200120.cargo.repo.impl.CargoCollectionRepoImpl;
 import ru.epam.javacore.homework20200120.cargo.service.CargoService;
 import ru.epam.javacore.homework20200120.cargo.service.CargoServiceImpl;
-import ru.epam.javacore.homework20200120.carrier.repo.CarrierArrayRepoImpl;
-import ru.epam.javacore.homework20200120.carrier.repo.CarrierCollectionRepoImpl;
+import ru.epam.javacore.homework20200120.carrier.repo.impl.CarrierArrayRepoImpl;
+import ru.epam.javacore.homework20200120.carrier.repo.impl.CarrierCollectionRepoImpl;
 import ru.epam.javacore.homework20200120.carrier.service.CarrierService;
 import ru.epam.javacore.homework20200120.carrier.service.CarrierServiceImpl;
-import ru.epam.javacore.homework20200120.transportation.repo.TransportationArrayRepoImpl;
-import ru.epam.javacore.homework20200120.transportation.repo.TransportationCollectionRepoImpl;
+import ru.epam.javacore.homework20200120.transportation.repo.impl.TransportationArrayRepoImpl;
+import ru.epam.javacore.homework20200120.transportation.repo.impl.TransportationCollectionRepoImpl;
 import ru.epam.javacore.homework20200120.transportation.service.TransportationService;
 import ru.epam.javacore.homework20200120.transportation.service.TransportationServiceImpl;
 
