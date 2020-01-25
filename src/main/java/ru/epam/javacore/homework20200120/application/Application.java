@@ -33,7 +33,7 @@ public class Application {
             transportationService = storage.getTransportationService();
 
             StorageInitor storageInitor;
-            storageInitor = StorageInitorFactory.getStorageInitor(InitStorageType.XML_SAX_FILE_MULTITHREAD);
+            storageInitor = StorageInitorFactory.getStorageInitor(InitStorageType.MULTI_THREAD);
             storageInitor.initStorage();
 
             printStorage();

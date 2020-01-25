@@ -1,9 +1,10 @@
 package ru.epam.javacore.homework20200120.storage.initor;
 
 import ru.epam.javacore.homework20200120.storage.initor.fileinitor.TextFileDataInitor;
-import ru.epam.javacore.homework20200120.storage.initor.fileinitor.XmlDomFileDataInitor;
+import ru.epam.javacore.homework20200120.storage.initor.fileinitor.xml.dom.XmlDomFileDataInitor;
 import ru.epam.javacore.homework20200120.storage.initor.fileinitor.XmlSaxFileDataInitor;
 import ru.epam.javacore.homework20200120.storage.initor.fileinitor.XmlSaxFileDataInitorMultithreading;
+import ru.epam.javacore.homework20200120.storage.initor.multithread.MultiThreadStorageInitor;
 
 public final class StorageInitorFactory {
     private StorageInitorFactory() {
@@ -26,6 +27,8 @@ public final class StorageInitorFactory {
                 return new XmlSaxFileDataInitor(pathXml);
             case XML_SAX_FILE_MULTITHREAD:
                 return new XmlSaxFileDataInitorMultithreading(pathXml);
+            case MULTI_THREAD:
+                return new MultiThreadStorageInitor(pathXml);
             default:
                 throw new RuntimeException("Unknown storage init type" + initStorageType);
         }

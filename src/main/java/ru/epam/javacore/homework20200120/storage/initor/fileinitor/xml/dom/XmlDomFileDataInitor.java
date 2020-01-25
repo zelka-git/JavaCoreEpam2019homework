@@ -1,4 +1,4 @@
-package ru.epam.javacore.homework20200120.storage.initor.fileinitor;
+package ru.epam.javacore.homework20200120.storage.initor.fileinitor.xml.dom;
 
 import org.w3c.dom.*;
 import ru.epam.javacore.homework20200120.cargo.domain.Cargo;
@@ -11,6 +11,7 @@ import ru.epam.javacore.homework20200120.common.business.exception.checked.InitS
 import ru.epam.javacore.homework20200120.common.solutions.utils.DataUtils;
 import ru.epam.javacore.homework20200120.common.solutions.utils.FileUtils;
 import ru.epam.javacore.homework20200120.common.solutions.utils.xml.dom.XmlDomUtils;
+import ru.epam.javacore.homework20200120.storage.initor.fileinitor.BaseFileInitor;
 import ru.epam.javacore.homework20200120.transportation.domain.Transportation;
 
 import java.io.File;

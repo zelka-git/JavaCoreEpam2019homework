@@ -1,4 +1,4 @@
-package ru.epam.javacore.homework20200120.storage.initor.fileinitor.handlers;
+package ru.epam.javacore.homework20200120.storage.initor.fileinitor.xml.sax;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Handler extends DefaultHandler {
+public class SaxHandler extends DefaultHandler {
 
     private StringBuilder stringBuilder = new StringBuilder();
     private Map<String, Cargo> cargoMap;

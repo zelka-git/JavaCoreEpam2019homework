@@ -4,7 +4,7 @@ import ru.epam.javacore.homework20200120.cargo.domain.Cargo;
 import ru.epam.javacore.homework20200120.carrier.domain.Carrier;
 import ru.epam.javacore.homework20200120.common.business.exception.checked.InitStorageException;
 import ru.epam.javacore.homework20200120.common.solutions.utils.FileUtils;
-import ru.epam.javacore.homework20200120.storage.initor.fileinitor.handlers.Handler;
+import ru.epam.javacore.homework20200120.storage.initor.fileinitor.xml.sax.SaxHandler;
 import ru.epam.javacore.homework20200120.transportation.domain.Transportation;
 
 import javax.xml.parsers.SAXParser;
@@ -30,7 +30,7 @@ public class XmlSaxFileDataInitorMultithreading extends BaseFileInitor {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
 
-            Handler handler = new Handler();
+            SaxHandler handler = new SaxHandler();
             saxParser.parse(file, handler);
             Map<String, Cargo> cargoMap = handler.getCargoMap();
             Map<String, Carrier> carrierMap = handler.getCarrierMap();

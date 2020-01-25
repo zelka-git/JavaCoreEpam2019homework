@@ -5,10 +5,10 @@
 
 ---CARRIERS---
 4 | Fast delivery | Moscow | CAR | 
-6 | Slow delivery | Kiev | TRAIN | 
-7 | Super delivery | Rostov | SHIP | 
+5 | Slow delivery | Kiev | TRAIN | 
+6 | Super delivery | Rostov | SHIP | 
 
 ---TRANSPORTATIONS---
-5 | 1 | 4 | this transportation 1 | P. N. Ivanov | 20.02.2020 | 
-8 | 2 | 6 | this transportation 2 | U. N. Romanov | 22.03.2020 | 
-9 | 3 | 7 | this transportation 3 | I. D. Titov | 20.06.2020 | 
+7 | 1 | 4 | this transportation 1 | P. N. Ivanov | 20.02.2020 | 
+8 | 2 | 5 | this transportation 2 | U. N. Romanov | 22.03.2020 | 
+9 | 3 | 6 | this transportation 3 | I. D. Titov | 20.06.2020 | 
