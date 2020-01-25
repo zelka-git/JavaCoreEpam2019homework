@@ -1,15 +1,19 @@
-package ru.epam.javacore.homework20200120.cargo.repo;
+package ru.epam.javacore.homework20200120.cargo.repo.impl;
 
 import ru.epam.javacore.homework20200120.cargo.domain.Cargo;
+import ru.epam.javacore.homework20200120.cargo.repo.CargoComparators;
+import ru.epam.javacore.homework20200120.cargo.repo.CargoRepo;
+import ru.epam.javacore.homework20200120.cargo.search.CargoSearchCondition;
 import ru.epam.javacore.homework20200120.cargo.service.TypeSortCargo;
 import ru.epam.javacore.homework20200120.common.solutions.utils.ListUtils;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import static ru.epam.javacore.homework20200120.storage.Storage.cargoList;
 
-public class CargoCollectionRepoImpl implements CargoRepo {
+public class CargoCollectionRepoImpl extends CommonCargoRepo{
     @Override
     public void add(Cargo cargo) {
         ListUtils.addToList(cargo, cargoList);
@@ -69,6 +73,20 @@ public class CargoCollectionRepoImpl implements CargoRepo {
                 sortCargoList.sort(CargoComparators.COMPARE_BY_WEIGHT.thenComparing(CargoComparators.COMPARE_BY_NAME));
         }
         return sortCargoList;
+    }
+
+    @Override
+    public List<Cargo> search(CargoSearchCondition searchCondition) {
+        List<Cargo> cargos = getAll();
+
+        if (!cargos.isEmpty()) {
+            if (searchCondition.needSorting()) {
+                Comparator<Cargo> cargoComparator = createCargoComparator(searchCondition);
+                cargos.sort(searchCondition.isAscOrdering() ? cargoComparator : cargoComparator.reversed());
+            }
+        }
+
+        return cargos;
     }
 
     @Override

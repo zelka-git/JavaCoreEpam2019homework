@@ -3,6 +3,7 @@ package ru.epam.javacore.homework20200120.cargo.service;
 import ru.epam.javacore.homework20200120.cargo.domain.Cargo;
 import ru.epam.javacore.homework20200120.cargo.exception.unckecked.CargoDeleteConstraintViolationException;
 import ru.epam.javacore.homework20200120.cargo.repo.CargoRepo;
+import ru.epam.javacore.homework20200120.cargo.search.CargoSearchCondition;
 import ru.epam.javacore.homework20200120.common.solutions.utils.ArrayUtils;
 
 import java.util.ArrayList;
@@ -79,6 +80,11 @@ public class CargoServiceImpl implements CargoService {
     @Override
     public List<Cargo> getAllSortedItems(TypeSortCargo typeSortCargo) {
         return cargoRepo.getAllSortedItems(typeSortCargo);
+    }
+
+    @Override
+    public List<Cargo> search(CargoSearchCondition cargoSearchCondition) {
+        return cargoRepo.search(cargoSearchCondition);
     }
 
 

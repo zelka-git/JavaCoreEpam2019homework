@@ -1,7 +1,7 @@
 package ru.epam.javacore.homework20200120.application.serviceholder;
 
-import ru.epam.javacore.homework20200120.cargo.repo.CargoArrayRepoImpl;
-import ru.epam.javacore.homework20200120.cargo.repo.CargoCollectionRepoImpl;
+import ru.epam.javacore.homework20200120.cargo.repo.impl.CargoArrayRepoImpl;
+import ru.epam.javacore.homework20200120.cargo.repo.impl.CargoCollectionRepoImpl;
 import ru.epam.javacore.homework20200120.cargo.service.CargoService;
 import ru.epam.javacore.homework20200120.cargo.service.CargoServiceImpl;
 import ru.epam.javacore.homework20200120.carrier.repo.CarrierArrayRepoImpl;
