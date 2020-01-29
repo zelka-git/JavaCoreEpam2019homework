@@ -42,12 +42,12 @@ public class CargoArrayRepoImpl extends CommonCargoRepo {
     }
 
     @Override
-    public Cargo getById(Long id) {
+    public Optional<Cargo> getById(Long id) {
         return ArrayUtils.getByIdFromArray(id, cargoArray);
     }
 
     @Override
-    public Cargo getByIdFetchingTransportations(long id) {
+    public Optional<Cargo> getByIdFetchingTransportations(long id) {
         return getById(id);
     }
 

@@ -3,11 +3,12 @@ package ru.epam.javacore.homework20200127.carrier.service;
 import ru.epam.javacore.homework20200127.carrier.domain.Carrier;
 import ru.epam.javacore.homework20200127.carrier.exception.unckecked.CarrierDeleteConstraintViolationException;
 import ru.epam.javacore.homework20200127.carrier.repo.CarrierRepo;
-import ru.epam.javacore.homework20200127.carrier.service.CarrierService;
 import ru.epam.javacore.homework20200127.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20200127.transportation.domain.Transportation;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class CarrierServiceImpl implements CarrierService {
 
@@ -38,6 +39,15 @@ public class CarrierServiceImpl implements CarrierService {
     }
 
     @Override
+    public Optional<Carrier> getByIdFetchingTransportations(Long id) {
+        if (id != null) {
+            return carrierRepo.getByIdFetchingTransportations(id);
+        }
+
+        return Optional.empty();
+    }
+
+    @Override
     public List<Carrier> getByName(String name) {
         if (name != null) {
             return carrierRepo.getByName(name);
@@ -46,7 +56,7 @@ public class CarrierServiceImpl implements CarrierService {
     }
 
     @Override
-    public Carrier getById(Long id) {
+    public Optional<Carrier> getById(Long id) {
         if (id != null) {
             return carrierRepo.getById(id);
         }
@@ -73,8 +83,12 @@ public class CarrierServiceImpl implements CarrierService {
 
     @Override
     public boolean deleteById(Long id) {
-        if (id != null) {
-            if (carrierRepo.getById(id).getTransportations() != null) {
+
+        Optional<Carrier> carrierOptional = this.getByIdFetchingTransportations(id);
+        if (carrierOptional.isPresent()) {
+            List<Transportation> transportation = carrierOptional.get().getTransportations();
+
+            if (transportation != null && transportation.size() > 0) {
                 throw new CarrierDeleteConstraintViolationException(id);
             }
             return carrierRepo.deleteById(id);

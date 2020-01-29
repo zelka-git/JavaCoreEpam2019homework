@@ -6,6 +6,7 @@ import ru.epam.javacore.homework20200127.common.solutions.utils.ListUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static ru.epam.javacore.homework20200127.storage.Storage.carriersList;
 
@@ -22,6 +23,11 @@ public class CarrierCollectionRepoImpl implements CarrierRepo {
     }
 
     @Override
+    public Optional<Carrier> getByIdFetchingTransportations(long id) {
+        return getById(id);
+    }
+
+    @Override
     public List<Carrier> getByName(String name) {
         List<Carrier> result = new ArrayList<>();
         for (Carrier item : carriersList) {
@@ -33,7 +39,7 @@ public class CarrierCollectionRepoImpl implements CarrierRepo {
     }
 
     @Override
-    public Carrier getById(Long id) {
+    public Optional<Carrier> getById(Long id) {
         return ListUtils.getByIdFromList(id, carriersList);
     }
 

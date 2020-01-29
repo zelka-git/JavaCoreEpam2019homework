@@ -2,6 +2,7 @@ package ru.epam.javacore.homework20200127.common.business.repo;
 
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CommonRepo<T, Id> {
 
@@ -11,7 +12,7 @@ public interface CommonRepo<T, Id> {
 
     List<T> getAll();
 
-    T getById(Id id);
+    Optional<T> getById(Id id);
 
     boolean update(T element);
 }

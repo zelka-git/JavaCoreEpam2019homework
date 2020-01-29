@@ -7,6 +7,7 @@ import ru.epam.javacore.homework20200127.common.solutions.utils.ArrayUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static ru.epam.javacore.homework20200127.storage.Storage.carriersArray;
 import static ru.epam.javacore.homework20200127.storage.Storage.sizeCarrier;
@@ -31,6 +32,11 @@ public class CarrierArrayRepoImpl implements CarrierRepo {
     }
 
     @Override
+    public Optional<Carrier> getByIdFetchingTransportations(long id) {
+        return getById(id);
+    }
+
+    @Override
     public List<Carrier> getByName(String name) {
         Carrier[] arrayTheSameNames = new Carrier[sizeCarrier];
         int index = 0;
@@ -49,7 +55,7 @@ public class CarrierArrayRepoImpl implements CarrierRepo {
     }
 
     @Override
-    public Carrier getById(Long id) {
+    public Optional<Carrier> getById(Long id) {
         return ArrayUtils.getByIdFromArray(id, carriersArray);
     }
 

@@ -6,6 +6,7 @@ import ru.epam.javacore.homework20200127.transportation.repo.TransportationRepo;
 import ru.epam.javacore.homework20200127.transportation.service.TransportationService;
 
 import java.util.List;
+import java.util.Optional;
 
 public class TransportationServiceImpl implements TransportationService {
 
@@ -40,7 +41,7 @@ public class TransportationServiceImpl implements TransportationService {
     }
 
     @Override
-    public Transportation getById(Long id) {
+    public Optional<Transportation> getById(Long id) {
         if (id != null) {
             transportationRepo.getById(id);
         }
@@ -57,7 +58,7 @@ public class TransportationServiceImpl implements TransportationService {
             System.out.println("transportation must have a cargo!");
         } else if (transportation.getCarrier() == null) {
             System.out.println("transportation must have a carrier!");
-        }  else if (transportation.getDescription() == null) {
+        } else if (transportation.getDescription() == null) {
             System.out.println("transportation must have a description!");
         } else if (transportation.getBillTo() == null) {
             System.out.println("transportation must have a BillTo!");
@@ -74,13 +75,7 @@ public class TransportationServiceImpl implements TransportationService {
 
     @Override
     public boolean deleteById(Long id) {
-        if (id != null) {
-            Transportation element = transportationRepo.getById(id);
-            if (element != null) {
-                return transportationRepo.deleteById(id);
-            }
-        }
-        return false;
+        return transportationRepo.deleteById(id);
     }
 
     @Override

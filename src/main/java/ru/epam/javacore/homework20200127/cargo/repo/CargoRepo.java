@@ -7,10 +7,11 @@ import ru.epam.javacore.homework20200127.common.business.repo.CommonRepo;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 public interface CargoRepo extends CommonRepo<Cargo, Long>, Serializable {
 
-    Cargo getByIdFetchingTransportations(long id);
+    Optional<Cargo> getByIdFetchingTransportations(long id);
 
     List<Cargo> getByName(String name);
 

@@ -6,6 +6,7 @@ import ru.epam.javacore.homework20200127.transportation.repo.TransportationRepo;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static ru.epam.javacore.homework20200127.storage.Storage.sizeTransportation;
 import static ru.epam.javacore.homework20200127.storage.Storage.transportationArray;
@@ -27,7 +28,7 @@ public class TransportationArrayRepoImpl implements TransportationRepo {
     }
 
     @Override
-    public Transportation getById(Long id) {
+    public Optional<Transportation> getById(Long id) {
         return ArrayUtils.getByIdFromArray(id, transportationArray);
     }
 

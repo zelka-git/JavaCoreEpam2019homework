@@ -7,12 +7,13 @@ import ru.epam.javacore.homework20200127.common.business.service.CommonService;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 public interface CargoService extends CommonService<Cargo, Long>, Serializable {
 
     List<Cargo> getByName(String name);
     
-    Cargo getByIdFetchingTransportations(Long id);
+    Optional<Cargo> getByIdFetchingTransportations(Long id);
 
     List<Cargo> getAllSortedItems(TypeSortCargo typeSortCargo);
 

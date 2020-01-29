@@ -1,6 +1,7 @@
 package ru.epam.javacore.homework20200127.common.business.service;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CommonService<T, Id> {
     boolean deleteById(Id id);
@@ -11,7 +12,7 @@ public interface CommonService<T, Id> {
 
     List<T> getAll();
 
-    T getById(Id id);
+    Optional<T> getById(Id id);
 
     boolean update(T element);
 

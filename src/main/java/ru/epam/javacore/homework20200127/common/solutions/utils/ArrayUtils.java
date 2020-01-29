@@ -42,13 +42,13 @@ public final class ArrayUtils {
         return ++sizeArray;
     }
 
-    public static <T extends BaseEntity> T getByIdFromArray(long id, T[] array) {
+    public static <T extends BaseEntity> Optional<T> getByIdFromArray(long id, T[] array) {
         for (T item : array) {
             if (item != null && Long.valueOf(id).equals(item.getId())) {
-                return item;
+                return Optional.of(item);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     public static <T extends BaseEntity> boolean deleteByIdFromArray(long id, T[] array, int sizeArray) {

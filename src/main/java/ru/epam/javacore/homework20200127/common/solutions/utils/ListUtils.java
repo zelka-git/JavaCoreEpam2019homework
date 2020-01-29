@@ -16,13 +16,13 @@ public class ListUtils {
         list.add(element);
     }
 
-    public static <T extends BaseEntity> T getByIdFromList(long id, List<T> list) {
+    public static <T extends BaseEntity> Optional<T> getByIdFromList(long id, List<T> list) {
         for (T item : list) {
             if (Optional.ofNullable(item).map(e -> e.getId().equals(id)).orElse(false)) {
-                return item;
+                return Optional.of(item);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     public static <T extends BaseEntity> boolean deleteByIdFromList(long id, List<T> list) {

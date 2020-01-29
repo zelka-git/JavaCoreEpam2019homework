@@ -5,9 +5,11 @@ import ru.epam.javacore.homework20200127.cargo.exception.unckecked.CargoDeleteCo
 import ru.epam.javacore.homework20200127.cargo.repo.CargoRepo;
 import ru.epam.javacore.homework20200127.cargo.search.CargoSearchCondition;
 import ru.epam.javacore.homework20200127.common.solutions.utils.ArrayUtils;
+import ru.epam.javacore.homework20200127.transportation.domain.Transportation;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class CargoServiceImpl implements CargoService {
 
@@ -46,15 +48,15 @@ public class CargoServiceImpl implements CargoService {
     }
 
     @Override
-    public Cargo getById(Long id) {
+    public Optional<Cargo> getById(Long id) {
         if (id != null) {
             return cargoRepo.getById(id);
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
-    public Cargo getByIdFetchingTransportations(Long id) {
+    public Optional<Cargo> getByIdFetchingTransportations(Long id) {
         return getById(id);
     }
 
@@ -90,13 +92,16 @@ public class CargoServiceImpl implements CargoService {
 
     @Override
     public boolean deleteById(Long id) {
-        if(id != null){
-            if(cargoRepo.getById(id).getTransportations() != null){
+        Optional<Cargo> cargoOptional = this.getByIdFetchingTransportations(id);
+        if (cargoOptional.isPresent()) {
+            List<Transportation> transportation = cargoOptional.get().getTransportations();
+
+            if (transportation != null && transportation.size() > 0) {
                 throw new CargoDeleteConstraintViolationException(id);
             }
             return cargoRepo.deleteById(id);
         }
-            return false;
+        return false;
     }
 
     @Override

@@ -4,7 +4,9 @@ import ru.epam.javacore.homework20200127.common.solutions.utils.ListUtils;
 import ru.epam.javacore.homework20200127.transportation.domain.Transportation;
 import ru.epam.javacore.homework20200127.transportation.repo.TransportationRepo;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 import static ru.epam.javacore.homework20200127.storage.Storage.transportationList;
 
@@ -20,7 +22,7 @@ public class TransportationCollectionRepoImpl implements TransportationRepo {
     }
 
     @Override
-    public Transportation getById(Long id) {
+    public Optional<Transportation> getById(Long id) {
         return ListUtils.getByIdFromList(id, transportationList);
     }
 
