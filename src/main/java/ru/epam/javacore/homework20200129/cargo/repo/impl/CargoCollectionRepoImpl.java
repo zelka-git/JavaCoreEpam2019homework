@@ -10,6 +10,7 @@ import ru.epam.javacore.homework20200129.common.solutions.utils.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static ru.epam.javacore.homework20200129.cargo.domain.CargoField.NAME;
 import static ru.epam.javacore.homework20200129.common.solutions.search.OrderType.DESC;
@@ -29,14 +30,19 @@ public class CargoCollectionRepoImpl extends CommonCargoRepo {
     @Override
     public List<Cargo> getByName(String name) {
         List<Cargo> result = new ArrayList<>();
-        for (Cargo item : cargoList) {
-            if (Optional.ofNullable(item)
-                    .flatMap(cargoName -> Optional.ofNullable(cargoName.getName()))
-                    .map(e -> e.equals(name)).orElse(false)) {
-                result.add(item);
-            }
-        }
-        return result;
+//        for (Cargo item : cargoList) {
+//            if (Optional.ofNullable(item)
+//                    .flatMap(cargoName -> Optional.ofNullable(cargoName.getName()))
+//                    .map(e -> e.equals(name)).orElse(false)) {
+//                result.add(item);
+//            }
+//        }
+//        return result;
+
+            result = cargoList.stream()
+                    .filter(e -> e != null && e.getName() != null && e.equals(name))
+                    .collect(Collectors.toList());
+            return result;
     }
 
     @Override
