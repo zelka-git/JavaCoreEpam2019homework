@@ -10,7 +10,7 @@ import ru.epam.javacore.homework20200129.cargo.domain.FoodCargo;
 import ru.epam.javacore.homework20200129.carrier.domain.Carrier;
 import ru.epam.javacore.homework20200129.carrier.domain.CarrierType;
 import ru.epam.javacore.homework20200129.common.solutions.utils.CargoUtils;
-import ru.epam.javacore.homework20200129.common.solutions.utils.LocalDataUtils;
+import ru.epam.javacore.homework20200129.common.solutions.utils.DataUtils;
 import ru.epam.javacore.homework20200129.storage.initor.fileinitor.BaseFileInitor;
 import ru.epam.javacore.homework20200129.transportation.domain.Transportation;
 
@@ -83,7 +83,7 @@ public class SaxHandler extends DefaultHandler {
                     cargo.setWeight(Integer.parseInt(data));
                     break;
                 case "expirationdate":
-                    ((FoodCargo) cargo).setExpirationDate(LocalDataUtils.valueOf(data));
+                    ((FoodCargo) cargo).setExpirationDate(DataUtils.valueOf(data));
                     break;
                 case "storetemperature":
                     ((FoodCargo) cargo).setStoreTemperature(Integer.parseInt(data));
@@ -114,7 +114,7 @@ public class SaxHandler extends DefaultHandler {
                     transportation.setBillTo(data);
                     break;
                 case "date":
-                    transportation.setDate(LocalDataUtils.valueOf(data));
+                    transportation.setDate(DataUtils.valueOf(data));
                     break;
                 case "transportation":
                     parsedTransportation.setTransportation(transportation);

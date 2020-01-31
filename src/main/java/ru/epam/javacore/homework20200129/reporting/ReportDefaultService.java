@@ -5,7 +5,7 @@ import ru.epam.javacore.homework20200129.cargo.service.CargoService;
 import ru.epam.javacore.homework20200129.carrier.domain.Carrier;
 import ru.epam.javacore.homework20200129.carrier.service.CarrierService;
 import ru.epam.javacore.homework20200129.common.business.exception.checked.ReportException;
-import ru.epam.javacore.homework20200129.common.solutions.utils.LocalDataUtils;
+import ru.epam.javacore.homework20200129.common.solutions.utils.DataUtils;
 import ru.epam.javacore.homework20200129.transportation.domain.Transportation;
 import ru.epam.javacore.homework20200129.transportation.service.TransportationService;
 
@@ -72,7 +72,7 @@ public class ReportDefaultService implements ReportService {
                 builder.append("\t-\t" + sep);
                 builder.append("\t-\t" + sep);
                 builder.append("\t-\t" + sep);
-                builder.append(LocalDataUtils.formatter.format(((FoodCargo) cargo).getExpirationDate()) + sep);
+                builder.append(DataUtils.formatter.format(((FoodCargo) cargo).getExpirationDate()) + sep);
                 builder.append(((FoodCargo) cargo).getStoreTemperature());
                 break;
             case CLOTHES:
@@ -125,7 +125,7 @@ public class ReportDefaultService implements ReportService {
         stringBuilder.append(transportation.getCarrier().getId() + sep);
         stringBuilder.append(transportation.getDescription() + sep);
         stringBuilder.append(transportation.getBillTo() + sep);
-        stringBuilder.append(LocalDataUtils.formatter.format(transportation.getDate() )+ sep);
+        stringBuilder.append(DataUtils.formatter.format(transportation.getDate() )+ sep);
         return stringBuilder.toString();
     }
 

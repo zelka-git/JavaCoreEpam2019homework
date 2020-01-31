@@ -4,12 +4,12 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public final class LocalDataUtils {
+public final class DataUtils {
 
     private static final String PATTERN = "dd.MM.yyyy";
     public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(PATTERN);
 
-    private LocalDataUtils(){
+    private DataUtils(){
     }
 
     public static LocalDate valueOf(String dateStr) throws ParseException {

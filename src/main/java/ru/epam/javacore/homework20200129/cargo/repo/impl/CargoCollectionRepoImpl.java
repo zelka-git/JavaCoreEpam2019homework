@@ -9,6 +9,7 @@ import ru.epam.javacore.homework20200129.common.solutions.utils.ListUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -40,7 +41,8 @@ public class CargoCollectionRepoImpl extends CommonCargoRepo {
 //        return result;
 
             result = cargoList.stream()
-                    .filter(e -> e != null && e.getName() != null && e.equals(name))
+                    .filter(Objects::nonNull)
+                    .filter(e -> e.getName() != null && e.equals(name))
                     .collect(Collectors.toList());
             return result;
     }

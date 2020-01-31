@@ -8,7 +8,7 @@ import ru.epam.javacore.homework20200129.cargo.domain.FoodCargo;
 import ru.epam.javacore.homework20200129.carrier.domain.Carrier;
 import ru.epam.javacore.homework20200129.carrier.domain.CarrierType;
 import ru.epam.javacore.homework20200129.common.business.exception.checked.InitStorageException;
-import ru.epam.javacore.homework20200129.common.solutions.utils.LocalDataUtils;
+import ru.epam.javacore.homework20200129.common.solutions.utils.DataUtils;
 import ru.epam.javacore.homework20200129.common.solutions.utils.FileUtils;
 import ru.epam.javacore.homework20200129.common.solutions.utils.xml.dom.XmlDomUtils;
 import ru.epam.javacore.homework20200129.storage.initor.fileinitor.BaseFileInitor;
@@ -95,7 +95,7 @@ public class XmlDomFileDataInitor extends BaseFileInitor {
                 break;
             case "FOOD":
                 FoodCargo foodCargo = new FoodCargo();
-                foodCargo.setExpirationDate(LocalDataUtils.valueOf(XmlDomUtils.getOnlyElementTextContent(cargoEl, "expirationdate")));
+                foodCargo.setExpirationDate(DataUtils.valueOf(XmlDomUtils.getOnlyElementTextContent(cargoEl, "expirationdate")));
                 foodCargo.setStoreTemperature(Integer.parseInt(XmlDomUtils.getOnlyElementTextContent(cargoEl, "storetemperature")));
                 cargoItem = foodCargo;
                 break;
@@ -149,7 +149,7 @@ public class XmlDomFileDataInitor extends BaseFileInitor {
         Transportation transportationItem = new Transportation();
         transportationItem.setDescription(((Element) tarnsportation).getElementsByTagName("description").item(0).getTextContent());
         transportationItem.setBillTo(((Element) tarnsportation).getElementsByTagName("billto").item(0).getTextContent());
-        transportationItem.setDate(LocalDataUtils.valueOf(((Element) tarnsportation).getElementsByTagName("date").item(0).getTextContent()));
+        transportationItem.setDate(DataUtils.valueOf(((Element) tarnsportation).getElementsByTagName("date").item(0).getTextContent()));
 
         parsedTransportation.setTransportation(transportationItem);
         return parsedTransportation;

@@ -7,7 +7,7 @@ import ru.epam.javacore.homework20200129.cargo.domain.FoodCargo;
 import ru.epam.javacore.homework20200129.carrier.domain.Carrier;
 import ru.epam.javacore.homework20200129.carrier.domain.CarrierType;
 import ru.epam.javacore.homework20200129.common.business.exception.checked.InitStorageException;
-import ru.epam.javacore.homework20200129.common.solutions.utils.LocalDataUtils;
+import ru.epam.javacore.homework20200129.common.solutions.utils.DataUtils;
 import ru.epam.javacore.homework20200129.common.solutions.utils.FileUtils;
 import ru.epam.javacore.homework20200129.transportation.domain.Transportation;
 
@@ -84,7 +84,7 @@ public class TextFileDataInitor extends BaseFileInitor {
             Transportation transportation = new Transportation();
             transportation.setDescription(transportationData[2].trim());
             transportation.setBillTo(transportationData[3].trim());
-            transportation.setDate(LocalDataUtils.valueOf(transportationData[4].trim()));
+            transportation.setDate(DataUtils.valueOf(transportationData[4].trim()));
             result.setTransportation(transportation);
         }
         return result;
@@ -152,7 +152,7 @@ public class TextFileDataInitor extends BaseFileInitor {
                     break;
                 case "FOOD":
                     FoodCargo foodCargo = new FoodCargo();
-                    foodCargo.setExpirationDate(LocalDataUtils.valueOf(cargoData[7].trim()));
+                    foodCargo.setExpirationDate(DataUtils.valueOf(cargoData[7].trim()));
                     foodCargo.setStoreTemperature(Integer.parseInt(cargoData[8].trim()));
                     cargo = foodCargo;
                     break;

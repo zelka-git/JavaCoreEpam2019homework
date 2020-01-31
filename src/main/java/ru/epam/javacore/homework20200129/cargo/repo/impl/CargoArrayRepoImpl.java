@@ -34,7 +34,8 @@ public class CargoArrayRepoImpl extends CommonCargoRepo {
     public List<Cargo> getByName(String name) {
         List<Cargo> result;
         result = Arrays.stream(cargoArray)
-                .filter(e -> e != null && e.getName() != null && e.equals(name))
+                .filter(Objects::nonNull)
+                .filter(e -> e.getName() != null && e.equals(name))
                 .collect(Collectors.toList());
         return result;
     }
