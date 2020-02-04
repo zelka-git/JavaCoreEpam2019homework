@@ -1,52 +1,28 @@
-insert into CARGOTYPE
-(id, name)
-VALUES
-(1, 'FOOD'),
-(2, 'CLOTHES'),
-(3, 'COMPUTERS');
+insert into CARGOS 
+(id,  name, weight, cargoType, expiratonDate, storeTemperature)
+Values
+(1, 'Banana', 123, 'FOOD', '2013-10-25', 15),
+(2, 'Apple', 222, 'FOOD', '2015-10-25', 15);
 
 insert into CARGOS 
-(id, name, weight, cargoType)
+(id,  name, weight, cargoType, size, material)
 Values
-(1, 'Banana', 123, 1),
-(2, 'Dress', 321, 2),
-(3, 'HP', 111, 3),
-(4, 'Apple', 222, 1),
-(5, 'Skirt', 213, 2),
-(6, 'Asus', 241, 3);
+(3, 'Dress', 321, 'CLOTHES', 'M', 'cotton'),
+(4, 'Skirt', 213, 'CLOTHES', 'S', 'wool');
 
-insert into CLOTHES 
-(id, id_cargo, size, material)
+insert into CARGOS 
+(id, name, weight, cargoType, description)
 Values
-(1, 1, 'M', 'cotton'),
-(2, 4, 'S', 'wool');
+(5, 'HP', 111, 'COMPUTERS', 'this is a computer 1'),
+(6, 'Asus', 241, 'COMPUTERS', 'this is a computer 2');
 
-insert into COMPUTER 
-(id, id_cargo, description)
-Values
-(1, 2, 'this is a computer 1'),
-(2, 5, 'this is a computer 2');
-
-insert into FOOD 
-(id, id_cargo, expiratonDate, storeTemperature)
-Values
-(1, 3, '2013-10-25', 15),
-(2, 6, '2015-10-25', 15);
-
-insert into CARRIERTYPE 
-(id, name)
-VALUES
-(1, 'SHIP'),
-(2, 'PLANE'),
-(3, 'CAR'),
-(4, 'TRAIN');
 
 insert into CARRIERS 
 (id, name, address, carrierType)
 Values
-(1, 'Fast delivery', 'Moscow', 1),
-(2, 'Slow delivery', 'Kiev', 2),
-(3, 'Super delivery', 'Rostov', 3);
+(1, 'Fast delivery', 'Moscow', 'SHIP'),
+(2, 'Slow delivery', 'Kiev', 'TRAIN'),
+(3, 'Super delivery', 'Rostov', 'PLANE');
 
 insert into TRANSPORTATIONS 
 (id, id_cargo, id_carrier, description, billTo, date)
