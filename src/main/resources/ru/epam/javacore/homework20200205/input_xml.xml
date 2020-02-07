@@ -1,0 +1,54 @@
+<application>
+    <cargos>
+        <cargo id="1_a" type="FOOD">
+            <name>Banana</name>
+            <weight>123</weight>
+            <expirationdate>20.12.2020</expirationdate>
+            <storetemperature>10</storetemperature>
+        </cargo>
+        <cargo id="2_a" type="CLOTHES">
+            <name>Dress</name>
+            <weight>312</weight>
+            <size>M</size>
+            <material>cotton</material>
+        </cargo>
+        <cargo id="3_a" type="COMPUTERS">
+            <name>HP</name>
+            <weight>213</weight>
+            <description>this a computer</description>
+        </cargo>
+    </cargos>
+
+    <carriers>
+        <carrier id="1_b" type="CAR">
+            <name>Fast delivery</name>
+            <address>Moscow</address>
+        </carrier>
+        <carrier id="2_b" type="TRAIN">
+            <name>Slow delivery</name>
+            <address>Kiev</address>
+        </carrier>
+        <carrier id="3_b" type="SHIP">
+            <name>Super delivery</name>
+            <address>Rostov</address>
+        </carrier>
+    </carriers>
+
+    <transportations>
+        <transportation id="1" refcargo="1_a" refcarrier="1_b">
+            <description>this transportation 1</description>
+            <billto>P. N. Ivanov</billto>
+            <date>20.02.2020</date>
+        </transportation>
+        <transportation id="2" refcargo="2_a" refcarrier="2_b">
+            <description>this transportation 2</description>
+            <billto>U. N. Romanov</billto>
+            <date>22.03.2020</date>
+        </transportation>
+        <transportation id="3" refcargo="3_a" refcarrier="3_b">
+            <description>this transportation 3</description>
+            <billto>I. D. Titov</billto>
+            <date>20.06.2020</date>
+        </transportation>
+    </transportations>
+</application>
