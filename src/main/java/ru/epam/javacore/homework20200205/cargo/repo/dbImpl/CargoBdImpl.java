@@ -17,7 +17,6 @@ import java.util.Optional;
 import static ru.epam.javacore.homework20200205.cargo.domain.CargoField.NAME;
 import static ru.epam.javacore.homework20200205.common.solutions.search.OrderType.DESC;
 import static ru.epam.javacore.homework20200205.common.solutions.utils.CargoUtils.getCargoByCargoType;
-import static ru.epam.javacore.homework20200205.storage.Storage.cargoList;
 
 public class CargoBdImpl extends CommonCargoRepo {
     @Override
@@ -155,7 +154,7 @@ public class CargoBdImpl extends CommonCargoRepo {
             String sql = getSqlCommand(element);
 
             ps = connection.prepareStatement(sql);
-            ps.setLong(1, IdGenerator.generateId() + 70);
+            ps.setLong(1, IdGenerator.generateId() + 80);
             ps.setString(2, element.getName());
             ps.setInt(3, element.getWeight());
             ps.setString(4, element.getCargoType().toString());
@@ -206,14 +205,14 @@ public class CargoBdImpl extends CommonCargoRepo {
     @Override
     public List<Cargo> getAll() {
         List<Cargo> result = new ArrayList<>();
-        Statement ps = null;
+        PreparedStatement ps = null;
         try (Connection connection = ConnectionBdH2
                 .getInstance().getConnection();) {
 
             String sql = "select * from cargos";
-            ps = connection.createStatement();
+            ps = connection.prepareStatement(sql);
 
-            ResultSet resultSet = ps.executeQuery(sql);
+            ResultSet resultSet = ps.executeQuery();
 
             result = parseCargosFromResultSet(resultSet);
 
