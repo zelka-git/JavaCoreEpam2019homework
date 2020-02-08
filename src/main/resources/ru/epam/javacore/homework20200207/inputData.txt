@@ -1,0 +1,19 @@
+name | weight | cargoType | size | material | description | expirationDate | storeTemperature
+---CARGOS---
+1_a |Dresses  | 50 | CLOTHES   | M | cotton | - | -          | -
+2_a |Computer | 69 | COMPUTERS | - | -      | - | -          | -
+3_a |Apples   | 44 | FOOD      | - | -      | - | 12.12.2021 | -50
+
+name | address | carrierType
+---CARRIERS---
+1_b |Carrier 1 | Address 1 | SHIP
+2_b |Carrier 2 | Address 2 | PLANE
+3_b |Carrier 3 | Address 3 | CAR
+
+cargo | carrier | description | billTo | date
+---TRANSPORTATIONS---
+1_a | 1_b | dfsdf | Fedorof | 22.03.2020
+2_a | 2_b | dfsdf | Petrov | 12.05.2020
+3_a | 3_b | dfsdf | Sidorov | 11.06.2020
+
+
