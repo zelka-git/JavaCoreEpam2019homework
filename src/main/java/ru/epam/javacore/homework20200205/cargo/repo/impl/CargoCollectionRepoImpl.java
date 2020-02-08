@@ -70,6 +70,11 @@ public class CargoCollectionRepoImpl extends CommonCargoRepo {
     }
 
     @Override
+    public int countAll() {
+        return getAll().size();
+    }
+
+    @Override
     public List<Cargo> getAllSortedItems(TypeSortCargo typeSortCargo) {
         List<Cargo> sortCargoList = new ArrayList<>(cargoList);
         switch (typeSortCargo) {

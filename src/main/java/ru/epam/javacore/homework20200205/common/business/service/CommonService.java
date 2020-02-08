@@ -16,4 +16,5 @@ public interface CommonService<T, Id> {
 
     boolean update(T element);
 
+    int countAll();
 }

@@ -72,6 +72,11 @@ public class CargoArrayRepoImpl extends CommonCargoRepo {
     }
 
     @Override
+    public int countAll() {
+        return getAll().size();
+    }
+
+    @Override
     public List<Cargo> getAllSortedItems(TypeSortCargo typeSortCargo) {
         Cargo[] sortCargoArray = new Cargo[sizeCargo];
         ArrayUtils.copyArray(cargoArray, sortCargoArray, sizeCargo);

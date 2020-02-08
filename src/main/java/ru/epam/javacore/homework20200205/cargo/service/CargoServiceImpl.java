@@ -80,6 +80,11 @@ public class CargoServiceImpl implements CargoService {
         return false;
     }
 
+    @Override
+    public int countAll() {
+        return cargoRepo.countAll();
+    }
+
 
     @Override
     public List<Cargo> getAllSortedItems(TypeSortCargo typeSortCargo) {

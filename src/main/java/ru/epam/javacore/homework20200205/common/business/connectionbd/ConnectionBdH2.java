@@ -4,8 +4,8 @@ import org.apache.commons.dbcp2.*;
 import org.apache.commons.pool2.ObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 
 public class ConnectionBdH2 implements Connectible {
 
@@ -28,11 +28,13 @@ public class ConnectionBdH2 implements Connectible {
         String driverClass = "org.h2.Driver";
         Class.forName(driverClass);
 
-        setupDriver();
-        return DriverManager.getConnection("jdbc:apache:commons:dbcp:example");
+//        setupDriver();
+//        return DriverManager.getConnection("jdbc:apache:commons:dbcp:example");
+        DataSource dataSource = setupDataSource();
+        return dataSource.getConnection();
     }
 
-    public static void setupDriver() throws Exception {
+    public static DataSource setupDataSource() {
         //
         // First, we'll create a ConnectionFactory that the
         // pool will use to create Connections.
@@ -44,7 +46,7 @@ public class ConnectionBdH2 implements Connectible {
                 new DriverManagerConnectionFactory(url, name, password);
 
         //
-        // Next, we'll create the PoolableConnectionFactory, which wraps
+        // Next we'll create the PoolableConnectionFactory, which wraps
         // the "real" Connections created by the ConnectionFactory with
         // the classes that implement the pooling functionality.
         //
@@ -65,32 +67,13 @@ public class ConnectionBdH2 implements Connectible {
         poolableConnectionFactory.setPool(connectionPool);
 
         //
-        // Finally, we create the PoolingDriver itself...
+        // Finally, we create the PoolingDriver itself,
+        // passing in the object pool we created.
         //
-        Class.forName("org.apache.commons.dbcp2.PoolingDriver");
-        PoolingDriver driver = (PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbcp:");
+        PoolingDataSource<PoolableConnection> dataSource =
+                new PoolingDataSource<>(connectionPool);
 
-        //
-        // ...and register our pool with it.
-        //
-        driver.registerPool("example", connectionPool);
-
-        //
-        // Now we can just use the connect string "jdbc:apache:commons:dbcp:example"
-        // to access our pool of Connections.
-        //
+        return dataSource;
     }
 
-    public static void printDriverStats() throws Exception {
-        PoolingDriver driver = (PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbcp:");
-        ObjectPool<? extends Connection> connectionPool = driver.getConnectionPool("example");
-
-        System.out.println("NumActive: " + connectionPool.getNumActive());
-        System.out.println("NumIdle: " + connectionPool.getNumIdle());
-    }
-
-    public static void shutdownDriver() throws Exception {
-        PoolingDriver driver = (PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbcp:");
-        driver.closePool("example");
-    }
 }

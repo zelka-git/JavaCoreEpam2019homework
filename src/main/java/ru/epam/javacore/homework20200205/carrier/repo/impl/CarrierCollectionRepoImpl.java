@@ -55,6 +55,11 @@ public class CarrierCollectionRepoImpl implements CarrierRepo {
     }
 
     @Override
+    public int countAll() {
+        return getAll().size();
+    }
+
+    @Override
     public boolean deleteById(Long id) {
         return ListUtils.deleteByIdFromList(id, carriersList);
     }

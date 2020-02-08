@@ -15,4 +15,6 @@ public interface CommonRepo<T, Id> {
     Optional<T> getById(Id id);
 
     boolean update(T element);
+
+    int countAll();
 }

@@ -38,6 +38,11 @@ public class TransportationCollectionRepoImpl implements TransportationRepo {
     }
 
     @Override
+    public int countAll() {
+        return getAll().size();
+    }
+
+    @Override
     public boolean deleteById(Long id) {
         return ListUtils.deleteByIdFromList(id, transportationList);
     }

@@ -71,6 +71,11 @@ public class CarrierArrayRepoImpl implements CarrierRepo {
     }
 
     @Override
+    public int countAll() {
+        return getAll().size();
+    }
+
+    @Override
     public boolean deleteById(Long id) {
         if(ArrayUtils.deleteByIdFromArray(id, carriersArray, sizeCarrier)){
             sizeCarrier--;

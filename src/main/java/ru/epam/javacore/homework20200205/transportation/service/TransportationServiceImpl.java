@@ -72,6 +72,11 @@ public class TransportationServiceImpl implements TransportationService {
         return false;
     }
 
+    @Override
+    public int countAll() {
+        return transportationRepo.countAll();
+    }
+
 
     @Override
     public boolean deleteById(Long id) {

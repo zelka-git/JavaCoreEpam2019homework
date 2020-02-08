@@ -83,6 +83,11 @@ public class CarrierServiceImpl implements CarrierService {
     }
 
     @Override
+    public int countAll() {
+        return carrierRepo.countAll();
+    }
+
+    @Override
     public boolean deleteById(Long id) {
 
         Optional<Carrier> carrierOptional = this.getByIdFetchingTransportations(id);

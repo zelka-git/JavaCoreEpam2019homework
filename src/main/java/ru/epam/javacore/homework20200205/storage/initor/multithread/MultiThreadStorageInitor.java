@@ -4,9 +4,6 @@ import ru.epam.javacore.homework20200205.cargo.domain.Cargo;
 import ru.epam.javacore.homework20200205.carrier.domain.Carrier;
 import ru.epam.javacore.homework20200205.common.business.exception.checked.InitStorageException;
 import ru.epam.javacore.homework20200205.storage.initor.fileinitor.BaseFileInitor;
-import ru.epam.javacore.homework20200205.storage.initor.multithread.CargoParser;
-import ru.epam.javacore.homework20200205.storage.initor.multithread.CarrierParser;
-import ru.epam.javacore.homework20200205.storage.initor.multithread.TransportationParser;
 import ru.epam.javacore.homework20200205.transportation.domain.Transportation;
 
 import java.util.Arrays;

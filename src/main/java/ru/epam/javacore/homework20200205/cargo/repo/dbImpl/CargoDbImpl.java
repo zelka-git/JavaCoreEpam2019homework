@@ -6,19 +6,17 @@ import ru.epam.javacore.homework20200205.cargo.repo.CargoComparators;
 import ru.epam.javacore.homework20200205.cargo.repo.impl.CommonCargoRepo;
 import ru.epam.javacore.homework20200205.cargo.search.CargoSearchCondition;
 import ru.epam.javacore.homework20200205.cargo.service.TypeSortCargo;
-import ru.epam.javacore.homework20200205.common.business.connectionbd.ConnectionBdH2;
+import ru.epam.javacore.homework20200205.common.solutions.utils.DbUtils;
+import ru.epam.javacore.homework20200205.common.solutions.utils.Mapper;
 import ru.epam.javacore.homework20200205.storage.IdGenerator;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import static ru.epam.javacore.homework20200205.cargo.domain.CargoField.NAME;
 import static ru.epam.javacore.homework20200205.common.solutions.search.OrderType.DESC;
-import static ru.epam.javacore.homework20200205.common.solutions.utils.CargoUtils.getCargoByCargoType;
 
-public class CargoBdImpl extends CommonCargoRepo {
+public class CargoDbImpl extends CommonCargoRepo {
     @Override
     public Optional<Cargo> getByIdFetchingTransportations(long id) {
         return getById(id);
@@ -26,48 +24,55 @@ public class CargoBdImpl extends CommonCargoRepo {
 
     @Override
     public List<Cargo> getByName(String name) {
-        List<Cargo> result = new ArrayList<>();
-        PreparedStatement ps = null;
-        try (Connection connection = ConnectionBdH2
-                .getInstance().getConnection();) {
-
-            String sql = "select * from cargos where name = ?";
-            ps = connection.prepareStatement(sql);
-            ps.setString(1, name);
-            ResultSet resultSet = ps.executeQuery();
-
-            result = parseCargosFromResultSet(resultSet);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return result;
+        String sql = "select * from cargos where name = ?";
+        return DbUtils.select(sql, ps -> ps.setString(1, name),
+                Mapper::mapCargo);
     }
 
-    private List<Cargo> parseCargosFromResultSet(ResultSet resultSet) throws SQLException {
-        List<Cargo> cargos = new ArrayList<>();
-        while (resultSet.next()) {
-            long id = resultSet.getLong("id");
-            String nameCargo = resultSet.getString("name");
-            int weight = resultSet.getInt("weight");
-            String cargoType = resultSet.getString("cargoType");
-            Cargo cargo = getCargoByCargoType(cargoType);
-            cargo.setId(id);
-            cargo.setName(nameCargo);
-            cargo.setWeight(weight);
-
-            cargos.add(cargo);
+    @Override
+    public Optional<Cargo> getById(Long id) {
+        String sql = "select * from cargos where id = ?";
+        List<Cargo> cargos = DbUtils.select(sql, ps -> ps.setLong(1, id),
+                Mapper::mapCargo);
+        if (cargos.size() > 0) {
+            return Optional.of(cargos.get(0));
+        } else {
+            return Optional.empty();
         }
-        return cargos;
+    }
+
+    @Override
+    public List<Cargo> getAll() {
+        String sql = "select * from cargos";
+        return DbUtils.select(sql, ps ->{},
+                Mapper::mapCargo);
+    }
+
+    @Override
+    public void add(Cargo element) {
+        String sql;
+        sql = "insert into CARGOS " +
+                "(id,  name, weight, cargoType, size, material, description, expiratonDate, storeTemperature) " +
+                "values " +
+                "(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
+        DbUtils.executeUpdate(sql, element, Mapper::setCargo);
+    }
+
+    @Override
+    public boolean deleteById(Long id) {
+        String sql = "delete from cargos where id = ?;";
+        return DbUtils.executeUpdate(sql, ps -> ps.setLong(1, id)) == 1;
+    }
+
+    @Override
+    public boolean update(Cargo element) {
+        return false;
+    }
+
+    @Override
+    public int countAll() {
+        return getAll().size();
     }
 
     @Override
@@ -115,158 +120,4 @@ public class CargoBdImpl extends CommonCargoRepo {
         return cargos;
     }
 
-    @Override
-    public boolean deleteById(Long aLong) {
-        PreparedStatement ps = null;
-        try (Connection connection = ConnectionBdH2
-                .getInstance().getConnection();) {
-
-            String sql = "delete from cargos where id = ?;";
-
-            ps = connection.prepareStatement(sql);
-            ps.setLong(1, aLong);
-            if (ps.executeUpdate() == 0) {
-                return false;
-            } else {
-                return true;
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public void add(Cargo element) {
-        PreparedStatement ps = null;
-        try (Connection connection = ConnectionBdH2
-                .getInstance().getConnection();) {
-
-            String sql = getSqlCommand(element);
-
-            ps = connection.prepareStatement(sql);
-            ps.setLong(1, IdGenerator.generateId() + 80);
-            ps.setString(2, element.getName());
-            ps.setInt(3, element.getWeight());
-            ps.setString(4, element.getCargoType().toString());
-
-            ps.executeUpdate();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    private String getSqlCommand(Cargo element) {
-        String sql = "";
-        switch (element.getCargoType()) {
-            case CLOTHES:
-                sql = "insert into CARGOS " +
-                        "(id,  name, weight, cargoType, size, material) " +
-                        "values " +
-                        "(?, ?, ?, ?, ?, ?);";
-                break;
-            case COMPUTERS:
-                sql = "insert into CARGOS " +
-                        "(id, name, weight, cargoType, description) " +
-                        "values " +
-                        "(?, ?, ?, ?, ?);";
-                break;
-            case FOOD:
-                sql = "insert into CARGOS " +
-                        "(id,  name, weight, cargoType, expiratonDate, storeTemperature) " +
-                        "values " +
-                        "(?, ?, ?, ?, ?, ?);";
-                break;
-        }
-        return "insert into CARGOS " +
-                "(id,  name, weight, cargoType) " +
-                "values " +
-                "(?, ?, ?, ?);";
-    }
-
-    @Override
-    public List<Cargo> getAll() {
-        List<Cargo> result = new ArrayList<>();
-        PreparedStatement ps = null;
-        try (Connection connection = ConnectionBdH2
-                .getInstance().getConnection();) {
-
-            String sql = "select * from cargos";
-            ps = connection.prepareStatement(sql);
-
-            ResultSet resultSet = ps.executeQuery();
-
-            result = parseCargosFromResultSet(resultSet);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return result;
-    }
-
-    @Override
-    public Optional<Cargo> getById(Long aLong) {
-        List<Cargo> result = new ArrayList<>();
-        PreparedStatement ps = null;
-        try (Connection connection = ConnectionBdH2
-                .getInstance().getConnection();) {
-
-            String sql = "select * from cargos where id = ?";
-            ps = connection.prepareStatement(sql);
-            ps.setLong(1, aLong);
-            ResultSet resultSet = ps.executeQuery();
-
-            result = parseCargosFromResultSet(resultSet);
-            if (result.size() > 0) {
-                return Optional.of(result.get(0));
-            } else {
-                return Optional.empty();
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return Optional.empty();
-
-    }
-
-    @Override
-    public boolean update(Cargo element) {
-        return false;
-    }
 }

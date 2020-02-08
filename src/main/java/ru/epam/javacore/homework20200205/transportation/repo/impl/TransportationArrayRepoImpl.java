@@ -43,6 +43,11 @@ public class TransportationArrayRepoImpl implements TransportationRepo {
         return false;
     }
 
+    @Override
+    public int countAll() {
+        return getAll().size();
+    }
+
 
     @Override
     public boolean deleteById(Long id) {
