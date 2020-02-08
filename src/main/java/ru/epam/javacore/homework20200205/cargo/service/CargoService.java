@@ -19,4 +19,6 @@ public interface CargoService extends CommonService<Cargo, Long>, Serializable {
 
     List<Cargo> search(CargoSearchCondition cargoSearchCondition);
 
+    void addListCargos(List<Cargo> cargos);
+
 }

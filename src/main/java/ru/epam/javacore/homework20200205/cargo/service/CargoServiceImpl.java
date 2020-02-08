@@ -6,9 +6,11 @@ import ru.epam.javacore.homework20200205.cargo.repo.CargoRepo;
 import ru.epam.javacore.homework20200205.cargo.search.CargoSearchCondition;
 import ru.epam.javacore.homework20200205.cargo.service.CargoService;
 import ru.epam.javacore.homework20200205.cargo.service.TypeSortCargo;
+import ru.epam.javacore.homework20200205.common.business.connectionbd.ConnectionBdH2;
 import ru.epam.javacore.homework20200205.common.solutions.utils.ArrayUtils;
 import ru.epam.javacore.homework20200205.transportation.domain.Transportation;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -96,7 +98,6 @@ public class CargoServiceImpl implements CargoService {
         return cargoRepo.search(cargoSearchCondition);
     }
 
-
     @Override
     public boolean deleteById(Long id) {
         Optional<Cargo> cargoOptional = this.getByIdFetchingTransportations(id);
@@ -114,6 +115,33 @@ public class CargoServiceImpl implements CargoService {
     @Override
     public void printAll() {
         ArrayUtils.printArray(cargoRepo.getAll());
+    }
+
+    @Override
+    public void addListCargos(List<Cargo> cargos) {
+        try {
+            Connection connection = null;
+            try {
+                connection = ConnectionBdH2
+                        .getInstance().getConnection();
+                connection.setAutoCommit(false);
+                for (Cargo item : cargos) {
+                    cargoRepo.add(item);
+                }
+            } catch (Exception e) {
+                if (connection != null) {
+                    System.out.println("Revert ");
+                    connection.rollback();
+                }
+            } finally {
+                if (connection != null) {
+                    connection.setAutoCommit(true);
+                    connection.close();
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

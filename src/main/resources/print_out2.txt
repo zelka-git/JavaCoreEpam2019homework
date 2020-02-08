@@ -8,6 +8,9 @@
 101 | Banana | 123 | FOOD | 	-	 | 	-	 | 	-	 | 20.12.2020 | 10
 102 | Dress | 312 | CLOTHES | M | cotton	-	 | 	-	 | 	-	
 103 | HP | 213 | COMPUTERS | 	-	 | 	-	 | this a computer | 	-	 | 	-	
+110 | Clothes name  | 40 | CLOTHES | Clothes size 0 | null	-	 | 	-	 | 	-	
+111 | Clothes name  | 39 | CLOTHES | Clothes size 1 | null	-	 | 	-	 | 	-	
+112 | Clothes name  | 38 | CLOTHES | Clothes size 2 | null	-	 | 	-	 | 	-	
 
 ---CARRIERS---
 4 | Fast delivery | Moscow | CAR | 

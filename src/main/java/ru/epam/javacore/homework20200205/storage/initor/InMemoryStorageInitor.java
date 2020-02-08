@@ -9,7 +9,6 @@ import ru.epam.javacore.homework20200205.cargo.service.CargoService;
 import ru.epam.javacore.homework20200205.carrier.domain.Carrier;
 import ru.epam.javacore.homework20200205.carrier.domain.CarrierType;
 import ru.epam.javacore.homework20200205.carrier.service.CarrierService;
-import ru.epam.javacore.homework20200205.storage.initor.StorageInitor;
 import ru.epam.javacore.homework20200205.transportation.domain.Transportation;
 import ru.epam.javacore.homework20200205.transportation.service.TransportationService;
 

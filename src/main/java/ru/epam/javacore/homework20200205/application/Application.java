@@ -2,7 +2,9 @@ package ru.epam.javacore.homework20200205.application;
 
 import ru.epam.javacore.homework20200205.application.serviceholder.ServiceHolder;
 import ru.epam.javacore.homework20200205.application.serviceholder.StorageType;
+import ru.epam.javacore.homework20200205.cargo.domain.Cargo;
 import ru.epam.javacore.homework20200205.cargo.domain.CargoField;
+import ru.epam.javacore.homework20200205.cargo.domain.ClothesCargo;
 import ru.epam.javacore.homework20200205.cargo.search.CargoSearchCondition;
 import ru.epam.javacore.homework20200205.cargo.service.CargoService;
 import ru.epam.javacore.homework20200205.cargo.service.TypeSortCargo;
@@ -16,12 +18,10 @@ import ru.epam.javacore.homework20200205.storage.initor.StorageInitor;
 import ru.epam.javacore.homework20200205.storage.initor.StorageInitorFactory;
 import ru.epam.javacore.homework20200205.transportation.service.TransportationService;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
+import java.util.*;
 
 import static java.util.Collections.singletonList;
+import static java.util.Collections.sort;
 import static ru.epam.javacore.homework20200205.cargo.domain.CargoField.NAME;
 import static ru.epam.javacore.homework20200205.cargo.domain.CargoField.WEIGHT;
 import static ru.epam.javacore.homework20200205.common.solutions.search.OrderType.ASC;
@@ -53,6 +53,10 @@ public class Application {
             demoTestSortCargo();// my sort
             demoSortOperations();//teacher sort
             demoTestException();
+
+            demoTestAddListCargos();
+            System.out.println("________________________________");
+            printStorage();
 
 
             ReportService reportService = new ReportDefaultService(
@@ -117,6 +121,7 @@ public class Application {
         ArrayUtils.printArray(cargoService.getAllSortedItems(TypeSortCargo.NAME_WEIGHT));
         printSeparator();
     }
+
     private static void demoSortOperations() {
         demoCargoSorting(singletonList(NAME), ASC);
         demoCargoSorting(singletonList(NAME), DESC);
@@ -127,6 +132,7 @@ public class Application {
         demoCargoSorting(Arrays.asList(NAME, WEIGHT), ASC);
         demoCargoSorting(Arrays.asList(NAME, WEIGHT), DESC);
     }
+
     private static void demoCargoSorting(Collection<CargoField> sortFields, OrderType orderType) {
         CargoSearchCondition cargoSearchCondition = new CargoSearchCondition();
         cargoSearchCondition.setOrderType(orderType);
@@ -137,6 +143,7 @@ public class Application {
         cargoService.printAll();
         System.out.println();
     }
+
     private static String getOrderingConditionsAsString(CargoSearchCondition condition) {
         StringBuilder result = new StringBuilder();
         result.append(" ORDER BY ");
@@ -165,10 +172,26 @@ public class Application {
             System.out.println("Delete by Id = 1");
             System.out.println("result = " + cargoService.deleteById(1L));
             printSeparator();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Exception: can't delete cargo");
             System.out.println(e.getMessage());
         }
+    }
+
+    private static void demoTestAddListCargos() {
+        List<Cargo> cargos = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            cargos.add(createCargo(i));
+        }
+        cargoService.addListCargos(cargos);
+    }
+
+    private static Cargo createCargo(int i) {
+            ClothesCargo cargo = new ClothesCargo();
+            cargo.setSize("Clothes size " + i);
+            cargo.setName("Clothes name ");
+            cargo.setWeight(40 - i);
+            return cargo;
     }
 
 }
