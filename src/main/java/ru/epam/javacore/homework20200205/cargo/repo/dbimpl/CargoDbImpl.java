@@ -1,4 +1,4 @@
-package ru.epam.javacore.homework20200205.cargo.repo.dbImpl;
+package ru.epam.javacore.homework20200205.cargo.repo.dbimpl;
 
 import ru.epam.javacore.homework20200205.cargo.domain.Cargo;
 import ru.epam.javacore.homework20200205.cargo.domain.CargoField;
@@ -8,7 +8,6 @@ import ru.epam.javacore.homework20200205.cargo.search.CargoSearchCondition;
 import ru.epam.javacore.homework20200205.cargo.service.TypeSortCargo;
 import ru.epam.javacore.homework20200205.common.solutions.utils.DbUtils;
 import ru.epam.javacore.homework20200205.common.solutions.utils.Mapper;
-import ru.epam.javacore.homework20200205.storage.IdGenerator;
 
 import java.util.List;
 import java.util.Optional;

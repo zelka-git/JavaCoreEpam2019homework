@@ -4,6 +4,8 @@ import ru.epam.javacore.homework20200205.cargo.domain.Cargo;
 import ru.epam.javacore.homework20200205.cargo.domain.ClothesCargo;
 import ru.epam.javacore.homework20200205.cargo.domain.ComputerCargo;
 import ru.epam.javacore.homework20200205.cargo.domain.FoodCargo;
+import ru.epam.javacore.homework20200205.carrier.domain.Carrier;
+import ru.epam.javacore.homework20200205.carrier.domain.CarrierType;
 import ru.epam.javacore.homework20200205.storage.IdGenerator;
 
 import java.sql.PreparedStatement;
@@ -64,5 +66,22 @@ public class Mapper {
             ps.setTimestamp(++i, null);
             ps.setInt(++i, 0);
         }
+    }
+
+    public static Carrier mapCarrier(ResultSet rs) throws Exception{
+        Carrier carrier = new Carrier();
+        carrier.setId(rs.getLong("id"));
+        carrier.setName(rs.getString("name"));
+        carrier.setAddress(rs.getString("address"));
+        carrier.setCarrierType(CarrierType.valueOf(rs.getString("carrierType")));
+        return carrier;
+    }
+
+    public static void setCarrier(PreparedStatement ps, Carrier carrier) throws Exception {
+        int i = 0;
+        ps.setLong(++i, IdGenerator.generateId() + 100);
+        ps.setString(++i, carrier.getName());
+        ps.setString(++i, carrier.getAddress());
+        ps.setString(++i, carrier.getCarrierType().toString());
     }
 }

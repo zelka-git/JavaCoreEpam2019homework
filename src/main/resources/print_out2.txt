@@ -1,5 +1,4 @@
 ---CARGOS---
-1 | Banana | 123 | FOOD | 	-	 | 	-	 | 	-	 | 20.09.2025 | 15
 2 | Apple | 222 | FOOD | 	-	 | 	-	 | 	-	 | 20.09.2025 | 15
 3 | Dress | 321 | CLOTHES | M | cotton	-	 | 	-	 | 	-	
 4 | Skirt | 213 | CLOTHES | S | wool	-	 | 	-	 | 	-	
@@ -13,11 +12,14 @@
 112 | Clothes name  | 38 | CLOTHES | Clothes size 2 | null	-	 | 	-	 | 	-	
 
 ---CARRIERS---
-4 | Fast delivery | Moscow | CAR | 
-5 | Slow delivery | Kiev | TRAIN | 
-6 | Super delivery | Rostov | SHIP | 
+1 | Fast delivery | Moscow | SHIP | 
+2 | Slow delivery | Kiev | TRAIN | 
+3 | Super delivery | Rostov | PLANE | 
+104 | Fast delivery | Moscow | CAR | 
+105 | Slow delivery | Kiev | TRAIN | 
+106 | Super delivery | Rostov | SHIP | 
 
 ---TRANSPORTATIONS---
-7 | null | 4 | this transportation 1 | P. N. Ivanov | 20.02.2020 | 
-8 | null | 5 | this transportation 2 | U. N. Romanov | 22.03.2020 | 
-9 | null | 6 | this transportation 3 | I. D. Titov | 20.06.2020 | 
+7 | null | null | this transportation 1 | P. N. Ivanov | 20.02.2020 | 
+8 | null | null | this transportation 2 | U. N. Romanov | 22.03.2020 | 
+9 | null | null | this transportation 3 | I. D. Titov | 20.06.2020 | 

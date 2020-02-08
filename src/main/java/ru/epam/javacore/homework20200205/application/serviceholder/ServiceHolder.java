@@ -1,10 +1,11 @@
 package ru.epam.javacore.homework20200205.application.serviceholder;
 
-import ru.epam.javacore.homework20200205.cargo.repo.dbImpl.CargoDbImpl;
+import ru.epam.javacore.homework20200205.cargo.repo.dbimpl.CargoDbImpl;
 import ru.epam.javacore.homework20200205.cargo.repo.impl.CargoArrayRepoImpl;
 import ru.epam.javacore.homework20200205.cargo.repo.impl.CargoCollectionRepoImpl;
 import ru.epam.javacore.homework20200205.cargo.service.CargoService;
 import ru.epam.javacore.homework20200205.cargo.service.CargoServiceImpl;
+import ru.epam.javacore.homework20200205.carrier.repo.dbimpl.CarrierDbImpl;
 import ru.epam.javacore.homework20200205.carrier.repo.impl.CarrierArrayRepoImpl;
 import ru.epam.javacore.homework20200205.carrier.repo.impl.CarrierCollectionRepoImpl;
 import ru.epam.javacore.homework20200205.carrier.service.CarrierService;
@@ -38,7 +39,7 @@ public class ServiceHolder implements Serializable {
                 break;
             default:
                 cargoService = new CargoServiceImpl(new CargoDbImpl());
-                carrierService = new CarrierServiceImpl(new CarrierCollectionRepoImpl());
+                carrierService = new CarrierServiceImpl(new CarrierDbImpl());
                 transportationService = new TransportationServiceImpl(new TransportationCollectionRepoImpl());
         }
     }
