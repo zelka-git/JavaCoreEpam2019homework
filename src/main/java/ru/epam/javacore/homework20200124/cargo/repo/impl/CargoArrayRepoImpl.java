@@ -1,18 +1,14 @@
 package ru.epam.javacore.homework20200124.cargo.repo.impl;
-
-import org.junit.platform.commons.util.CollectionUtils;
+;
 import ru.epam.javacore.homework20200124.cargo.domain.Cargo;
 import ru.epam.javacore.homework20200124.cargo.domain.CargoField;
 import ru.epam.javacore.homework20200124.cargo.repo.CargoComparators;
-import ru.epam.javacore.homework20200124.cargo.repo.CargoRepo;
-import ru.epam.javacore.homework20200124.cargo.repo.impl.CommonCargoRepo;
 import ru.epam.javacore.homework20200124.cargo.search.CargoSearchCondition;
 import ru.epam.javacore.homework20200124.cargo.service.TypeSortCargo;
 import ru.epam.javacore.homework20200124.common.solutions.utils.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 import static ru.epam.javacore.homework20200124.cargo.domain.CargoField.NAME;
