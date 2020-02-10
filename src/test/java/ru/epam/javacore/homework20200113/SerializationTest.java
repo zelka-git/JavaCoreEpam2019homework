@@ -2,7 +2,8 @@ package ru.epam.javacore.homework20200113;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+//import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
