@@ -183,7 +183,7 @@ public class Application {
         for (int i = 0; i < 3; i++) {
             cargos.add(createCargo(i));
         }
-        cargoService.addListCargos(cargos);
+        cargoService.addList(cargos);
     }
 
     private static Cargo createCargo(int i) {

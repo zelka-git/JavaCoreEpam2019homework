@@ -1,5 +1,7 @@
 package ru.epam.javacore.homework20200207.common.solutions.utils;
 
+import org.h2.command.ddl.CreateTable;
+import ru.epam.javacore.homework20200207.cargo.domain.Cargo;
 import ru.epam.javacore.homework20200207.common.business.connectionbd.ConnectionBdH2;
 import ru.epam.javacore.homework20200207.common.solutions.functionaliterfaces.JdbcBiConsumer;
 import ru.epam.javacore.homework20200207.common.solutions.functionaliterfaces.JdbcConsumer;
@@ -8,6 +10,7 @@ import ru.epam.javacore.homework20200207.common.solutions.functionaliterfaces.Jd
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +60,44 @@ public class DbUtils {
 
             psConsumer.accept(ps, el);
             return ps.executeUpdate();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static <T> int[] executeUpdate(String sql, List<T> elements, JdbcBiConsumer<PreparedStatement, T> psConsumer) {
+        int[] executeBatch;
+        try {
+            Connection connection = null;
+            PreparedStatement ps = null;
+
+            try {
+                connection = ConnectionBdH2
+                        .getInstance().getConnection();
+                connection.setAutoCommit(false);
+                ps = connection.prepareStatement(sql);
+
+                for (T item : elements) {
+                    psConsumer.accept(ps, item);
+                    ps.addBatch();
+                }
+                executeBatch = ps.executeBatch();
+                connection.commit();
+                return executeBatch;
+            } catch (Exception e) {
+                if (connection != null)
+                    connection.rollback();
+                throw new RuntimeException(e);
+            } finally {
+                if (connection != null) {
+                    connection.setAutoCommit(true);
+                    connection.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+            }
 
         } catch (Exception e) {
             throw new RuntimeException(e);

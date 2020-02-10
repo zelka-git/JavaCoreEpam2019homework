@@ -1,11 +1,13 @@
 package ru.epam.javacore.homework20200207.cargo.service;
 
+import ru.epam.javacore.homework20200207.application.serviceholder.ServiceHolder;
 import ru.epam.javacore.homework20200207.cargo.domain.Cargo;
 import ru.epam.javacore.homework20200207.cargo.exception.unckecked.CargoDeleteConstraintViolationException;
 import ru.epam.javacore.homework20200207.cargo.repo.CargoRepo;
 import ru.epam.javacore.homework20200207.cargo.search.CargoSearchCondition;
 import ru.epam.javacore.homework20200207.cargo.service.CargoService;
 import ru.epam.javacore.homework20200207.cargo.service.TypeSortCargo;
+import ru.epam.javacore.homework20200207.carrier.domain.Carrier;
 import ru.epam.javacore.homework20200207.common.business.connectionbd.ConnectionBdH2;
 import ru.epam.javacore.homework20200207.common.solutions.utils.ArrayUtils;
 import ru.epam.javacore.homework20200207.transportation.domain.Transportation;
@@ -118,7 +120,7 @@ public class CargoServiceImpl implements CargoService {
     }
 
     @Override
-    public void addListCargos(List<Cargo> cargos) {
+    public void addList(List<Cargo> cargos) {
         try {
             Connection connection = null;
             try {
@@ -142,6 +144,12 @@ public class CargoServiceImpl implements CargoService {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void saveCargosWithCarriers(List<Cargo> cargos, List<Carrier> carriers) {
+        cargoRepo.addList(cargos);
+        ServiceHolder.getInstance().getCarrierService().addList(carriers);
     }
 }
 

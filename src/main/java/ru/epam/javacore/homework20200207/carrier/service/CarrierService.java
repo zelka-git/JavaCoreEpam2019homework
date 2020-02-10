@@ -13,4 +13,6 @@ public interface CarrierService extends CommonService<Carrier, Long>, Serializab
 
     List<Carrier> getByName(String name);
 
+    void addList(List<Carrier> carriers);
+
 }

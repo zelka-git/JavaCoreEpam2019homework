@@ -18,6 +18,13 @@ public class CarrierCollectionRepoImpl implements CarrierRepo {
     }
 
     @Override
+    public void addList(List<Carrier> carriers) {
+        for (Carrier item : carriers) {
+            add(item);
+        }
+    }
+
+    @Override
     public List<Carrier> getAll() {
         return carriersList;
     }
@@ -37,6 +44,7 @@ public class CarrierCollectionRepoImpl implements CarrierRepo {
         }
         return result;
     }
+
 
     @Override
     public Optional<Carrier> getById(Long id) {

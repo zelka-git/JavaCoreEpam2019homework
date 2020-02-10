@@ -13,4 +13,6 @@ public interface CarrierRepo extends CommonRepo<Carrier, Long>, Serializable {
 
     List<Carrier> getByName(String name);
 
+    void addList(List<Carrier> carriers);
+
 }

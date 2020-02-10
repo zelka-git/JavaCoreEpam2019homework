@@ -35,6 +35,11 @@ public class CarrierServiceImpl implements CarrierService {
     }
 
     @Override
+    public void addList(List<Carrier> carriers) {
+        carrierRepo.addList(carriers);
+    }
+
+    @Override
     public List<Carrier> getAll() {
         return carrierRepo.getAll();
     }
@@ -55,6 +60,8 @@ public class CarrierServiceImpl implements CarrierService {
         }
         return EMPTY_CARRIER_LIST;
     }
+
+
 
     @Override
     public Optional<Carrier> getById(Long id) {

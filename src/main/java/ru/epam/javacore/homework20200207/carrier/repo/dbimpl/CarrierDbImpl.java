@@ -21,6 +21,8 @@ public class CarrierDbImpl implements CarrierRepo {
                 Mapper::mapCarrier);
     }
 
+
+
     @Override
     public Optional<Carrier> getById(Long id) {
         String sql = "select * from carriers where id = ?";
@@ -55,6 +57,17 @@ public class CarrierDbImpl implements CarrierRepo {
                 "(?, ?, ?, ?);";
 
         DbUtils.executeUpdate(sql, element, Mapper::setCarrier);
+    }
+
+    @Override
+    public void addList(List<Carrier> carriers) {
+        String sql;
+        sql = "insert into carriers " +
+                "(id,  name, address, carrierType) " +
+                "values " +
+                "(?, ?, ?, ?);";
+
+        DbUtils.executeUpdate(sql, carriers, Mapper::setCarrier);
     }
 
     @Override

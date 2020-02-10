@@ -135,4 +135,11 @@ public class CargoArrayRepoImpl extends CommonCargoRepo {
         }
         return cargos;
     }
+
+    @Override
+    public void addList(List<Cargo> cargos) {
+        for (Cargo item : cargos) {
+            add(item);
+        }
+    }
 }

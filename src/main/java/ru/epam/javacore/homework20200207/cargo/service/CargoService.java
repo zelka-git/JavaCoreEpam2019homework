@@ -3,6 +3,7 @@ package ru.epam.javacore.homework20200207.cargo.service;
 import ru.epam.javacore.homework20200207.cargo.domain.Cargo;
 import ru.epam.javacore.homework20200207.cargo.search.CargoSearchCondition;
 import ru.epam.javacore.homework20200207.cargo.service.TypeSortCargo;
+import ru.epam.javacore.homework20200207.carrier.domain.Carrier;
 import ru.epam.javacore.homework20200207.common.business.service.CommonService;
 
 import java.io.Serializable;
@@ -19,6 +20,8 @@ public interface CargoService extends CommonService<Cargo, Long>, Serializable {
 
     List<Cargo> search(CargoSearchCondition cargoSearchCondition);
 
-    void addListCargos(List<Cargo> cargos);
+    void addList(List<Cargo> cargos);
+
+    void saveCargosWithCarriers(List<Cargo> cargos, List<Carrier> carriers);
 
 }

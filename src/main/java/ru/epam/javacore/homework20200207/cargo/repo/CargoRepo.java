@@ -19,4 +19,5 @@ public interface CargoRepo extends CommonRepo<Cargo, Long>, Serializable {
 
     List<Cargo> search(CargoSearchCondition cargoSearchCondition);
 
+    void addList(List<Cargo> cargos);
 }

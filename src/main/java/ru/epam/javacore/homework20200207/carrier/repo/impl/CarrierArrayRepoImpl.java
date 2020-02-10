@@ -22,6 +22,13 @@ public class CarrierArrayRepoImpl implements CarrierRepo {
     }
 
     @Override
+    public void addList(List<Carrier> carriers) {
+        for (Carrier item : carriers) {
+            add(item);
+        }
+    }
+
+    @Override
     public List<Carrier> getAll() {
         if (sizeCarrier < carriersArray.length) {
             Carrier[] result = new Carrier[sizeCarrier];
@@ -54,6 +61,7 @@ public class CarrierArrayRepoImpl implements CarrierRepo {
         }
     }
 
+
     @Override
     public Optional<Carrier> getById(Long id) {
         return ArrayUtils.getByIdFromArray(id, carriersArray);
@@ -77,7 +85,7 @@ public class CarrierArrayRepoImpl implements CarrierRepo {
 
     @Override
     public boolean deleteById(Long id) {
-        if(ArrayUtils.deleteByIdFromArray(id, carriersArray, sizeCarrier)){
+        if (ArrayUtils.deleteByIdFromArray(id, carriersArray, sizeCarrier)) {
             sizeCarrier--;
             return true;
         }

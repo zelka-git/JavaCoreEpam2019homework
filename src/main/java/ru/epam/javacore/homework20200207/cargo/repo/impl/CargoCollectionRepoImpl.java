@@ -41,11 +41,11 @@ public class CargoCollectionRepoImpl extends CommonCargoRepo {
 //        }
 //        return result;
 
-            result = cargoList.stream()
-                    .filter(Objects::nonNull)
-                    .filter(e -> e.getName() != null && e.equals(name))
-                    .collect(Collectors.toList());
-            return result;
+        result = cargoList.stream()
+                .filter(Objects::nonNull)
+                .filter(e -> e.getName() != null && e.equals(name))
+                .collect(Collectors.toList());
+        return result;
     }
 
     @Override
@@ -131,6 +131,13 @@ public class CargoCollectionRepoImpl extends CommonCargoRepo {
             }
         }
         return cargos;
+    }
+
+    @Override
+    public void addList(List<Cargo> cargos) {
+        for (Cargo item : cargos) {
+            add(item);
+        }
     }
 
     @Override

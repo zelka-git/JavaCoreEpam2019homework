@@ -59,6 +59,17 @@ public class CargoDbImpl extends CommonCargoRepo {
     }
 
     @Override
+    public void addList(List<Cargo> cargos) {
+        String sql;
+        sql = "insert into CARGOS " +
+                "(id,  name, weight, cargoType, size, material, description, expiratonDate, storeTemperature) " +
+                "values " +
+                "(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
+        DbUtils.executeUpdate(sql, cargos, Mapper::setCargo);
+    }
+
+    @Override
     public boolean deleteById(Long id) {
         String sql = "delete from cargos where id = ?;";
         return DbUtils.executeUpdate(sql, ps -> ps.setLong(1, id)) == 1;
