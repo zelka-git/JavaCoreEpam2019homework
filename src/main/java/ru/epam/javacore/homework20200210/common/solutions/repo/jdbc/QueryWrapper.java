@@ -1,28 +1,23 @@
-package ru.epam.javacore.homework20200207.common.solutions.utils;
+package ru.epam.javacore.homework20200210.common.solutions.repo.jdbc;
 
-import org.h2.command.ddl.CreateTable;
-import ru.epam.javacore.homework20200207.cargo.domain.Cargo;
-import ru.epam.javacore.homework20200207.common.business.connectionbd.ConnectionBdH2;
-import ru.epam.javacore.homework20200207.common.solutions.functionaliterfaces.JdbcBiConsumer;
-import ru.epam.javacore.homework20200207.common.solutions.functionaliterfaces.JdbcConsumer;
-import ru.epam.javacore.homework20200207.common.solutions.functionaliterfaces.JdbcFunction;
+import ru.epam.javacore.homework20200210.common.business.datasource.HikariCpDataSource;
+import ru.epam.javacore.homework20200210.common.business.exception.unchecked.SqlException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+public class QueryWrapper {
 
-public class DbUtils {
-    private DbUtils() {
-    }
+    private static final int BATCH_EXECUTE_THRESHOLD = 10;
 
     public static <T> List<T> select(String sql, JdbcConsumer<PreparedStatement> psConsumer,
                                      JdbcFunction<ResultSet, T> rsConverter) {
         List<T> result = new ArrayList<>();
-        try (Connection connection = ConnectionBdH2
+        try (Connection connection = HikariCpDataSource
                 .getInstance().getConnection();
              PreparedStatement ps = connection.prepareStatement(sql);) {
 
@@ -40,27 +35,21 @@ public class DbUtils {
         return result;
     }
 
-    public static int executeUpdate(String sql, JdbcConsumer<PreparedStatement> psConsumer) {
-        try (Connection connection = ConnectionBdH2
+    public static <T> Optional<T> selectOne(String sql, JdbcConsumer<PreparedStatement> psConsumer,
+                                            JdbcFunction<ResultSet, T> rsConverter) {
+        List<T> result = new ArrayList<>();
+        try (Connection connection = HikariCpDataSource
                 .getInstance().getConnection();
              PreparedStatement ps = connection.prepareStatement(sql);) {
 
             psConsumer.accept(ps);
-            return ps.executeUpdate();
+            ResultSet resultSet = ps.executeQuery();
 
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static <T> int executeUpdate(String sql, T el, JdbcBiConsumer<PreparedStatement, T> psConsumer) {
-        try (Connection connection = ConnectionBdH2
-                .getInstance().getConnection();
-             PreparedStatement ps = connection.prepareStatement(sql);) {
-
-            psConsumer.accept(ps, el);
-            return ps.executeUpdate();
-
+            if (resultSet.next()) {
+                return Optional.of(rsConverter.apply(resultSet));
+            }else {
+                return Optional.empty();
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -74,7 +63,7 @@ public class DbUtils {
             PreparedStatement ps = null;
 
             try {
-                connection = ConnectionBdH2
+                connection = HikariCpDataSource
                         .getInstance().getConnection();
                 connection.setAutoCommit(false);
                 ps = connection.prepareStatement(sql);
@@ -105,4 +94,38 @@ public class DbUtils {
         }
     }
 
+    public static int executeUpdate(String sql, JdbcConsumer<PreparedStatement> psConsumer) {
+        try (Connection connection = HikariCpDataSource.getInstance().getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql);) {
+
+            psConsumer.accept(ps);
+            return ps.executeUpdate();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static <T> int executeUpdate(String sql, T el, JdbcBiConsumer<PreparedStatement, T> psConsumer) {
+        try (Connection connection = HikariCpDataSource
+                .getInstance().getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql);) {
+
+            psConsumer.accept(ps, el);
+            return ps.executeUpdate();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static int executeUpdate(String sql, Connection connection) throws SqlException {
+        try {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                return ps.executeUpdate();
+            }
+        } catch (Exception e) {
+            throw new SqlException(e);
+        }
+    }
 }
