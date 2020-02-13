@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class RelationalDbStorageInitor implements StorageInitor {
-    private static final String DDL_SCRIPT_PATH = "/ru/epam/javacore/lesson_24_db_web/db_config/create-schema.sql";
-    private static final String DML_SCRIPT_PATH = "/ru/epam/javacore/lesson_24_db_web/db_config/init-data.sql";
+    private static final String DDL_SCRIPT_PATH = "/ru/epam/javacore/homework20200219/db_config/create-schema.sql";
+    private static final String DML_SCRIPT_PATH = "/ru/epam/javacore/homework20200219/db_config/init-data.sql";
 
     @Override
     public void initStorage() throws InitStorageException {
