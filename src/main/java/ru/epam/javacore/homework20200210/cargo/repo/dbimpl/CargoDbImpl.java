@@ -7,7 +7,6 @@ import ru.epam.javacore.homework20200210.cargo.repo.impl.CommonCargoRepo;
 import ru.epam.javacore.homework20200210.cargo.search.CargoSearchCondition;
 import ru.epam.javacore.homework20200210.cargo.service.TypeSortCargo;
 import ru.epam.javacore.homework20200210.common.solutions.repo.jdbc.QueryWrapper;
-import ru.epam.javacore.homework20200210.common.solutions.utils.Mapper;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,21 +24,21 @@ public class CargoDbImpl extends CommonCargoRepo {
     public List<Cargo> getByName(String name) {
         String sql = "select * from cargos where name = ?";
         return QueryWrapper.select(sql, ps -> ps.setString(1, name),
-                Mapper::mapCargo);
+                rs-> CargoMapper.mapCargo(rs, ""));
     }
 
     @Override
     public Optional<Cargo> getById(Long id) {
         String sql = "select * from cargos where id = ?";
         return QueryWrapper.selectOne(sql, ps -> ps.setLong(1, id),
-                Mapper::mapCargo);
+                rs-> CargoMapper.mapCargo(rs, ""));
     }
 
     @Override
     public List<Cargo> getAll() {
         String sql = "select * from cargos";
         return QueryWrapper.select(sql, ps ->{},
-                Mapper::mapCargo);
+                rs-> CargoMapper.mapCargo(rs, ""));
     }
 
     @Override
@@ -50,7 +49,7 @@ public class CargoDbImpl extends CommonCargoRepo {
                 "values " +
                 "(?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
-        QueryWrapper.executeUpdate(sql, element, Mapper::setCargo);
+        QueryWrapper.executeUpdate(sql, element, CargoMapper::setCargo);
     }
 
     @Override
@@ -61,7 +60,7 @@ public class CargoDbImpl extends CommonCargoRepo {
                 "values " +
                 "(?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
-        QueryWrapper.executeUpdate(sql, cargos, Mapper::setCargo);
+        QueryWrapper.executeUpdate(sql, cargos, CargoMapper::setCargo);
     }
 
     @Override

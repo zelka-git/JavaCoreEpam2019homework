@@ -16,7 +16,7 @@ primary key (id)
 );
 
 
-create table if not exists c(
+create table if not exists carriers(
 id              BIGINT NOT null,
 name            varchar(50) NOT null,
 address         varchar(50) NOT null,
