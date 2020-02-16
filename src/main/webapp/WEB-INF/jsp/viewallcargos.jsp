@@ -17,6 +17,12 @@
 
 
 <h2><%=cargos.get(i).getName()%></h2>
+<div>
+    <span><%=cargos.get(i).getId()%></span>
+    <span><%=cargos.get(i).getName()%></span>
+    <span><%=cargos.get(i).getWeight()%></span>
+    <span><%=cargos.get(i).getCargoType().toString()%></span>
+</div>
 
 
 <% } %>

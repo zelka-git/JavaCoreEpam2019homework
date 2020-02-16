@@ -24,7 +24,8 @@ public class ViewAllCargosController extends BaseController {
 
         req.setAttribute("allCargos", all);
 
-        goToPage(req, resp, "viewallcargos.jsp");
+//        goToPage(req, resp, "viewallcargos.jsp");
+        goToPage(req, resp, "header.jsp");
 
     }
 }
