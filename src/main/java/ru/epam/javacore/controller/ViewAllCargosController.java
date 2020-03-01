@@ -24,8 +24,19 @@ public class ViewAllCargosController extends BaseController {
 
         req.setAttribute("allCargos", all);
 
-//        goToPage(req, resp, "viewallcargos.jsp");
-        goToPage(req, resp, "header.jsp");
+        goToPage(req, resp, "viewallcargos.jsp");
+//        goToPage(req, resp, "header.jsp");
 
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        CargoService cargoService = ServiceHolder.getInstance().getCargoService();
+
+        List<Cargo> all = cargoService.getAll();
+
+        req.setAttribute("allCargos", all);
+
+        goToPage(req, resp, "viewallcargos.jsp");
     }
 }

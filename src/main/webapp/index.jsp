@@ -10,6 +10,7 @@
   <head>
     <title>Title</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   </head>
   <body class="index">
   <% if (request.getAttribute("error")!=null) { %>
